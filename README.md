@@ -9,6 +9,7 @@
   - [Modalities](#modalities)
   - [User Case Scenario](#user-case-scenario)
   - [Niche](#niche)
+  - [Links](#links)
 - [Technologies Used](#technologies-used)
 
 
@@ -68,6 +69,12 @@ User: Authenticated
 ### Niche
 
 Advertising
+
+### Links
+
+<a href="https://www.figma.com/file/8Vrbtq1xTftwm2bkfZ3b4N/QR_Gen-UI?node-id=997%3A844">Figma</a>
+
+<a href="https://docs.google.com/document/d/1lKO8hl6WJ_PYUi_mxPtR3WZw_DRKZUjq0kXCz3Bav2k/edit">Google Docs</a>
 
 ### Technologies Used
 HTML5 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="28" height="20" alt="HTML5" /></a>
