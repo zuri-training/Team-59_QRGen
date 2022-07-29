@@ -62,7 +62,7 @@ User: Authenticated
 - User Dashboard Section Design - A personal space for the user to save and manage (manipulate) their respective QR codes.
 - Allow user save data and come back to it
 
-### User Case Scenario
+### Use Case Scenario
 
 “I am a developer, I set up a profile on the proposed application with my portfolio links, after which a QR code is generated for me. I have an option of sharing the QR code to social media or download it on my phone.”
 
