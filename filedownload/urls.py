@@ -1,8 +1,9 @@
 from django.urls import path
 
-from .views import home, download
+from .views import home, dashboard, download
 
 urlpatterns = [
-    path('<int:pk>/', home, name='home'),
+    path('', home, name='home'),
+    path('dashboard/<int:pk>/', dashboard, name='dashboard'),
     path('download/<int:pk>/', download, name='download'),
 ]

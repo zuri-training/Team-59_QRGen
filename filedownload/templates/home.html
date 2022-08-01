@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    {% if users %}
+    <p>Kindly select a user</p>
+    <ul>
+        {% for user in users %}
+        <li><a href="{% url 'dashboard' pk=user.id %}">{{ user.username }}</li>
+        
+        {% endfor %}
+    </ul>
+    
+    {% else %}
+    <p>Kindly create a superuser on the terminal to continue</p>
+    {% endif %}
+</body>
+</html>

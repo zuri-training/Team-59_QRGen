@@ -9,7 +9,14 @@ import os
 
 # Create your views here.
 
-def home(request, pk):
+def home(request):
+    users = User.objects.all()
+    context = {
+        'users': users,
+    }
+    return render(request, 'home.html', context)
+
+def dashboard(request, pk):
     user = User.objects.get(id=pk)
 
     if request.method == 'GET':
@@ -65,11 +72,3 @@ def reload_user_files(request, user_id):
     
     return user_qrcodes
 
-
-'''
-    if it is static and if it is dynamic but not pdf download,
-    it will autoredirect to the static url 
-    bounded to the qrcode.
-    If dynamic and pdf download, it will autoredirect
-    to download the pdf file
-'''
