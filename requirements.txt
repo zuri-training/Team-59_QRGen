@@ -1,0 +1,10 @@
+asgiref==3.5.2
+backports.zoneinfo==0.2.1
+Django==4.0.6
+django-qr-code==3.1.0
+pydantic==1.9.1
+pytz==2022.1
+segno==1.5.2
+sqlparse==0.4.2
+typing_extensions==4.3.0
+tzdata==2022.1
