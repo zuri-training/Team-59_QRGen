@@ -5,42 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <a href="">QrGen<span>59</span></a>
+        </div>
+        <nav class="navbar">
+            <div class="header_links">
+                <a href="">Features</a>
+                <a href="">Learn</a>
+                <a href="">Demo</a>
+                <a href="">Help</a>
+            </div>
+            <div class="login_btns">
+                <button class="get_started" href="">Get Started</button>
+                <button>Sign up</button>
+            </div>
+        </nav>
+    </header>
     <main>
-        <div>
-            <div>
+        <div class="wrapper">
+            <div class="hero_qr">
                 <h1>Generate a QR code in seconds</h1>
-                <img src="test.png" alt="">
+                <img src="./image/test.png" alt="">
             </div>
-            <div>
-                <p>Email:</p>
-                <table>
-                    <tr>
-                        <td><input type="email" name="email" id="email" placeholder="name@email.com" required></td>
-                    </tr>
-                </table>
-                <p>Password</p>
-                <table>
-                    <tr>
-                        <td><input type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)"></td>
-                    </tr>
-                </table>
-                <td><input type="checkbox" value="">Remember my details</td>
-                <table>
-                    <tr>
-                        <td><input type="submit" value="Sign Up" class="Send"></td>
-                    </tr>
-                </table>
-
-                <p>--------- &nbsp; Or sign up with &nbsp; ---------</p>
-
-                <div></div>
-                <div></div>
-                <div></div>
-
-                <p>Already have an account? <a href="sign in.html" target="blank">Sign in</a></p>
-            </div>
+            <div class="form_wrapper">
+                <form class="form">
+                    <label for="fname">Full name</label>
+                    <input class="input" type="text" name="fname" id="fname" placeholder="ken Akand" required>
+    
+                    <label for="email">Email</label>
+                    <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
+                    
+                    <label for="pswrd">Password</label>
+                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
+                    
+                    <label class="checkbox">
+                        <input type="checkbox" checked="checked" name="remember" >Remember my details
+                    </label>
+                    <input class="input_submit" type="submit" value="Sign Up" class="Send">
+                </form>
+                <div class="signup_options">
+                    <div class="signup_option_des">
+                        <span></span>
+                        <p>Or sign up with</p>
+                        <span></span>
+                    </div>
+                    <div class="social_icons">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>    
+                    <p>Already have an account?<a href="#">Sign in</a></p>
+                </div>
         </div>
     </main>
 </body>

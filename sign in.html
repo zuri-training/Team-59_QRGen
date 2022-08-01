@@ -4,40 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Sign in</title>
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <a href="">QrGen<span>59</span></a>
+        </div>
+        <nav class="navbar">
+            <div class="header_links">
+                <a href="">Features</a>
+                <a href="">Learn</a>
+                <a href="">Demo</a>
+                <a href="">Help</a>
+            </div>
+            <div class="login_btns">
+                <button class="get_started" href="">Get Started</button>
+                <button>Sign up</button>
+            </div>
+        </nav>
+    </header>
     <main>
-        <div>
-            <div>
+        <div class="wrapper">
+            <div class="hero_signin">
                 <h1>Already have an account?</h1>
                 <h1>Sign In</h1>
-                <p>A beginner friendly qr generator for everyone.With few button clicks, share your portfolios and catalogue with the world in a qr code.</p>
+                <p>A beginner friendly qr generator for everyone. With few button clicks, share your portfolios and catalogue with the world in a qr code.</p>
             </div>
-            <div>
-                <p>Email:</p>
-                <table>
-                    <tr>
-                        <td><input type="email" name="email" id="email" placeholder="name@email.com" required></td>
-                    </tr>
-                </table>
-                <p>Password</p>
-                <table>
-                    <tr>
-                        <td><input type="password" name="pswrd" id="pass" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)"></td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td><input type="submit" value="Send" class="Send"></td>
-                    </tr>
-                </table>
-
-
-
-
-                <p>Don't have an account? <a href="sign up.html" target="blank">Sign up</a></p>
-            </div>
+            <div class="form_wrapper">
+                <form class="form">
+                    <label for="email">Email</label>
+                    <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
+                    
+                    <label for="pswrd">Password</label>
+                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
+                    
+                    <input class="input_submit" type="submit" value="Sign In" class="Send">
+                </form>
+                <div class="signup_options">
+                    <div class="signup_option_des">
+                        <span></span>
+                        <p>Or</p>
+                        <span></span>
+                    </div>
+                    <div class="social_icons">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>    
+                    <p>Already have an account?<a href="#">Sign Up</a></p>
+                </div>
         </div>
     </main>
     
