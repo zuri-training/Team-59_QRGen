@@ -10,7 +10,7 @@
 </head>
 <body>
     <h3>welcome {{user.username}}</h3>
-    <h2>PDF Upload/Dowload for QRcode</h2>
+    <h2>File Upload/Dowload for QRcode</h2>
     <form action="{% url 'dashboard' pk=user.id %}" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         {{form}}

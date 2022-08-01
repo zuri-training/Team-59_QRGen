@@ -13,7 +13,10 @@
 
 ## Testing
 
-After cloning the repository, using; 
+For testing purposes, connect your computer the same network as the device you are using to scan.
+This is necessary because the project is not hosted yet.
+
+After cloning the repository, create a virtual environment using; 
 
                 virtualenv <virtual-environment-name>
                  
@@ -43,9 +46,27 @@ Create a new super user using:
 
                 python manage.py createsuperuser
                  
-Then run your server using;
+Then run your server over your IP address so that other devices on your network can access it.
+This can be done using;
 
-                  python manage.py runserver
+                  python manage.py runserver 0.0.0.0:8000
+                  where <8000> is the running port.
+
+Visit the site using
+                  your.ipv4.address:<the port>
+
+To get your IPV4 address, use
+
+    Linux Terminal: 
+   
+                $ ifconfig
+              
+    Windows Command Line:
+   
+                ipconfig
+
+For example, if after connect to a network, my IPv4 address is 198.142.12.1, I will be visiting
+                198.142.12.1:8000/
 
 
 ## About django-qr-code (qr_code)
