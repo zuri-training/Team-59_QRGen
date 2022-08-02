@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Sign in</title>
 </head>
 <body>
     <header class="header">
@@ -27,30 +28,26 @@
     </header>
     <main>
         <div class="wrapper">
-            <div class="hero_qr">
-                <h1>Generate a QR code in seconds</h1>
-                <img src="./image/test.png" alt="">
+            <div class="hero_signin">
+                <h1>Already have an account?</h1>
+                <h1>Sign In</h1>
+                <p>A beginner friendly qr generator for everyone. With few button clicks, share your portfolios and catalogue with the world in a qr code.</p>
             </div>
             <div class="form_wrapper">
-                <form class="form">
-                    <label for="fname">Full name</label>
-                    <input class="input" type="text" name="fname" id="fname" placeholder="ken Akand" required>
-    
+                <form class="form" method="POST">
+                    {% csrf_token %}
                     <label for="email">Email</label>
                     <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
                     
                     <label for="pswrd">Password</label>
                     <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
                     
-                    <label class="checkbox">
-                        <input type="checkbox" checked="checked" name="remember" >Remember my details
-                    </label>
-                    <input class="input_submit" type="submit" value="Sign Up" class="Send">
+                    <input class="input_submit" type="submit" value="Sign In" class="Send">
                 </form>
                 <div class="signup_options">
                     <div class="signup_option_des">
                         <span></span>
-                        <p>Or sign up with</p>
+                        <p>Or</p>
                         <span></span>
                     </div>
                     <div class="social_icons">
@@ -58,9 +55,11 @@
                         <div></div>
                         <div></div>
                     </div>    
-                    <p>Already have an account?<a href="#">Sign in</a></p>
+                    <p>Don't have an account?<a href="{% url 'register-page' %}">Sign Up</a></p>
                 </div>
         </div>
+        <p class="error">{{error_message}}</p>
     </main>
+    
 </body>
 </html>
