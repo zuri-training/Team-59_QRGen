@@ -1,0 +1,183 @@
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/* navbar styling */
+.logo {
+    font: 700 42px 'Dongle', sans-serif !important;
+    color: #003459;
+}
+.no {
+    color: #FF6835;
+}
+.nlink {
+    color: #003459;
+    font: 700 18px 'Lato', sans-serif;
+}
+.btn-primary {
+    background-color: #003F6C;
+    border: none;
+    margin-right: 10px;
+    border-radius: 12px;
+    padding: 8px 16px;
+}
+button a, button a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.btn-outline-primary {
+    border: 1px solid #003459;
+    color: #003459;
+    border-radius: 12px;
+    padding: 8px 16px;
+}
+.btn-outline-primary:hover {
+    background-color: #003459;
+    border: 1px solid #003459;
+}
+.btn-primary:hover {
+    background-color: #003F6C;
+}
+/* subs styling */
+.subs {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.sub-head{
+    font: 700 42px 'Lato', sans-serif;
+    color: #00355A;
+    word-spacing: 10px;
+}
+.sub-desc {
+    font: 700 20px 'Lato', sans-serif;
+}
+.pics {
+    width: 750px;
+    height: 386px;
+}
+/* BRQ styling */
+.brq {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 24px 62px;
+    background-color: #003F6C;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.blog h4, .resc h4, .basic h4 {
+    font: 700 20px 'Lato', sans-serif;
+    margin-top: 8px;
+    color: white;
+}
+.blog p, .resc p, .basic p {
+    font: 700 20px 'Lato', sans-serif;
+    color: #FF6835;
+}
+
+/* solution styling */
+.solution {
+    margin-top: 24px;
+}
+.card-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sol-head h2 {
+    font: 700 42px 'Lato', sans-serif;
+    color: #003F6C;
+}
+.card {
+    background-color: #003F6C;
+    border-radius: 20px;
+    padding: 22px 30px;
+}
+
+.card-head {
+    color: white;
+    font: 700 32px 'Lato', sans-serif;
+}
+.card-desc {
+    color: white;
+    font: 300 18px 'Lato', sans-serif;
+}
+.btn-light {
+    color: #FF6835;
+    padding: 15px 30px;
+}
+/* FAQ styling */
+.faq-head {
+    color: #003F6C;
+    font: 700 48px 'Lato', sans-serif;
+}
+.faq-p {
+    color: #07070A;
+    font: 700 20px 'Lato', sans-serif;
+}
+
+/* footer styling */
+.footer {
+    background-color: #000A12;
+    padding: 50px 70px;
+    margin-top: 36px;
+}
+.foot-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.logo-line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo-line .items, .logo-line2 .items2 {
+    text-decoration: none;
+    color: white;
+    font: 300 16px 'Lato', sans-serif;
+}
+.break-line hr {
+    width: 100%;
+    border-width: 5px;
+    color: white;
+    background-color: white;
+    border-radius: 50px;
+}
+.logo-line2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.contact p {
+    color: white;
+    font: 300 16px 'Lato', sans-serif;
+}
+.socials {
+    margin-right: 10px;
+}
+.items2 {
+    margin-right: 35px;
+}
+.eng {
+    width: 75px;
+}

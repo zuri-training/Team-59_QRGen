@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+    <h1>Landing Page</h1>
+
+    <a href="{% url 'about-page' %}">about</a> <br>
+    <a href="{% url 'contact-page' %}">contact</a> <br>
+    <a href="{% url 'feature-page' %}">features</a> <br>
+    <a href="{% url 'learn-page' %}">learn</a> <br>
+    <a href="{% url 'login-page' %}">sign in</a> <br>
+    <a href="{% url 'register-page' %}">sign up</a> <br>
+    {% if user.is_authenticated %}
+        <a href="{% url 'dashboard-page' %}">Dashboard</a>
+    {% endif %}
+</body>
+</html>
