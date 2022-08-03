@@ -127,7 +127,7 @@ Then run your server using;
 
 ### Backend - Stack: Python <a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="28" height="20" alt="Python" /></a>
 
-#### Framework: Django <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored-dark.svg" width="28" height="20"  alt="Django" /></a>
+### Framework - Django <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored-dark.svg" width="28" height="20"  alt="Django" /></a>
 
 
 
