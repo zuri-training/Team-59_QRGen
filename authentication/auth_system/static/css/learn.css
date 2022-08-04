@@ -2,6 +2,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -90,12 +91,9 @@ button a, button a:hover {
 /* solution styling */
 .solution {
     margin-top: 24px;
+    height: auto;
 }
-.card-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+
 .sol-head h2 {
     font: 700 42px 'Lato', sans-serif;
     color: #003F6C;
@@ -119,9 +117,9 @@ button a, button a:hover {
     padding: 15px 30px;
 }
 /* FAQ styling */
-.faq-head {
+.faq-head h2 {
     color: #003F6C;
-    font: 700 48px 'Lato', sans-serif;
+    font: 700 46px 'Lato', sans-serif;
 }
 .faq-p {
     color: #07070A;
@@ -180,4 +178,16 @@ button a, button a:hover {
 }
 .eng {
     width: 75px;
+}
+
+/* media query */
+@media (min-width:320px) and (max-width:575px) {
+    .subs{
+        display: flex;
+        flex-direction: column;
+    }
+    .subs-let h3 {
+        width: 100%;
+    }
+
 }

@@ -13,8 +13,8 @@
     <a href="{% url 'contact-page' %}">contact</a> <br>
     <a href="{% url 'feature-page' %}">features</a> <br>
     <a href="{% url 'learn-page' %}">learn</a> <br>
-    <a href="{% url 'login-page' %}">sign in</a> <br>
-    <a href="{% url 'register-page' %}">sign up</a> <br>
+    <a href="{% url 'register-page' %}">sign in</a> <br>
+    <a href="{% url 'login-page' %}">sign up</a> <br>
     {% if user.is_authenticated %}
         <a href="{% url 'dashboard-page' %}">Dashboard</a>
     {% endif %}
