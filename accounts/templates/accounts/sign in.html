@@ -17,7 +17,7 @@
             </div>
             <div class="back_btns">
                 <!-- Going back to the previous page -->
-                <button><a class="a" href="{% url 'register-page' %}">
+                <button><a class="a" href="{% url 'accounts:register-page' %}">
                     <img src="{% static 'image/back-icon.png' %}" alt="back">
                     <h1>Back</h1></a>
                 </button>
@@ -44,7 +44,7 @@
                     <input class="input_submit" type="submit" value="Sign In" class="Send">
                 </form>
                 <div class="signup_options">
-                    <p>Don't have an account?<a href="{% url 'register-page' %}">Sign Up</a></p>
+                    <p>Don't have an account?<a href="{% url 'accounts:register-page' %}">Sign Up</a></p>
                 </div>
         </div>
     </main>

@@ -91,7 +91,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 6.25rem;
+    margin-top: 0.25rem;
     padding-left: 5em;
     padding-right: 5em;
 }
