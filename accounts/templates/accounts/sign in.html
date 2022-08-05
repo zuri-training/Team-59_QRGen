@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <script defer src="{% static 'javascript/app.js'%}"></script>
+    <title>Sign in</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
+            </div>
+            <div class="back_btns">
+                <!-- Going back to the previous page -->
+                <button><a class="a" href="{% url 'register-page' %}">
+                    <img src="{% static 'image/back-icon.png' %}" alt="back">
+                    <h1>Back</h1></a>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="hero_signin">
+                <h1>Welcome back!</h1>
+                <div>
+                    <img src="{% static 'image/signup-img.png' %}" alt="image">
+                </div>
+            </div>
+            <div class="form_wrapper ">
+                <form class="form signin_form" method="POST">
+                    {% csrf_token %}
+                    <label for="email">Email</label>
+                    <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
+                    
+                    <label for="pswrd">Password</label>
+                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
+                    
+                    <input class="input_submit" type="submit" value="Sign In" class="Send">
+                </form>
+                <div class="signup_options">
+                    <p>Don't have an account?<a href="{% url 'register-page' %}">Sign Up</a></p>
+                </div>
+        </div>
+    </main>
+    <!-- ERORR MESSAGE WHEN USER INFORMATION TO FOUND IN THE DASHBOARD -->
+    <!-- When the hide class is dynmically removed, it appears. so when user information not found,
+        the hide class should be removed. Check the javascript file for the javascript code 
+    -->
+
+    <section class="alert hide">
+        <div class="alert_img">
+            <img src="{% static 'image/Group 7.png' %}" alt="error-icon">
+        </div>
+        <div class="alert_text">
+            <h6>
+                Error
+            </h6>
+            <p>Email and Password Field must not be blank</p>
+            <button class="show">back</button>
+        </div>
+    </section>
+    <!-- error message for wrong credentials -->
+    {% if messages %}
+        {% for message in messages %}
+            <section class="alert2">
+                <div class="alert_img">
+                    <img src="{% static 'image/Group 7.png' %}" alt="error-icon">
+                </div>
+                <div class="alert_text2">
+                    <h6>
+                        Error
+                    </h6>
+                    <p>{{message}}</p>
+                </div>
+            </section>
+            {% endfor %}
+    {% endif %}
+</body>
+</html>
