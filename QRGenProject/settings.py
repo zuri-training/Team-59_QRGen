@@ -12,27 +12,28 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
-import environ
-import os
+# import environ
+# import os
 
-env = environ.Env(
-    # set casting, default
-    DEBUG=(bool, False)
-)
+# env = environ.Env(
+#     # set casting, default
+#     DEBUG=(bool, False)
+# )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-l5y1zl4z(kv$9c6*t-byypu+n9j*s_gitxy8y^1hd@z8$q&@23'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -47,11 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # created apps
-    'AccountsApp',
-    'CodeGeneratorApp',
-    'HomeApp',
-    'ScannerApp',
+    # created apps -->> uncomment the ones specific to you
+    # 'accounts',
+    # 'qrgen',
+    # 'home',
+    # 'handlescan',
 
     # third-party libraries
 
@@ -139,3 +140,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
