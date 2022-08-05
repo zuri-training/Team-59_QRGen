@@ -5,35 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
     <title>Sign in</title>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="">QrGen<span>59</span></a>
-        </div>
         <nav class="navbar">
-            <div class="header_links">
-                <a href="">Features</a>
-                <a href="">Learn</a>
-                <a href="">Demo</a>
-                <a href="">Help</a>
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
             </div>
-            <div class="login_btns">
-                <button class="get_started" href="">Get Started</button>
-                <button>Sign up</button>
+            <div class="back_btns">
+                <!-- Going back to the previous page -->
+                <button>
+                    <img src="./image/back-icon.png" alt="">
+                    <h1>Back</h1>
+                </button>
             </div>
         </nav>
     </header>
     <main>
         <div class="wrapper">
             <div class="hero_signin">
-                <h1>Already have an account?</h1>
-                <h1>Sign In</h1>
-                <p>A beginner friendly qr generator for everyone. With few button clicks, share your portfolios and catalogue with the world in a qr code.</p>
+                <h1>Welcome back!</h1>
+                <div>
+                    <img src="./image/signup-img.png" alt="">
+                </div>
             </div>
-            <div class="form_wrapper">
-                <form class="form">
+            <div class="form_wrapper ">
+                <form class="form signin_form">
                     <label for="email">Email</label>
                     <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
                     
@@ -43,20 +42,26 @@
                     <input class="input_submit" type="submit" value="Sign In" class="Send">
                 </form>
                 <div class="signup_options">
-                    <div class="signup_option_des">
-                        <span></span>
-                        <p>Or</p>
-                        <span></span>
-                    </div>
-                    <div class="social_icons">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>    
                     <p>Already have an account?<a href="#">Sign Up</a></p>
                 </div>
         </div>
     </main>
-    
+    <!-- ERORR MESSAGE WHEN USER INFORMATION TO FOUND IN THE DASHBOARD -->
+    <!-- When the hide class is dynmically removed, it appears. so when user information not found,
+        the hide class should be removed. Check the javascript file for the javascript code 
+    -->
+
+    <section class="alert hide">
+        <div class="alert_img">
+            <img src="./image/Group 7.png" alt="error-icon">
+        </div>
+        <div class="alert_text">
+            <h6>
+                Error
+            </h6>
+            <p>No User was found with this email address</p>
+            <button class="show">back</button>
+        </div>
+    </section>
 </body>
 </html>

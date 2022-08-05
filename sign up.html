@@ -9,27 +9,26 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="">QrGen<span>59</span></a>
-        </div>
         <nav class="navbar">
-            <div class="header_links">
-                <a href="">Features</a>
-                <a href="">Learn</a>
-                <a href="">Demo</a>
-                <a href="">Help</a>
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
             </div>
-            <div class="login_btns">
-                <button class="get_started" href="">Get Started</button>
-                <button>Sign up</button>
+            <div class="back_btns">
+                <!-- Going back to the previous page -->
+                <button>
+                    <img src="./image/back-icon.png" alt="back-icon">
+                    <h1>Back</h1>
+                </button>
             </div>
         </nav>
     </header>
     <main>
         <div class="wrapper">
-            <div class="hero_qr">
+            <div class="hero_signin">
                 <h1>Generate a QR code in seconds</h1>
-                <img src="./image/test.png" alt="">
+                <div>
+                    <img src="./image/signup-img.png" alt="qrcode">
+                </div>
             </div>
             <div class="form_wrapper">
                 <form class="form">
@@ -42,22 +41,9 @@
                     <label for="pswrd">Password</label>
                     <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
                     
-                    <label class="checkbox">
-                        <input type="checkbox" checked="checked" name="remember" >Remember my details
-                    </label>
                     <input class="input_submit" type="submit" value="Sign Up" class="Send">
                 </form>
-                <div class="signup_options">
-                    <div class="signup_option_des">
-                        <span></span>
-                        <p>Or sign up with</p>
-                        <span></span>
-                    </div>
-                    <div class="social_icons">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>    
+                <div class="signup_options">   
                     <p>Already have an account?<a href="#">Sign in</a></p>
                 </div>
         </div>
