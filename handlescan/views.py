@@ -12,7 +12,7 @@ from .models import File
 
 # Create your views here.
 
-def dynamic_codescan(request, code_id, *args, **kwargs):
+def dynamic_code_scan(request, code_id, *args, **kwargs):
     qrcode = QrCode.objects.get(id=code_id)
     qrcode.scan_count += 1
 
