@@ -31,7 +31,7 @@ def Login(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect('accounts:test-page')
+            return redirect()
         else:
             messages.success(request, 'Email Address and Password do not exist')
 
@@ -42,7 +42,3 @@ def logoutuser(request):
     logout(request)
     return redirect('accounts:login-page')
 
-#test run delete when dashboard is ready
-@login_required (login_url='accounts:login-page')
-def Testdash(request):
-    return render(request, 'accounts/dbord.html', {})
