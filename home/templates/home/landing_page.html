@@ -29,15 +29,15 @@
       <nav class="navbar">
         <div class="wrapper">
             <div class="logo">
-                <a href="#">QRGen<span>59</span></a>
+                <a href="{% url 'home:home-page' %}">QRGen<span>59</span></a>
             </div>
             
             <ul class="nav-links">
               <li>
-                <a href="#" class="active" class="menu-btn">Home</a>
+                <a href="{% url 'home:home-page' %}" class="active" class="menu-btn">Home</a>
               </li>
               <li>
-                <a href="#" class="menu-btn">Learn</a>
+                <a href="{% url 'home:learn-page' %}" class="menu-btn">Learn</a>
               </li>
               <li>
                 <a href="#" class="menu-btn">Contact Us</a>
