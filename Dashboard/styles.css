@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+    font-size: 14px;
+    font-weight: 700;
+}
+body{
+    width: 100%;
+    padding-left: 5em;
+    padding-top: 1.5em;
+    padding-right: 5em;
+    font-family: 'Lato', sans-serif;
+    color: #838385;
+
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 1.5rem 0rem 3.44rem 4rem;
+}
+.navbar .logo{
+    margin-right: 5.25rem;
+}
+.logo a,
+.logo a span{
+    font-size: 4rem;
+    font-family: 'Dongle', sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logo a{
+    color: #003459;
+}
+.logo a span{
+    color:#FF6835
+}
+.header_links{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    /* margin-right: 15.25rem; */
+}
+.header_links a{
+    font-size: 1.75rem;
+    text-decoration: none;
+}
+.login_btns{
+    display: flex;
+    flex-direction: row;
+    float: right;
+    gap: 2rem;
+    /* width: 30rem; */
+}
+.login_btns button{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.75rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 0.125rem solid #838385;
+    border-radius: 0.75rem;
+    color: #838385;
+    font-weight: 700;
+
+}
+.login_btns .get_started{
+    background: #838385;
+    color: white;
+}
+/* .wrapper{
+    width: 76.25rem;
+} */
+.progress_bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.line{
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    width:70% ;/*or whatever width you want the effect of <hr>*/
+    border-top: 1px solid #ccc;
+}
+.progress_circle{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    padding: 0 1rem;
+    border-radius: 50%;
+    background: #CDCDCE;
+}
+.progress_circle.active{
+    border: 3px solid #838385;
+}
+.progress_circle.active h6{
+    color: #838385;
+}
+.progress_circle h6{
+    color: #ACACAD;
+    font-size: 1.5rem;
+}
+.progress_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 10%; */
+    /* position: relative; */
+}
+.progress_label{
+    /* position: absolute; */
+    width: 100%;
+}
+.progress_label p{
+    font-size: 0.75rem;
+    text-align: center;
+    color: #ACACAD;
+    /* padding-right: 2rem;     */
+}
+.progress_label.active p{
+    color: #838385;
+}
+.dashboard_preview_header{
+    display: flex;
+    flex-direction: row;
+    gap: 15rem;
+    /* justify-content: space-between; */
+    margin-top: 1.125rem;
+}
+.preview_label.hide{
+    display: none;
+}
+.preview_label{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+}
+.preview_label h5{
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    font-size: 1.5rem;
+}
+.preview_line{
+    position: absolute;
+    bottom: 0;
+    right: -5rem;
+    width: 85%;
+    border-top: 1px solid #ccc;
+}
+.dashboard_details{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    margin-top: 1.125em;
+    margin-bottom: 1em;
+}
+.dashboard_options{
+    width: 56.875rem;
+}
+.dashboard_header{
+    margin-bottom: 2.875rem;
+}
+.dashboard_header h4{
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 2.4rem;
+}
+.dasboard_subheader{
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    margin-bottom: 2.06rem;
+}
+.dasboard_subheader h5{
+    color: #ACACAD;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.dasboard_subheader .active{
+    color: #838385;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10%;
+}
+.single_option{
+    width: 45%;
+    padding: 0.75rem;
+    margin-top: 2rem;
+    border: 2px solid#838384;
+}
+.single_option p{
+    margin-top: 0.3rem;
+    font-size: 1.25rem;
+}
+.option_header{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+.option_header img{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.option_header h6{
+    font-size: 1.5rem;
+}
+.qrcode_section{
+    width: 30.625rem;
+    margin-left: 6.06rem;
+
+}
+.option_preview.hide{
+    margin-top: 2rem;
+    padding-left: 0;
+}
+.option_preview{
+    width: 50%;
+    padding-left: 20rem;
+    /* padding-right: 5rem; */
+}
+.option_preview .text{
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.option_preview.hide .text{
+    display: none;
+}
+.qrcode_box{
+    margin-top: 3.4rem;
+    height: 30.76rem;
+    background: #ACACAD;
+}
+.dashboard_footer{
+    width: 100%;
+    background: #ACACAD;
+    padding: 0.5rem 6.4rem;
+    opacity: 1;
+}
+.dashboard_footer.hide{
+    opacity: 0;
+}
+.dashboard_footer_btn{
+    display: flex;
+    flex-direction: row;
+    gap: 28.57rem;
+}
+.dashboard_footer_btn button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    gap: 1.14rem;
+    border: none;
+    cursor: pointer;
+}
+.dashboard_footer_btn .back{
+    opacity: 1;
+    background: transparent;
+    color: #838384;
+}
+.dashboard_footer_btn .back.hide{
+    opacity: 0;
+}
+.dashboard_footer_btn .continue{
+    padding: 1.07rem 2.14rem;
+    background: #838385;
+    border-radius: 8px;
+    color: #CDCDCE
+}
