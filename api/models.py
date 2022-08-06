@@ -5,6 +5,6 @@ from django.db import models
 class QrCode():
     '''
         Demo QrCode Model,
-        the one in the 'qrgen' app will be used
+        the one in the 'qrgen' app will be used.
     '''
     pass

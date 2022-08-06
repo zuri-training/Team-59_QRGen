@@ -17,3 +17,24 @@ It  shall have five (5) endpoints:
 The API shall use JWT (Json Web Tokens) for user authentication. Each request to a restricted endpoint shall require an 'Access (Bearer)' Header containing the user's access code. Hence, only registered users with active access codes can access these restricted endpoints.
 
 
+## Main branch files to be modified
+- settings.py
+                        INSTALLED_APPS = [
+                            ...
+                            'api',
+                            'rest_framework',
+                            ...
+                        ]
+
+- urls.py
+                        urlpatterns = [
+                            ...
+                            path('api/', include('api.urls')),
+                            ...
+                        ]
+
+
+- requirements.txt
+                        ...
+                        django-rest-framework==0.1.0
+                        djangorestframework==3.13.1
