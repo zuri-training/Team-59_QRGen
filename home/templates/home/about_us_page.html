@@ -6,9 +6,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QRGen59 | About Us</title>
+
+    {% comment %} Loading a static File {% endcomment %}
+    
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+    <script src="{% static 'home/js/index.js' %}"></script>
+
+    {% comment %} This is same for images, you will just need to input the relative path {% endcomment %}
+
+    <title>QRGen59 | About</title>
 </head>
 <body>
     <h1>About us Page</h1>
+
+    {% comment %} Links {% endcomment %}
+
+    <a href="{% url 'home:about-page' %}">About Us</a>
+
+    {% comment %} images {% endcomment %}
+    <img src="{% static 'home/images/demo.jpg' %}" alt="Demo Image" width="500px" height="200px">
+    
 </body>
 </html>
