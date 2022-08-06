@@ -12,8 +12,9 @@ def Register(request):
         lname = request.POST.get('lname')
         email = request.POST.get('email')
         password = request.POST.get('pswrd')
+        uname = request.POST.get('email')
 
-        new_user = User.objects.create_user(username = email, email = email, password = password)
+        new_user = User.objects.create_user(username = uname, email = email, password = password)
 
         new_user.first_name = fname
         new_user.last_name = lname
@@ -21,7 +22,7 @@ def Register(request):
         new_user.save()
         return redirect('accounts:login-page')
 
-    return render(request, 'accounts/sign up.html', {})
+    return render(request, 'accounts/register.html', {})
 
 def Login(request):
     if request.method == "POST":
@@ -36,7 +37,7 @@ def Login(request):
             messages.success(request, 'Email Address and Password do not exist')
 
 
-    return render(request, 'accounts/sign in.html', {})
+    return render(request, 'accounts/login.html', {})
 
 def logoutuser(request):
     logout(request)
