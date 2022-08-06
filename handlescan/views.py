@@ -1,8 +1,6 @@
 from django.shortcuts import redirect
 from handlescan.models import File
 import os
-
-from django.views import View
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 # from qrgen.models import QrCode
@@ -14,22 +12,24 @@ from .models import File
 
 def dynamic_code_scan(request, code_id, *args, **kwargs):
     qrcode = QrCode.objects.get(id=code_id)
-    qrcode.scan_count += 1
+
+    # getting the no of scans
+    
+    if qrcode.scan_count:
+        qrcode.scan_count += 1
+    else:
+        qrcode.scan_count = 1
 
     # get the qrcode action_type
 
     if qrcode.type != 'PDF':
-        qrcode.scan_count += 1
-        qrcode.save()
         # get and redirect to the qrcode action_url
         return redirect(qrcode.action_url)
 
     else:
         # get file_id from code
         # file = File.objects.get(id=qrcode.file_id)
-        qrcode.scan_count += 1
-        qrcode.save()
-        return HttpResponseRedirect('download', args=(qrcode.file_id,))
+        return HttpResponseRedirect('handlescan:download', args=(qrcode.file_id,))
 
 def download(request, pk):
     try:
