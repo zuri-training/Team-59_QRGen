@@ -14,13 +14,26 @@
                 <a href="">QrGen<span>59</span></a>
             </div>
             <div class="profile_btns">
-                <div>
+                <div class="profile_icon">
                     <h1>K</h1>
+                </div>
+
+                <!-- Profile links  NEW-->
+                <div class="profile_links">
+                    <a href="">My Account</a>
+                    <a href="">Dashboard</a>
+                    <a href="">Log out</a>
                 </div>
             </div>
         </nav>
+        <!-- Button to go back to main dashboard  NEW-->
+        <button class="back-button">
+            <img src="./img/icons/back-arrow-icon.png" alt="">
+            <p>Back</p>
+        </button>
     </header>
     <main class="wrapper">
+
         <div class="progress_bar">
             <div class="progress_details">
                 <div class="progress_circle ">
@@ -202,7 +215,7 @@
                 </div>
                 <div class="dashboard_options download_share">
                     <div class="buttons">
-                        <button class="download_btn">
+                        <button class="download_btn_option">
                             <img src="./img/icons/download-button-icon.png" alt="">
                             <p>Download</p>
                         </button>
@@ -210,6 +223,35 @@
                             <img src="./img/icons/share-icon.png" alt="">
                             <p>Share</p>
                         </button>
+
+                        <!-- Share notification  NEW-->
+                        <div class="share_notification">
+                            <h1>feature only available on mobile devices</h1>
+                        </div>
+
+                        <!-- Download Options  NEW-->
+                        <div class="download_options">
+                            <p>Select your format</p>
+
+                            <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                            <button class="download_btn" id="btn_png">
+                                <img src="./img/icons/download-button-icon.png" alt="">
+                                <p>Download PNG</p>
+                            </button>
+
+                            <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                            <button class="download_btn" id="btn_jpeg">
+                                <img src="./img/icons/download-button-icon.png" alt="">
+                                <p>Download JPEG</p>
+                            </button>
+
+                            <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                            <button class="download_btn" id="btn_pdf">
+                                <img src="./img/icons/download-button-icon.png" alt="">
+                                <p>Download PDF</p>
+                            </button>
+                            <img class="cancel" src="./img/icons/basic-cancel-icon.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
