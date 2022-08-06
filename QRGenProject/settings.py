@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # created apps -->> uncomment the ones specific to you
-    'accounts',
+    # 'accounts',
     # 'qrgen',
     # 'home',
     # 'handlescan',

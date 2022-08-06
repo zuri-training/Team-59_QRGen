@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-    <script defer src="{% static 'javascript/app.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css'%}">
+    <script defer src="{% static 'accounts/javascript/app.js'%}"></script>
     <title>Sign in</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
             <div class="back_btns">
                 <!-- Going back to the previous page -->
                 <button><a class="a" href="{% url 'accounts:register-page' %}">
-                    <img src="{% static 'image/back-icon.png' %}" alt="back">
+                    <img src="{% static 'accounts/image/back-icon.png' %}" alt="back">
                     <h1>Back</h1></a>
                 </button>
             </div>
@@ -29,7 +29,7 @@
             <div class="hero_signin">
                 <h1>Welcome back!</h1>
                 <div>
-                    <img src="{% static 'image/signup-img.png' %}" alt="image">
+                    <img src="{% static 'accounts/image/signup-img.png' %}" alt="image">
                 </div>
             </div>
             <div class="form_wrapper ">
@@ -55,7 +55,7 @@
 
     <section class="alert hide">
         <div class="alert_img">
-            <img src="{% static 'image/Group 7.png' %}" alt="error-icon">
+            <img src="{% static 'accounts/image/Group 7.png' %}" alt="error-icon">
         </div>
         <div class="alert_text">
             <h6>
@@ -70,7 +70,7 @@
         {% for message in messages %}
             <section class="alert2">
                 <div class="alert_img">
-                    <img src="{% static 'image/Group 7.png' %}" alt="error-icon">
+                    <img src="{% static 'accounts/image/Group 7.png' %}" alt="error-icon">
                 </div>
                 <div class="alert_text2">
                     <h6>
