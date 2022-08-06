@@ -6,20 +6,23 @@
     padding: 0%;
     font-size: 14px;
     font-weight: 700;
+    /* width: fit-content;
+    block-size: fit-content */
 }
 body{
     width: 100%;
-    padding-left: 5em;
-    padding-top: 1.5em;
-    padding-right: 5em;
+    padding-left: 5rem;
+    padding-top: 1.5rem;
+    padding-right: 5rem;
     font-family: 'Lato', sans-serif;
-    color: #838385;
+    color: #557F9D;
+    overflow-x: hidden;
 
 }
 .header{
     display: flex;
     flex-direction: row;
-    /* width: 100%; */
+    width: 100%;
 
 }
 .navbar{
@@ -27,11 +30,12 @@ body{
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    margin: 1.5rem 0rem 3.44rem 4rem;
+    align-items: center;
+    margin: 0rem 0rem 2.5rem 0rem;
 }
-.navbar .logo{
+/* .navbar .logo{
     margin-right: 5.25rem;
-}
+} */
 .logo a,
 .logo a span{
     font-size: 4rem;
@@ -56,14 +60,25 @@ body{
     font-size: 1.75rem;
     text-decoration: none;
 }
-.login_btns{
+.profile_btns{
+    float: right;
+}
+.profile_btns div{
     display: flex;
     flex-direction: row;
-    float: right;
-    gap: 2rem;
-    /* width: 30rem; */
+    justify-content: center;
+    align-items: center;
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 50%;
+    background: #D5592C;
 }
-.login_btns button{
+.profile_btns div h1{
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+}
+/* .login_btns button{
     font-family: 'Lato', sans-serif;
     font-size: 1.75rem;
     text-decoration: none;
@@ -77,23 +92,28 @@ body{
 .login_btns .get_started{
     background: #838385;
     color: white;
-}
+} */
 /* .wrapper{
     width: 76.25rem;
 } */
 .progress_bar{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 50px;
 }
 .line{
     position: absolute;
-    left: 120%;
+    left: 140%;
     top: 50%;
     width:70% ;/*or whatever width you want the effect of <hr>*/
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #557F9D;
+}
+.line.active{
+    border-top: 1px solid #D5592C;
+
 }
 .progress_circle{
     position: relative;
@@ -101,20 +121,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 3rem;
-    width: 3rem;
+    height: 3.25rem;
+    width: 3.25rem;
     padding: 0 1rem;
+    color: #003F6C;
     border-radius: 50%;
-    background: #CDCDCE;
+    background: #FAFAFF;
+    border: 3px solid #003F6C
 }
-.progress_circle.active{
-    border: 3px solid #838385;
+.progress_details.active .progress_label p{
+    color: #D5592C;
 }
-.progress_circle.active h6{
-    color: #838385;
+.progress_details.active .progress_circle{
+    border: 3px solid #D5592C;
+    color: #D5592C;
 }
+
 .progress_circle h6{
-    color: #ACACAD;
     font-size: 1.5rem;
 }
 .progress_details{
@@ -122,12 +145,13 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* margin-right: 20px; */
     /* width: 10%; */
     /* position: relative; */
 }
 .progress_label{
-    /* position: absolute; */
-    width: 100%;
+    position: absolute;
+    top: 13.5rem;
 }
 .progress_label p{
     font-size: 0.75rem;
@@ -144,43 +168,58 @@ body{
     gap: 15rem;
     /* justify-content: space-between; */
     margin-top: 1.125rem;
+    opacity: 1;
 }
-.preview_label.hide{
-    display: none;
-}
-.preview_label{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    width: 100%;
-}
-.preview_label h5{
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    font-size: 1.5rem;
-}
-.preview_line{
-    position: absolute;
-    bottom: 0;
-    right: -5rem;
-    width: 85%;
-    border-top: 1px solid #ccc;
+.dashboard_preview_header.hide{
+    opacity: 0;
 }
 .dashboard_details{
     display: flex;
     flex-direction: row;
-    /* width: 100%; */
+    width: 100%;
     margin-top: 1.125em;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
 }
+.dashboard_details.downloadslide{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+.dashboard_details.downloadslide .dashboard_content_wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.dashboard_details.downloadslide .qrcode_section {
+    position: relative;
+    width: 60%;
+    height: 30.76em;
+    margin-top: 2rem;
+    margin-bottom: 4.125rem;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 30.76rem;
+}
+.dashboard_details.downloadslide .generated_code a{
+    display: none;
+}
+.dashboard_content_wrapper{
+    width: 65%;
+}
+
+/* OPTION SLIDE I=1 */
 .dashboard_options{
-    width: 56.875rem;
+    display: none;
+}
+.dashboard_options.show{
+    display: block;
 }
 .dashboard_header{
     margin-bottom: 2.875rem;
 }
 .dashboard_header h4{
+    color: #003F6C;
     font-size: 2rem;
     font-weight: 800;
     line-height: 2.4rem;
@@ -192,12 +231,11 @@ body{
     margin-bottom: 2.06rem;
 }
 .dasboard_subheader h5{
-    color: #ACACAD;
     font-size: 1.75rem;
     font-weight: 700;
 }
 .dasboard_subheader .active{
-    color: #838385;
+    color: #003F6C;
 }
 .options{
     display: flex;
@@ -207,12 +245,27 @@ body{
     gap: 10%;
 }
 .single_option{
+    color: #003F6C;
     width: 45%;
     padding: 0.75rem;
     margin-top: 2rem;
+    background: none;
     border: 2px solid#838384;
 }
+.single_option:hover{
+    cursor: pointer;
+}
+.single_option .option_header img:nth-child(2){
+    display: none;
+}
+.single_option:hover .option_header img:nth-child(2){
+    display: block;
+}
+.single_option:hover .option_header img:nth-child(1){
+    display: none;
+}
 .single_option p{
+    font-weight: 400;
     margin-top: 0.3rem;
     font-size: 1.25rem;
 }
@@ -225,70 +278,328 @@ body{
     height: 1.5rem;
     width: 1.5rem;
 }
+
 .option_header h6{
+    font-weight: 700;
     font-size: 1.5rem;
 }
+
 .qrcode_section{
-    width: 30.625rem;
+    position: relative;
+    width: 35%;
+    height: 30.76em;
+    margin-top: 9rem;
     margin-left: 6.06rem;
+    min-height: 30.76rem ;
+
 
 }
-.option_preview.hide{
-    margin-top: 2rem;
-    padding-left: 0;
-}
 .option_preview{
-    width: 50%;
-    padding-left: 20rem;
+    width: 100%;
     /* padding-right: 5rem; */
 }
-.option_preview .text{
-    font-size: 1.75rem;
-    font-weight: 700;
-}
-.option_preview.hide .text{
+.option_preview.hide{
     display: none;
 }
-.qrcode_box{
-    margin-top: 3.4rem;
-    height: 30.76rem;
-    background: #ACACAD;
+.option_preview .text{
+    margin-top: -170px;
+    color: #003F6C;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
+.preview_label.hide{
+    display: none;
+}
+.preview_label{
+    position: absolute;
+    top: -30px;
+}
+.qrcode_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 4.63rem;
+    height: 100%;
+    background: #FAFAFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+}
+
+/* CODE CONTENT I=2*/
+.code_content{
+    margin-top: 9rem;
+    padding: 3rem 2rem;
+    background: #FAFAFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    height: 21rem;
+}
+
+.code_content h6{
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #003F6C;
+    margin-bottom: 2.75rem;
+}
+.code_content .big_para{
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+}
+/* .code_content input{
+    width: 100%;
+    height: 5rem;
+    border-radius: 15px;
+    background: transparent;
+    border: 1px solid #557F9D;
+    margin: 1.5rem 0;
+} */
+.code_content input{
+    width: 100%;
+    height: 5rem;
+    background: transparent;
+    border:none;
+    outline: none;
+
+
+    /* margin: 1.5rem 0; */
+}
+.code_content p{
+    font-size: 1rem;
+}
+form {
+    display:flex;
+    flex-direction:row;
+    margin: 1.5rem 0;
+    padding-left:1rem;
+    height: 5rem;
+    border: 1px solid #557F9D;
+    border-radius: 1rem;
+}
+
+button {
+    /* Just a little styling to make it pretty */
+    border:none;
+    background: #003F6C;
+    color:white;
+    margin-right: 10px;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+.dashboard_options.code_content div{
+    display: none;
+}
+.dashboard_options .url_content.show{
+    display: block;
+}
+.dashboard_options .whatsapp_content.show{
+    display: block;
+}
+.dashboard_options .email_content.show{
+    display: block;
+}
+.dashboard_options .business_content.show{
+    display: block;
+}
+.dashboard_options .text_content.show{
+    display: block;
+}
+.dashboard_options .pdf_content.show{
+    display: block;
+}
+.dashboard_options .image_content.show{
+    display: block;
+}
+.dashboard_options .event_content.show{
+    display: block;
+}
+.generated_code{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.generated_code.hide{
+    display: none;
+}
+.generated_code a{
+    color: #003F6C;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.generated_code img{
+    height: 11.75rem;
+    width: 11.75rem;
+}
+.generated_code p{
+    width: 9.5rem;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* DOWNLOAD_SHARE */
+.download_share {
+    font-size: 100px;
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 6.25rem;
+}
+.buttons button{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    cursor: pointer;
+}
+.buttons button p{
+    font-size: 1.2rem;
+}
+.buttons .share_btn{
+    border: 2px solid #003F6C;
+    background: white;
+    color: #003F6C;
+    margin-right: 10px;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+
 .dashboard_footer{
     width: 100%;
-    background: #ACACAD;
-    padding: 0.5rem 6.4rem;
+    padding: 0.5rem 1rem;
     opacity: 1;
 }
 .dashboard_footer.hide{
-    opacity: 0;
+    padding: 3rem 2.14rem;
+    background: none;
+    /* opacity: 0; */
 }
 .dashboard_footer_btn{
     display: flex;
     flex-direction: row;
-    gap: 28.57rem;
+    justify-content: space-between;
+}
+.dashboard_footer_btn.hide{
+    display: none;
 }
 .dashboard_footer_btn button{
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: 'Lato', sans-serif;
-    font-size: 1.5rem;
-    gap: 1.14rem;
     border: none;
     cursor: pointer;
 }
+.dashboard_footer_btn button p{
+    font-size: 1.5rem;
+}
 .dashboard_footer_btn .back{
+    /* padding: 1.07rem 2.14rem; */
     opacity: 1;
     background: transparent;
-    color: #838384;
+    color: #003F6C
 }
 .dashboard_footer_btn .back.hide{
     opacity: 0;
 }
 .dashboard_footer_btn .continue{
-    padding: 1.07rem 2.14rem;
-    background: #838385;
+    opacity: 1;
+    /* padding: 1.07rem 2.14rem; */
+    background: #003F6C;
     border-radius: 8px;
-    color: #CDCDCE
+    color: white;
+    font-size: 5rem;
+}
+.dashboard_footer_btn .continue.hide{
+    display: none;
+    opacity: 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    *{
+        font-size: 12px;
+    }
+    .qrcode_box{
+        padding: 2rem;
+    }
+    .qrcode_section{
+        margin-top: 11rem;
+    }
+    .code_content{
+        margin-top: 11rem;
+
+    }
+    .line{
+        left: 150%;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width:767px){
+    *{
+        font-size: 10px;
+    }
+    .dashboard_details{
+        display: flex;
+        flex-direction: column;
+    }
+    .dashboard_content_wrapper{
+        width: 100%;
+    }
+    .qrcode_section{
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        height: 30.76rem;
+    } 
+    .qrcode_box{
+        width: 100%;
+    }
+    .dashboard_preview_header{
+        width: 100%;
+    }
+    .line{
+        left: 150%;
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 300px) and (max-width:499px){
+    *{
+        font-size: 10px;
+    }
+    .dashboard_details{
+        display: flex;
+        flex-direction: column;
+    }
+    .dashboard_content_wrapper{
+        width: 100%;
+    }
+    .qrcode_section{
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        height: 30.76rem;
+    } 
+    .qrcode_box{
+        width: 100%;
+    }
+    .dashboard_preview_header{
+        width: 100%;
+    }
+    .line{
+        left: 150%;
+        width: 80%;
+    }
+    .options{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10%;
+    }
+    .single_option{
+        width: 100%;
+    }
 }
