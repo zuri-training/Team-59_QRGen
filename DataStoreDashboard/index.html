@@ -1,0 +1,198 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
+            </div>
+            <div class="profile_btns">
+                <div class="profile_icon">
+                    <h1>K</h1>
+                </div>
+                <div class="profile_links">
+                    <a href="">My Account</a>
+                    <a href="">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="wrapper">
+        <div class="side_bar">
+            <div class="search_form_div">
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>
+                        <img src="./image/icon/search-normal.png" alt="">
+                    </button>
+                </form>
+            </div>
+            <div class="navigator_header">
+                <h6>QR Codes</h6>
+            </div>
+            <div class="page_navigator">
+                <div class="navigator_options active" id="all">
+                    <img src="./image/icon/all-icon.png" alt="">
+                    <button>All (2)</button>
+                </div>
+                <div class="navigator_options" id="active">
+                    <img src="./image/icon/active-icon.png" alt="">
+                    <button>Active (2)</button>
+                </div>
+                <div class="navigator_options" id="archive">
+                    <img src="./image/icon/archive-icon.png" alt="">
+                    <button>Archive (0)</button>
+                </div>
+            </div>
+            <div class="logout_btn">
+                <button>
+                    <img src="./image/icon/log-out-icon.png" alt="">
+                    <p>Log out</p>
+                </button>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="main_content_header">
+                <div class="filter_btn">
+                    <button>
+                        <img src="./image/icon/all-icon.png" alt="">
+                        <p>All QR codes</p>
+                    </button>
+                </div>
+                <div class="create_qr_navigator_btn">
+                    <a href="">
+                        <button>Create QR code</button>
+                    </a>
+                </div>
+            </div>
+            <div class="saved_data_wrapper">
+                <div class="saved_data">
+                    <section class="qr_image">
+                        <h5 class="title">Untitled</h5>
+                        <img src="./image/qr_code_placeholder.png" alt="">
+                    </section>
+                    <div class="des_share_del">
+                        <div class="qr_des">
+                            <div class="scan">
+                                <h5>Scans (3)</h5>
+                            </div>
+                            <div class="date">
+                                <img src="./image/icon/clock-icon.png" alt="">
+                                <p>August 02,2022</p>
+                            </div>
+                            <div class="link">
+                                <img src="./image/icon/link-icon.png" alt="">
+                                <p>qr.io/f/jkjjsk</p>
+                            </div>
+                        </div>
+                        <div class="qr_share_del">
+                            <div class="qr_download">
+                                <button class="download_btn">Download</button>
+                                <div class="download_options">        
+                                    <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                                    <button class="download_btn" id="btn_png">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download PNG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                                    <button class="download_btn" id="btn_jpeg">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download JPEG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                                    <button class="download_btn" id="btn_pdf">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download PDF</p>
+                                    </button>
+                                    <img class="cancel" src="./image/icon/basic-cancel-icon.png" alt="">
+                                </div>
+                            </div>
+                            <div class="share_del">
+                                <button class="share">
+                                    <img  src="./image/icon/send-icon.png" alt="">
+                                    <p>Share</p>
+                                </button>
+                                <button>
+                                    <img src="./image/icon/delete-icon.png" alt="">
+                                    <p>Delete</p>
+                                </button>
+                                <div class="share-notification">
+                                    <h1>feature only available on mobile devices</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="saved_data">
+                    <section class="qr_image">
+                        <h5 class="title">Untitled</h5>
+                        <img src="./image/qr_code_placeholder.png" alt="">
+                    </section>
+                    <div class="des_share_del">
+                        <div class="qr_des">
+                            <div class="scan">
+                                <h5>Scans (3)</h5>
+                            </div>
+                            <div class="date">
+                                <img src="./image/icon/clock-icon.png" alt="">
+                                <p>August 02,2022</p>
+                            </div>
+                            <div class="link">
+                                <img src="./image/icon/link-icon.png" alt="">
+                                <p>qr.io/f/jkjjsk</p>
+                            </div>
+                        </div>
+                        <div class="qr_share_del">
+                            <div class="qr_download">
+                                <button class="download_btn">Download</button>
+                                <div class="download_options">        
+                                    <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                                    <button class="download_btn" id="btn_png">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download PNG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                                    <button class="download_btn" id="btn_jpeg">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download JPEG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                                    <button class="download_btn" id="btn_pdf">
+                                        <img src="./image/icon/download-button-icon.png" alt="">
+                                        <p>Download PDF</p>
+                                    </button>
+                                    <img class="cancel" src="./image/icon/basic-cancel-icon.png" alt="">
+                                </div>
+                            </div>
+                            <div class="share_del">
+                                <button class="share">
+                                    <img  src="./image/icon/send-icon.png" alt="">
+                                    <p>Share</p>
+                                </button>
+                                <button>
+                                    <img src="./image/icon/delete-icon.png" alt="">
+                                    <p>Delete</p>
+                                </button>
+                                <div class="share-notification">
+                                    <h1>feature only available on mobile devices</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
