@@ -8,6 +8,7 @@ from django.views import View
 class GenerationDashboardView(View):
     def get(request):
         pass
+        # user = request.user
 
     def post(request):
         pass
@@ -21,9 +22,10 @@ class MainDashboardView(View):
         # context
         # - user
         # - user_codes
-        # - download_options
 
+        # - download_options        
         pass
+
 
     def post(request):
         # 
