@@ -81,6 +81,12 @@ const qrSectionDisplay = function(){
 allDashboardOption[i].classList.add('show');
 nextButton.addEventListener('click', function() {
     allDashboardOption[i].classList.remove('show')
+    console.log(document.querySelector('.back-button'));
+    // if(i ==! 0){
+    //     document.querySelector('.back-button').classList.add('hide');
+    // } else{
+    //     document.querySelector('.back-button').classList.add('hide');
+    // }
     i++
     allDashboardOption[i].classList.add('show');
     if(i === allDashboardOption.length-1){
@@ -93,6 +99,11 @@ nextButton.addEventListener('click', function() {
 backButton.addEventListener('click', function(){
     allDashboardOption[i].classList.remove('show');
     i--
+    // if(i ==! 0){
+    //     document.querySelector('.back-button').classList.add('hide');
+    // } else{
+    //     document.querySelector('.back-button').classList.add('hide');
+    // }
     allDashboardOption[i].classList.add('show');
     if(i < allDashboardOption.length-1){
         dashboardDetails.classList.remove('downloadslide');
