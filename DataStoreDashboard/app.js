@@ -76,9 +76,38 @@ downloadBtn.forEach(function(btn){
     })
 })
 
+//////////////////////////// Change title model ///////////////////////
+const editicon = document.querySelectorAll('.edit_icon');
+console.log(editicon);
+editicon.forEach(function(icon){
+    icon.addEventListener('click', async function(e){
+        e.target.closest('.qr_image').querySelector('.title_form').classList.add('show');
+    })
+})
+
+const cancel = document.querySelectorAll('.modal_cancel_icon');
+
+cancel.forEach(function(icon){
+    icon.addEventListener('click', function(e){
+        console.log('working');
+        e.target.closest('.title_form').classList.remove('show');
+    })
+})
+
+const changeBtn = document.querySelectorAll('.change_btn');
+
+changeBtn.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+        e.preventDefault()
+        e.target.closest('.title_form').classList.remove('show');
+    })
+})
+
+
 ///////////////////////////////// SHARE FEATURE //////////////////////////////////
 
 const shareicon = document.querySelectorAll('.share');
+console.log(shareicon);
 shareicon.forEach(function(icon){
     icon.addEventListener('click', async function(e){
         const shareNote = e.target.closest('.share_del').querySelector('.share-notification');
