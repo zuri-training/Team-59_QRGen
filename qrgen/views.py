@@ -50,7 +50,7 @@ def dashboard_whatsapp(request):
     if request.method == 'POST':
         data = request.POST['whatsapp']
         img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+        img.save('qrgen/static/img/')
 
     user_dict = {'data': data, 'img': img}
     return render(request, 'qrgen/dashboard.html', user_dict)
