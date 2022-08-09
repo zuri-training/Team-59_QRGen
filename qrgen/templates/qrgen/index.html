@@ -1,0 +1,357 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/apps.js' %}"></script>
+    <title>QrGen59</title>
+</head>
+
+<body>
+
+    <!-- {% if data %}
+    <img src="{{ MEDIA_URL }}{% static 'img/qrcode.png' %}" alt="code image">
+    {% endif %} -->
+    <script> console.log('{{ ok }}') </script>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
+            </div>
+            <div class="profile_btns">
+                <div class="profile_icon">
+                    <h1>K</h1>
+                </div>
+
+                <!-- Profile links  NEW-->
+                <div class="profile_links">
+                    <a href="">My Account</a>
+                    <a href="">Dashboard</a>
+                    <a href="">Log out</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Button to go back to main dashboard  NEW-->
+        <button class="back-button">
+            <img src="{% static 'img/icons/back-arrow-icon.png' %}" alt="">
+            <p>Back</p>
+        </button>
+    </header>
+    <main class="wrapper">
+
+        <div class="progress_bar">
+            <div class="progress_details">
+                <div class="progress_circle ">
+                    <h6>1</h6>
+                    <span class="line"></span>
+                </div>
+                <div class="progress_label ">
+                    <p>Choose Type</p>
+                </div>
+            </div>
+            <div class="progress_details">
+                <div class="progress_circle">
+                    <h6>2</h6>
+                    <span class="line"></span>
+                </div>
+                <div class="progress_label">
+                    <p>Code Content</p>
+                </div>
+            </div>
+            <div class="progress_details">
+                <div class="progress_circle">
+                    <h6>3</h6>
+                </div>
+                <div class="progress_label">
+                    <p>Download Qr code</p>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_details">
+            <div class="dashboard_content_wrapper">
+                <div class="dashboard_options">
+                    <div class="dashboard_preview_header">
+                        <div class="dashboard_header">
+                            <h4>Choose your QR code type</h4>
+                        </div>
+                    </div>
+                    <div class="dasboard_subheader">
+                        <h5 class="active">Dynamic</h5>
+                        <h5>Static</h5>
+                    </div>
+                    <div class="options">
+                        <div class="single_option url_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/link-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/link-icon-hover.png' %}" alt="icon">
+                                <h6>Website URL</h6>
+                            </div>
+                            <p>Link to any website URL</p>
+                        </div>
+                        <div class="single_option business_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/business-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/business-icon-hover.png' %}" alt="icon">
+
+                                <h6>Business Card</h6>
+                            </div>
+                            <p>Share your contact details</p>
+                        </div>
+                        <div class="single_option text_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/text-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/text-icon-hover.png' %}" alt="icon">
+                                <h6>Text</h6>
+                            </div>
+                            <p>Display a short message</p>
+                        </div>
+                        <div class="single_option whatsapp_option">
+                            <div class="option_header ">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/whatsapp-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/whatsapp-icon-hover.png' %}" alt="icon">
+                                <h6>Whatsapp</h6>
+                            </div>
+                            <p>Get more contacts on whatsapp</p>
+                        </div>
+                        <div class="single_option pdf_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/pdf-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/pdf-icon-hover.png' %}" alt="icon">
+                                <h6>PDF</h6>
+                            </div>
+                            <p>Share PDF document</p>
+                        </div>
+                        <div class="single_option images_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/image-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/image-icon-hover.png' %}" alt="icon">
+
+                                <h6>Images</h6>
+                            </div>
+                            <p>Share multiple photos</p>
+                        </div>
+                        <div class="single_option event_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/event-icon.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/event-icon-hover.png' %}" alt="icon">
+                                <h6>Event</h6>
+                            </div>
+                            <p>Promote any event</p>
+                        </div>
+                        <div class="single_option email_option">
+                            <div class="option_header">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/email.png' %}" alt="icon">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/email-icon-hover.png' %}" alt="icon">
+                                <h6>Email</h6>
+                            </div>
+                            <p>Get email messages</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard_options code_content">
+                    <div class="url_content">
+                        <h6>Website URL</h6>
+                        <p class="big_para">Submit URL for your QR code</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="url" name="url" id="website" placeholder="https://">
+                            <input class="generate_button" name="generate" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open this URL</p>
+                    </div>
+                    <div class="business_content">
+                        <h6>Business Card</h6>
+                        <p class="big_para">Submit URL for your QR code</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="url" name="file-upload" id="business">
+                            <input class="generate_button" name="generate" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open this URL</p>
+                    </div>
+                    <div class="text_content">
+                        <h6>Text</h6>
+                        <p class="big_para">Type any text below</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="text" name="url" id="text"
+                                placeholder="Enter some text......(not more than 300 characters)">
+                            <input class="generate_button" name="generate" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will display this text.</p>
+                    </div>
+                    <div class="whatsapp_content">
+                        <h6>Whatsapp</h6>
+                        <p class="big_para">Input your phone number.</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="url" name="url" id="number" placeholder="Phone number (with country code)">
+                            <input class="generate_button" name="generate" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open up a chat on whatsapp.</p>
+                    </div>
+                    <div class="email_content">
+                        <h6>Email</h6>
+                        <p class="big_para">Submit email for your QR code</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="email" name="url" id="email">
+                            <input class="generate_button" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open this URL</p>
+                    </div>
+                    <div class="pdf_content">
+                        <h6>PDF</h6>
+                        <p class="big_para">Select any PDF from your files</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="file" name="file-upload" id="pdffile" hidden>
+                            <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
+                            <a id="pdfbtn">Upload</a>
+                            <input class="generate_button" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open this PDF.</p>
+                    </div>
+                    <div class="image_content">
+                        <h6>Images</h6>
+                        <p class="big_para">Upload images here</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="file" name="file-upload" id="imgfile" hidden>
+                            <input type="text" disabled placeholder="PNG or JPEG format.">
+                            <button id="imgbtn">Upload</button>
+                            <input class="generate_button" type="submit" value="Generate Qr code">
+                        </form>
+                        <p>Your QR code will open these images.</p>
+                    </div>
+                    <div class="event_content">
+                        <h6>Event URL</h6>
+                        <p class="big_para">Submit URL for your QR code</p>
+                        <!-- added the method POST -->
+                        <form method="POST" action="">
+                            <!-- added csrf_token -->
+                            {% csrf_token %}
+                            <input type="text" name="url" id="event">
+                        </form>
+                        <p>Your QR code will open this URL</p>
+                    </div>
+                </div>
+                <div class="dashboard_options download_share">
+                    <div class="buttons">
+                        <button class="download_btn_option">
+                            <!-- added the django static syntax -->
+                            <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                            <p>Download</p>
+                        </button>
+                        <button class="share_btn">
+                            <!-- added the django static syntax -->
+                            <img src="{% static 'img/icons/share-icon.png' %}" alt="">
+                            <p>Share</p>
+                        </button>
+
+                        <!-- Share notification  NEW-->
+                        <div class="share_notification">
+                            <h1>feature only available on mobile devices</h1>
+                        </div>
+
+                        <!-- Download Options  NEW-->
+                        <div class="download_options">
+                            <p>Select your format</p>
+
+                            <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                            <button class="download_btn" id="btn_png">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                <p>Download PNG</p>
+                            </button>
+
+                            <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                            <button class="download_btn" id="btn_jpeg">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                <p>Download JPEG</p>
+                            </button>
+
+                            <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                            <button class="download_btn" id="btn_pdf">
+                                <!-- added the django static syntax -->
+                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                <p>Download PDF</p>
+                            </button>
+                            <img class="cancel" src="{% static 'img/icons/basic-cancel-icon.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="qrcode_section">
+                <div class="qrcode_box">
+                    <div class="option_preview">
+                        <h5 class="text">Please select one & your
+                            preview will show here
+                        </h5>
+                    </div>
+                    <!-- WHERE THE CODE WILL BE GENERATED -->
+                    <div id="preview" class="generated_code hide">
+                        <!-- THE ACHOR TAG WILL TRIGGER THE CODE GENERATION -->
+                        <a>Preview</a>
+                        <!-- CODE GENERATED WILL BE CONTAINED IN THIS IMAGE -->
+                        <img src="{{ MEDIA_URL }}{% static 'img/qrcode.png' %}" alt="Qr Code">
+                        <!-- added the django static syntax -->
+                        <p>Scanning the QR code will
+                            redirect you to the website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard_footer hide">
+            <div class="dashboard_footer_btn hide">
+                <button class="back hide">
+                    <!-- added the django static syntax -->
+                    <img src="{% static 'img/icons/arrow-left.png' %}" alt="">
+                    <p>Previous</p>
+                </button>
+                <button class="continue">
+                    <p>Next</p>
+                    <!-- added the django static syntax -->
+                    <img src="{% static 'img/icons/arrow-right.png' %}" alt="">
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
