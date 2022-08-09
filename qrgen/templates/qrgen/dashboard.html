@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    {% if data %}
+    <img src="{{ MEDIA_URL }}{% static 'img/qrcode.png' %}" alt="code image">
+    {% endif %}
+
+    <button onclick="toggleWebsite()">Website</button><br>
+
+    <form method="POST" action="{% url 'dashboard_website_2' %}" id="website-form" style="display:none">
+        {% csrf_token %}
+        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
+
+        <label for="website" class="website" id="website">Website</label>
+        <input type="url" name="website" id="website" value="https://"><br>
+        <input type="submit" value="Generate Your QR Code"> <br>
+        <br>
+    </form><br>
+
+    <button onclick="toggleEmail()">Email</button><br>
+
+    <form method="POST" action="{% url 'dashboard_email_2' %}" id="email-form" style="display:none">
+        {% csrf_token %}
+        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
+
+        <label for="email" class="email" id="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email address"><br>
+        <input type="submit" value="Generate Your QR Code"> <br>
+        <br>
+    </form><br>
+
+    <button onclick="toggleText()">Text</button><br>
+    <form method="POST" action="{% url 'dashboard_text_2' %}" id="text-form" style="display:none">
+        {% csrf_token %}
+        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
+
+        <label for="text" class="text" id="text">Text</label>
+        <input type="text" name="text" id="text" placeholder="Enter your text here..."><br>
+        <input type="submit" value="Generate Your QR Code"> <br>
+        <br>
+    </form> <br>
+
+    <button onclick="toggleWhatsapp()">Whatsapp</button><br>
+    <form method="POST" action="{% url 'dashboard_whatsapp_2' %}" id="whatsapp-form" style="display:none">
+        {% csrf_token %}
+        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
+
+        <label for="whatsapp" class="whatsapp" id="whatsapp">Whatsapp</label>
+        <input type="url" name="whatsapp" id="whatsapp" value="https://wa.me/"><br>
+        <input type="submit" value="Generate Your QR Code"> <br>
+        <br>
+    </form>
+
+    <script src="{% static 'js/dbrd.js' %}"></script>
+</body>
+
+
+
+
+
+
+</html>

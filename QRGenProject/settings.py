@@ -50,11 +50,12 @@ INSTALLED_APPS = [
 
     # created apps -->> uncomment the ones specific to you
     # 'accounts',
-    # 'qrgen',
+    'qrgen',
     # 'home',
     # 'handlescan',
 
     # third-party libraries
+    'crispy_forms',
 
 ]
 

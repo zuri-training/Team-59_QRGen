@@ -1,0 +1,91 @@
+{% extends 'qrgen/base.html' %} {% block body %}
+
+<div class="saved_data_wrapper">
+  {% for QrCode in qrimage %}
+
+  <div class="saved_data">
+    <section class="qr_image">
+      <div class="title">
+        <h5>
+          {{ QrCode.title }}<span>
+            <img class="edit_icon" src="./image/icon/edit-2.png" alt="" />
+          </span>
+        </h5>
+      </div>
+      <img src="{{ QrCode.img.url }}" alt="" />
+      <form class="title_form" action="">
+        <h5>Enter new title</h5>
+        <div>
+          <input type="text" />
+          <input class="change_btn" type="submit" value="Change" />
+        </div>
+        <img
+          class="modal_cancel_icon"
+          src="./image/icon/basic-cancel-icon.png"
+          alt=""
+        />
+      </form>
+    </section>
+    <div class="des_share_del">
+      <div class="qr_des">
+        <div class="scan">
+          <h5>Scans (3)</h5>
+        </div>
+        <div class="date">
+          <img src="./image/icon/clock-icon.png" alt="" />
+          <p>{{ QrCode.date_gen }}</p>
+        </div>
+        <div class="link">
+          <img src="./image/icon/link-icon.png" alt="" />
+          <p>qr.io/f/jkjjsk</p>
+        </div>
+      </div>
+      <div class="qr_share_del">
+        <div class="qr_download">
+          <button class="download_btn">Download</button>
+          <div class="download_options">
+            <!-- BUTTON FOR DOWNLOADING IN PNG -->
+            <button class="download_btn" id="btn_png">
+              <img src="./image/icon/download-button-icon.png" alt="" />
+              <p>Download PNG</p>
+            </button>
+
+            <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+            <button class="download_btn" id="btn_jpeg">
+              <img src="./image/icon/download-button-icon.png" alt="" />
+              <p>Download JPEG</p>
+            </button>
+
+            <!-- BUTTON FOR DOWNLOADING IN PDF -->
+            <button class="download_btn" id="btn_pdf">
+              <img src="./image/icon/download-button-icon.png" alt="" />
+              <p>Download PDF</p>
+            </button>
+            <img
+              class="cancel"
+              src="./image/icon/basic-cancel-icon.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="share_del">
+          <button class="share">
+            <img src="./image/icon/send-icon.png" alt="" />
+            <p>Share</p>
+          </button>
+          <button>
+            <img src="./image/icon/delete-icon.png" alt="" />
+            <p>Delete</p>
+          </button>
+          <div class="share-notification">
+            <h1>feature only available on mobile devices</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock body %}
