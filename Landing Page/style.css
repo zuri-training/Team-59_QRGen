@@ -572,7 +572,7 @@ ul .footer-nav1{
 .scroll-up-btn:hover {
     filter: brightness(90%);
 }
-@media (min-width:1339px) {
+@media (min-width:1439px) {
     .footer-nav1{
         gap: 200px;
     }
@@ -582,8 +582,59 @@ ul .footer-nav1{
     .footer-nav2{
         padding-left: 200px;
     }
+    .generate{
+        padding-top: 10%;
+    }
+    .hero-left h1{
+        font-size: 56px;
+    }
+    .hero-left p{
+        font-size: 28px;
+    }
+    .hero-right{
+        height: 100%;
+    }
+    .second-container{
+        padding: 10rem 1.5rem 2.5rem 1.5rem;
+    }
+    .create h2{
+        font-size: 2.5rem;
+        padding: 1rem;
+    }
+    .create p.main{
+        font-size: 30px;
+    }
+    .cta p {
+        margin: 2.5rem;
+        font-size: 1.2rem;
+    } 
+    a.btn4.dark, a.btn5.dark {
+        font-size: 32px;
+    }
+    .left h2{
+        font-size: 55px;
+    }
+    .left p {
+        text-align: center;
+        margin-left: 3rem;
+        width: 75%;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .right.website img{
+        padding-right: 0;
+    }
+    .title{
+        font-size: 4rem;
+    }
+    .question h3 {
+        font-size: 1.8rem;
+    }
+    .fa-bars:before{
+        display: none;
+    }
 }
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
     .menu-btn {
         display: none;
     }
@@ -610,6 +661,14 @@ ul .footer-nav1{
     .left p{
         text-align: center;
         font-size: 30px;
+    }
+    .nav-buttons {
+        font-size: 20px;
+        padding-left: 60px;
+        gap: 18px;
+    }
+    .generate{
+        padding-top: 20%;
     }
 }
 
@@ -762,16 +821,17 @@ ul .footer-nav1{
     }
     .hero-left p{
         font-size: 24px;
-        padding: 0;
+        padding-top: 15px;
     }
     .hero-left h1 {
-        padding-top: 8rem;
-        margin: 0 32px;
+        margin-top: -6rem;
         font-size: 35px;
+        padding: 0 50px;
         line-height: 52px;
     }
     .hero-buttons{
         justify-content: center;
+        margin-top: -3px;
     }
     a.btn3.dark{
         border-radius: 12px;
@@ -783,6 +843,7 @@ ul .footer-nav1{
     }
     .second-container{
         height: 100%;
+        margin-top: -8rem;
     }
     .fifth-container{
         padding: 4.5rem 2.5rem 1.5rem;
@@ -819,6 +880,9 @@ ul .footer-nav1{
         font-size: 20px;
         padding-left: 3rem;
         width: 90%;
+    }
+    .question h3{
+        font-size: 1rem;
     }
 }
 @media (max-width: 624px) {
@@ -1043,7 +1107,10 @@ ul .footer-nav1{
 }
 @media (max-width: 376px) {
     .hero-left h1{
-        padding-top: 7rem;
+        padding-top: 2.5rem;
+    }
+    .hero-buttons {
+        margin-bottom: 1.5rem;
     }
     a.btn4.dark {
         font-size: 15px;
