@@ -176,7 +176,7 @@ a.btn2.light:hover{
 a.btn3.dark{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 1px 22px;
     gap: 8px;
     background: var(--navy-blue);
@@ -307,11 +307,20 @@ a.btn4.light:hover{
     width: 520px;
     padding: 15px 80px 15px 60px;
 }
-.select{
-    padding-top: 10vh;
+img.learn{
+    padding-right: 60px;
+}
+img.customize{
+    padding-left: 60px;
+}
+img.generate{
+    padding-right: 60px;
+}
+img.download{
+    padding-left: 60px;
 }
 .content{
-    padding: 30px;
+    padding: 80px;
 }
 .content h2{
     margin: 10px 0;
@@ -438,7 +447,19 @@ ul .footer-nav1{
 .scroll-up-btn:hover {
     filter: brightness(90%);
 }
-@media (min-width: 1024px) {
+@media (min-width:1339px) {
+    .footer-nav1{
+        gap: 200px;
+    }
+    .footer-nav1 li a{
+        font-size: 20px;
+    }
+    .footer-nav2{
+        padding-left: 200px;
+    }
+}
+
+@media (min-width: 1023.5px) {
     .menu-btn {
         display: none;
     }
@@ -520,6 +541,21 @@ ul .footer-nav1{
         width: 100%;
         margin-top: 5%;
         align-items: center;
+    }
+    .content {
+        padding: 20px;
+    }
+    img.learn{
+        padding-right: 30px;
+    }
+    img.customize{
+        padding-left: 30px;
+    }
+    img.generate{
+        padding-right: 30px;
+    }
+    img.download{
+        padding-left: 30px;
     }
 }
 /* Second-section MEDIA QUERIES*/
@@ -780,15 +816,19 @@ ul .footer-nav1{
     img.learn{
         max-width: 25%;
         margin-top: 2rem;
+        padding-right: 0;
     }
     img.customize{
         max-width: 25%;
+        padding-left: 0;
     }
     img.generate{
         max-width: 25%;
+        padding-right: 0;
     }
     img.download{
         max-width: 25%;
+        padding-left: 0;
     }
     a.btn5.dark{
         margin-top: 0;
