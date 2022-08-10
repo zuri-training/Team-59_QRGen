@@ -13,6 +13,10 @@
             <div class="logo">
                 <a href="">QrGen<span>59</span></a>
             </div>
+            <!-- NEWLY ADDED -->
+            <div class="header_label">
+                <h4>Create QR code</h4>
+            </div>
             <div class="profile_btns">
                 <div class="profile_icon">
                     <h1>K</h1>
@@ -27,10 +31,10 @@
             </div>
         </nav>
         <!-- Button to go back to main dashboard  NEW-->
-        <button class="back-button">
+        <a href="" class="back-button">
             <img src="./img/icons/back-arrow-icon.png" alt="">
             <p>Back</p>
-        </button>
+        </a>
     </header>
     <main class="wrapper">
 
@@ -71,14 +75,14 @@
                         </div>
                     </div>
                     <div class="dasboard_subheader">
-                        <h5 class="active">Dynamic</h5>
-                        <h5>Static</h5>
+                        <h5 class="dynamic active">Dynamic</h5>
+                        <h5 class="static">Static</h5>
                     </div>
                     <div class="options">
                         <div class="single_option url_option">
                             <div class="option_header">
                                 <img src="./img/icons/link-icon.png" alt="icon">
-                                <img src="./img/icons/link-icon-hover.png" alicon">
+                                <img src="./img/icons/link-icon-hover.png" alt ="icon">
                                 <h6>Website URL</h6>
                             </div>
                             <p>Link to any website URL</p>
@@ -148,8 +152,11 @@
                         <h6>Website URL</h6>
                         <p class="big_para">Submit URL for your QR code</p>
                         <form action="">
-                            <input type="text" name="text" id="website" placeholder="https://">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
+                            <input type="text" name="" id="website" placeholder="https://">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="web" hidden>
+                            <input class="generate_button" type="submit" name="generate" value="Generate Qr code">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -157,8 +164,13 @@
                         <h6>Business Card</h6>
                         <p class="big_para">Submit URL for your QR code</p>
                         <form action="">
-                            <input type="text" name="text" id="business" >
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
+                            <input type="file" name="file-upload" id="business" hidden>
+                            <input type="text" disabled placeholder="Upload your business card">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="biz" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
+                            <a id="pdfbtn">Upload</a>
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -166,17 +178,23 @@
                         <h6>Text</h6>
                         <p class="big_para">Type any text below</p>
                         <form action="">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
                             <input type="text" name="text" id="text" placeholder="Enter some text......(not more than 300 characters)">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <input class="generate_button" type="submit" value="Generate Qr code">                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="txe" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
                         </form>
                         <p>Your QR code will display this text.</p>
                     </div>
                     <div class="whatsapp_content">
                         <h6>Whatsapp</h6>
-                        <p class="big_para">Input your phone number.</p>
+                        <p class="big_para">Input your phone number</p>
                         <form action="">
-                            <input type="number" name="number" id="number" placeholder="Phone number (with country code)">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
+                            <input type="text" name="number" id="number" placeholder="Phone number (with whatsapp url)">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="wap" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
                         </form>
                         <p>Your QR code will open up a chat on whatsapp.</p>
                     </div>
@@ -184,8 +202,11 @@
                         <h6>Email</h6>
                         <p class="big_para">Submit email for your QR code</p>
                         <form action="">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
                             <input type="email" name="email" id="email">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="eml" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -193,10 +214,13 @@
                         <h6>PDF</h6>
                         <p class="big_para">Select any PDF from your files</p>
                         <form action="">
-                            <input type="file" name="pdffile" id="pdffile" hidden>
+                            <!-- ADDED NEW HIDDEN INPUTS -->
+                            <input type="file" name="file-upload" id="pdffile" hidden>
                             <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="pdf" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
                             <a id="pdfbtn">Upload</a>
-                            <input class="generate_button" type="submit" value="Generate Qr code">
                         </form>
                         <p>Your QR code will open this PDF.</p>
                     </div>
@@ -204,10 +228,14 @@
                         <h6>Images</h6>
                         <p class="big_para">Upload images here</p>
                         <form action="">
-                            <input type="file" name="imgfile" id="imgfile" hidden>
+                            <!-- ADDED NEW HIDDEN INPUTS -->
+                            <input type="file" name="file-upload" id="imgfile" hidden>
                             <input type="text" disabled placeholder="PNG or JPEG format.">
-                            <button id="imgbtn">Upload</button>
                             <input class="generate_button" type="submit" value="Generate Qr code">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="img" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
+                            <button id="imgbtn">Upload</button>
                         </form>
                         <p>Your QR code will open these images.</p>
                     </div>
@@ -215,7 +243,11 @@
                         <h6>Event URL</h6>
                         <p class="big_para">Submit URL for your QR code</p>
                         <form action="">
+                            <!-- ADDED NEW HIDDEN INPUTS -->
                             <input type="text" name="event" id="event">
+                            <input class="input" type="text" name="qr_code_type" value="dynamic" hidden>
+                            <input  type="text" name="action_type" value="eve" hidden>
+                            <input class="generate_button" type="submit" name="generated" value="Generate Qr code">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -241,22 +273,28 @@
                             <p>Select your format</p>
 
                             <!-- BUTTON FOR DOWNLOADING IN PNG -->
-                            <button class="download_btn" id="btn_png">
-                                <img src="./img/icons/download-button-icon.png" alt="">
-                                <p>Download PNG</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_png" name="download">
+                                    <img src="./img/icons/download-button-icon.png" alt="">
+                                    <p>Download PNG</p>
+                                </button>
+                            </a>
 
                             <!-- BUTTON FOR DOWNLOADING IN JPEG -->
-                            <button class="download_btn" id="btn_jpeg">
-                                <img src="./img/icons/download-button-icon.png" alt="">
-                                <p>Download JPEG</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_jpeg" name="download">
+                                    <img src="./img/icons/download-button-icon.png" alt="">
+                                    <p>Download JPEG</p>
+                                </button>
+                            </a>
 
                             <!-- BUTTON FOR DOWNLOADING IN PDF -->
-                            <button class="download_btn" id="btn_pdf">
-                                <img src="./img/icons/download-button-icon.png" alt="">
-                                <p>Download PDF</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_pdf" name="download">
+                                    <img src="./img/icons/download-button-icon.png" alt="">
+                                    <p>Download PDF</p>
+                                </button>
+                            </a>
                             <img class="cancel" src="./img/icons/basic-cancel-icon.png" alt="">
                         </div>
                     </div>
@@ -269,9 +307,7 @@
                             preview will show here
                         </h5>
                     </div>
-                    <!-- WHERE THE CODE WILL BE GENERATED -->
                     <div class="generated_code hide">
-                        <!-- THE ACHOR TAG WILL TRIGGER THE CODE GENERATION -->
                         <a>Preview</a>
                         <!-- CODE GENERATED WILL BE CONTAINED IN THIS IMAGE -->
                         <img src="./img/qr-code.png" alt="Qr Code">

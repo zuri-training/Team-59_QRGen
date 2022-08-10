@@ -23,7 +23,6 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
-
 }
 .navbar{
     display: flex;
@@ -36,6 +35,10 @@ body{
 /* .navbar .logo{
     margin-right: 5.25rem;
 } */
+.header_label h4{
+    font-size: 2rem;
+    color: #003F6C;
+}
 .logo a,
 .logo a span{
     font-size: 4rem;
@@ -112,6 +115,7 @@ body{
     background: transparent;
     cursor: pointer;
     opacity: 1;
+    text-decoration: none; /* NEW */
 }
 .back-button p{
     font-size: 1.5rem;
@@ -193,7 +197,7 @@ body{
 }
 .progress_label{
     position: absolute;
-    top: 17.5rem;
+    top: 15.5rem;  /* NEW */
 }
 .progress_label p{
     font-size: 0.75rem;
@@ -275,6 +279,8 @@ body{
 .dasboard_subheader h5{
     font-size: 1.75rem;
     font-weight: 700;
+    /* CHANGE */
+    cursor: pointer;
 }
 .dasboard_subheader .active{
     color: #003F6C;
@@ -406,6 +412,7 @@ body{
 
     /* margin: 1.5rem 0; */
 }
+
 .code_content p{
     font-size: 1rem;
 }
@@ -680,6 +687,14 @@ form .generate_button{
 @media only screen and (min-width: 300px) and (max-width:499px){
     *{
         font-size: 10px;
+    }
+    /* NEW */
+    body{ 
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .header_label{
+        display: none;
     }
     .dashboard_details{
         display: flex;
