@@ -1,0 +1,156 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataStore</title>
+    <link rel="stylesheet" href="{% static 'dash_style.css' %}">
+    <script defer src="{% static 'dash.js' %} "></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
+            </div>
+            <div class="profile_btns">
+                <div class="profile_icon">
+                    <h1>K</h1>
+                </div>
+                <div class="profile_links">
+                    <a href="">My Account</a>
+                    <a href="">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="wrapper">
+        <div class="side_bar">
+            <div class="search_form_div">
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>
+                        <img src="{% static 'image/icon/search-normal.png' %}" alt="">
+                    </button>
+                </form>
+            </div>
+            <div class="navigator_header">
+                <h6>QR Codes</h6>
+            </div>
+            <div class="page_navigator">
+                <div class="navigator_options active" id="all">
+                    <img src="{% static 'image/icon/all-icon.png' %}" alt="">
+                    <button>All ({{code_count}})</button>
+                </div>
+                <div class="navigator_options" id="active">
+                    <img src="{% static 'image/icon/active-icon.png' %}" alt="">
+                    <button>Active ({{active_count}})</button>
+                </div>
+                <div class="navigator_options" id="archive">
+                    <img src="{% static 'image/icon/archive-icon.png' %}" alt="">
+                    <button>Archive (0)</button>
+                </div>
+            </div>
+            <div class="logout_btn">
+                <button>
+                    <img src="{% static 'image/icon/log-out-icon.png' %}" alt="">
+                    <p>Log out</p>
+                </button>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="main_content_header">
+                <div class="filter_btn">
+                    <button>
+                        <img src="{% static 'image/icon/all-icon.png' %}" alt="">
+                        <p>All QR codes</p>
+                    </button>
+                </div>
+                <div class="create_qr_navigator_btn">
+                    <a href="">
+                        <button>Create QR code</button>
+                    </a>
+                </div>
+            </div>
+            <div class="saved_data_wrapper">
+                {% for qrcode in qrcodes %}
+                <div class="saved_data">
+                    <section class="qr_image">
+                        <div class="title">
+                            <h5>{{qrcode.title}} <span>
+                                <img class="edit_icon" src="{% static 'image/icon/edit-2.png' %}" alt="">
+                            </span></h5>
+                        </div>
+                        <img src="{% static 'image/qr_code_placeholder.png' %}" alt="">
+                        <form class="title_form" action="{% url 'qrgen2:generate' %}" method='POST'>
+                            {% csrf_token %}
+                            <h5>Enter new title</h5>
+                            <div>
+                                <input type="text">
+                                <input class="change_btn" type="submit" name="change_title" value="Change">
+                            </div>
+                            <img class="modal_cancel_icon" src="{% static 'image/icon/basic-cancel-icon.png' %}" alt="">
+                        </form>
+                    </section>
+                    <div class="des_share_del">
+                        <div class="qr_des">
+                            <div class="scan">
+                                <h5>{{qrcode.scan_count}}</h5>
+                            </div>
+                            <div class="date">
+                                <img src="{% static 'image/icon/clock-icon.png' %}" alt="">
+                                <p>{{qrcode.scan_count}}</p>
+                            </div>
+                            <div class="link">
+                                <img src="{% static 'image/icon/link-icon.png' %}" alt="">
+                                <p>{{qrcode.action_url}}</p>
+                            </div>
+                        </div>
+                        <div class="qr_share_del">
+                            <div class="qr_download">
+                                <button class="download_btn">Download</button>
+                                <div class="download_options">        
+                                    <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                                    <button class="download_btn" id="btn_png">
+                                        <img src="{% static 'image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download PNG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                                    <button class="download_btn" id="btn_jpeg">
+                                        <img src="{% static 'image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download JPEG</p>
+                                    </button>
+        
+                                    <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                                    <button class="download_btn" id="btn_pdf">
+                                        <img src="{% static 'image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download PDF</p>
+                                    </button>
+                                    <img class="cancel" src="{% static 'image/icon/basic-cancel-icon.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="share_del">
+                                <button class="share">
+                                    <img  src="{% static 'image/icon/send-icon.png' %}" alt="">
+                                    <p>Share</p>
+                                </button>
+                                <button>
+                                    <img src="{% static 'image/icon/delete-icon.png' %}" alt="">
+                                    <p>Delete</p>
+                                </button>
+                                <div class="share-notification">
+                                    <h1>feature only available on mobile devices</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

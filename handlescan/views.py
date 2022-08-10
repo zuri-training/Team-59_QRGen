@@ -13,7 +13,7 @@ from .models import File
 def dynamic_code_scan(request, code_id, *args, **kwargs):
     qrcode = QrCode.objects.get(id=code_id)
 
-    # getting the no of scans
+    # getting/ the no of scans
     
     if qrcode.scan_count:
         qrcode.scan_count += 1
@@ -21,8 +21,10 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
         qrcode.scan_count = 1
 
     # get the qrcode action_type
+    download_type = ['pdf', 'img']
 
-    if qrcode.type != 'PDF':
+    if qrcode.type not in download_type:
+        # it is a url
         # get and redirect to the qrcode action_url
         return redirect(qrcode.action_url)
 
