@@ -1,10 +1,14 @@
-from threading import active_count
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
+# for auth
+# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+# for manipulating our models
 from .models import QrCode, QrType, File
 
+# for generating our qrcode
 import qrcode
 
 # for the ajax request
@@ -25,11 +29,13 @@ def create_or_get_types():
 
     return QrType.objects.all()
 
+# @login_required(login_url='/admin/login/')
+# this should be the default user login (i.e. /accounts/login/)
+# note: this is for FBV, for CBV, we use LoginRequiredMixin
 
+class GenerationDashboardView(LoginRequiredMixin, View):
+    login_url = '/admin/login/'
 
-
-# @login_required
-class GenerationDashboardView(View):
     def get(self, request):
 
         QrTypes = create_or_get_types()
@@ -41,6 +47,8 @@ class GenerationDashboardView(View):
         return render(request, 'generation.html', context)
 
     def post(self, request):
+
+        # if request.is_ajax
         
         if 'generate' in request.POST:
 
@@ -77,8 +85,8 @@ class GenerationDashboardView(View):
             # create a File object
                 File.objects.create(
                     user=request.user,
-                    name=request.FILES['upload-file'].name,
-                    file=request.FILES['upload-file'],
+                    name=request.FILES['upload_file'].name,
+                    file=request.FILES['upload_file'],
                 )
 
                 # get the created file
@@ -104,7 +112,7 @@ class GenerationDashboardView(View):
             # we now generate a qrcode image with the QrCode's action_url
 
             qr_img = qrcode.make(this_qrcode.action_url)
-            img_path = f'qrgen2/static/img/qrcode-{this_qrcode.id}.png'
+            img_path = f'qrgen2/static/img/qrcodes/qrcode-{this_qrcode.id}.png'
             qr_img.save(img_path)
 
             # add the qr_img to the QrCode object
@@ -131,7 +139,9 @@ class GenerationDashboardView(View):
             #     pass
 
 # @login_required
-class MainDashboardView(View):
+class MainDashboardView(LoginRequiredMixin, View):
+    login_url = '/admin/login'
+
     def get(self, request):
         user_codes = QrCode.objects.all().filter(user_id=request.user.id)
         download_options = {1:'png', 2:'jpeg', 3:'pdf'}

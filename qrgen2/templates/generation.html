@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{% static 'gen_styles.css' %}">
     <script defer src="{% static 'gen.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
     <title>QrGen59</title>
 </head>
 <body>
@@ -149,12 +151,12 @@
                     <div class="url_content">
                         <h6>Website URL</h6>
                         <p class="big_para">Submit URL for your QR code</p>
-                        <form action="{% url 'qrgen2:generate' %}" method='POST' id="web_input">
+                        <form method='POST' action="{% url 'qrgen2:generate' %}">
                             {% csrf_token %}
-                            <input type="text" name="url" id="website" placeholder="https://">
+                            <input type="text" name="url" id="website" placeholder="https://" value="https://">
                             <input type="text" name="qrcode_type" value="dynamic" hidden>
                             <input type="text" name="action_type" value="web" hidden>
-                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate">
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -172,7 +174,7 @@
                         <p class="big_para">Type any text below</p>
                         <form action="">
                             <input type="text" name="text" id="text" placeholder="Enter some text......(not more than 300 characters)">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <inpu=t class="generate_button" type="submit" value="Generate Qr code">
                         </form>
                         <p>Your QR code will display this text.</p>
                     </div>
@@ -201,10 +203,10 @@
                             {% csrf_token %}
                             <input type="text" name="qrcode_type" value="dynamic" hidden>
                             <input type="text" name="action_type" value="pdf" hidden>
-                            <input type="file" name="upload-file" id="pdffile">
+                            <input type="file" name="upload_file" id="pdffile">
                             <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
                             <a id="pdfbtn">Upload</a>
-                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate">
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form)">
                         </form>
                         <p>Your QR code will open this PDF.</p>
                     </div>
@@ -304,53 +306,76 @@
     </main>
 
     {% comment %} Ajax Script {% endcomment %}
+    
     <script type="text/javascript">
+
+        // CSRF token setup for Ajax request
         $(function() {
             $.ajaxSetup({
                 headers: {
                     "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()
                 }
             })
-            });
-        let form = document.getElementById('web_input')
-        form.addEventListener('submit', function(e){
-            e.preventDefault()
-            // form.url.value = 
-            // var url = form.url.value;
-            // var serialized_data = this.serialize()
-            var action_type = form.action_type.value;
-            var qrcode_type = form.qrcode_type.value;
+        });
 
-            // making the ajax call
-            $.ajax({
-                type:"POST",
-                url: "{% url 'qrgen2:generate' %}",
-                data: {
-                    url: form.url.value,
-                    action_type: action_type,
-                    qrcode_type: qrcode_type,
-                    generate: form.generate.value                    
-                },
-                // data: serialized_data,
-                success: function(response) {
-                    console.log('Success');
-                    form.generate.value = 'QRCode Generated, please proceed!';
-                    form.generate.setAttribute("disabled", "");
-                    
-                    // get the created qrcode
+        function submit_form (form, type) {
+            form.addEventListener('submit', function(e){
+                e.preventDefault()
 
-                    var qrcode = JSON.parse(response["qrcode"]);
-                    var qrcode_img = qrcode[0]["fields"]["img"];
-                    console.log(qrcode);
-                    console.log(qrcode_img);
-                    
-                    // update the qrcode image
+                if (type == "upload") {
+                    // console.log(form.upload_file.files[0]);
 
-                    document.getElementById('generated_qrcode').setAttribute("src", "/static/" + qrcode_img.slice(14));
-                }   
+                    // var upload_file = form.upload_file.files[0];
+
+                    // Yet to find an effective way to send the uploaded file to the backend using Ajax
+
+
+
+                }
+                if (type == "url") {
+                    var url = form.url.value
+                }
+
+
+                var action_type = form.action_type.value;
+                var qrcode_type = form.qrcode_type.value;
+
+                // making the ajax call
+
+                $.ajax({
+                    type:"POST",
+                    // processData: false,          // this causes a Bad Request
+                    url: "{% url 'qrgen2:generate' %}",
+                    data: {
+                        url: url ? url : null,
+                        // upload_file: form.upload_file.files[0] ? form.upload_file.files[0] : null,
+                        action_type: action_type,
+                        qrcode_type: qrcode_type,
+                        generate: form.generate.value                    
+                    },
+
+                    // data: form_data,
+
+                    success: function(response) {
+                        console.log('Success');
+                        form.generate.value = 'QRCode Generated, please proceed!';
+                        form.generate.setAttribute("disabled", "");
+                        
+                        // get the created qrcode
+
+                        var qrcode = JSON.parse(response["qrcode"]);
+                        var qrcode_img = qrcode[0]["fields"]["img"];
+                        console.log(qrcode);
+                        console.log(qrcode_img);
+                        
+                        // update the qrcode image
+
+                        document.getElementById('generated_qrcode').setAttribute("src", "/static/" + qrcode_img.slice(14));
+                    }   
+                })
+
             })
-
-        })
+        }
 
 
     </script>
