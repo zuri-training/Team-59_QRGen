@@ -1143,6 +1143,7 @@ ul .footer-nav1{
     }
     a.btn4.light{
         font-size: 17px;
+        padding-left: 17px;
     }
     .url{
         width: 100%;
@@ -1175,7 +1176,7 @@ ul .footer-nav1{
 }
 @media (max-width: 320px) {
     .hero-left h1{
-        padding-top: 5rem;
+        padding-top: 6rem;
     }
     a.btn3.dark {
         font-size: 14px;
