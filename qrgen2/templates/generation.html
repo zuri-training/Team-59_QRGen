@@ -31,10 +31,12 @@
             </div>
         </nav>
         <!-- Button to go back to main dashboard  NEW-->
-        <button class="back-button">
-            <img src="{% static 'img/icons/back-arrow-icon.png' %}" alt="">
-            <p>Back</p>
-        </button>
+        <a href="{% url 'qrgen:dashboard' }" style="text-decoration: none;">
+            <button class="back-button">
+                <img src="{% static 'img/icons/back-arrow-icon.png' %}" alt="">
+                <p>Back</p>
+            </button>
+        </a>
     </header>
     <main class="wrapper">
 
@@ -75,8 +77,8 @@
                         </div>
                     </div>
                     <div class="dasboard_subheader">
-                        <h5 class="active">Dynamic</h5>
-                        <h5>Static</h5>
+                        <h5 class="dynamic active">Dynamic</h5>
+                        <h5 class="static">Static</h5>
                     </div>
                     <div class="options">
                         <div class="single_option url_option">
@@ -86,15 +88,6 @@
                                 <h6>Website URL</h6>
                             </div>
                             <p>Link to any website URL</p>
-                        </div>
-                        <div class="single_option business_option">
-                            <div class="option_header">
-                                <img src="{% static 'img/icons/business-icon.png' %}" alt="icon">
-                                <img src="{% static 'img/icons/business-icon-hover.png' %}" alt="icon">
-
-                                <h6>Business Card</h6>
-                            </div>
-                            <p>Share your contact details</p>
                         </div>
                         <div class="single_option text_option">
                             <div class="option_header">
@@ -111,6 +104,22 @@
                                 <h6>Whatsapp</h6>
                             </div>
                             <p>Get more contacts on whatsapp</p>
+                        </div>
+                        <div class="single_option email_option">
+                            <div class="option_header">
+                                <img src="{% static 'img/icons/email.png' %}" alt="icon">
+                                <img src="{% static 'img/icons/email-icon-hover.png' %}" alt="icon">
+                                <h6>Email</h6>
+                            </div>
+                            <p>Get email messages</p>
+                        </div>
+                        <div class="single_option event_option">
+                            <div class="option_header">
+                                <img src="{% static 'img/icons/event-icon.png' %}" alt="icon">
+                                <img src="{% static 'img/icons/event-icon-hover.png' %}" alt="icon">
+                                <h6>Event</h6>
+                            </div>
+                            <p>Promote any event</p>
                         </div>
                         <div class="single_option pdf_option">
                             <div class="option_header">
@@ -129,21 +138,14 @@
                             </div>
                             <p>Share multiple photos</p>
                         </div>
-                        <div class="single_option event_option">
+                        <div class="single_option business_option">
                             <div class="option_header">
-                                <img src="{% static 'img/icons/event-icon.png' %}" alt="icon">
-                                <img src="{% static 'img/icons/event-icon-hover.png' %}" alt="icon">
-                                <h6>Event</h6>
+                                <img src="{% static 'img/icons/business-icon.png' %}" alt="icon">
+                                <img src="{% static 'img/icons/business-icon-hover.png' %}" alt="icon">
+
+                                <h6>Business Card</h6>
                             </div>
-                            <p>Promote any event</p>
-                        </div>
-                        <div class="single_option email_option">
-                            <div class="option_header">
-                                <img src="{% static 'img/icons/email.png' %}" alt="icon">
-                                <img src="{% static 'img/icons/email-icon-hover.png' %}" alt="icon">
-                                <h6>Email</h6>
-                            </div>
-                            <p>Get email messages</p>
+                            <p>Share your contact details</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +156,7 @@
                         <form method='POST' action="{% url 'qrgen2:generate' %}">
                             {% csrf_token %}
                             <input type="text" name="url" id="website" placeholder="https://" value="https://">
-                            <input type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
                             <input type="text" name="action_type" value="web" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
@@ -163,27 +165,34 @@
                     <div class="business_content">
                         <h6>Business Card</h6>
                         <p class="big_para">Submit URL for your QR code</p>
-                        <form action="">
-                            <input type="text" name="text" id="business" >
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                        <form method='POST' action="{% url 'qrgen2:generate' %}">
+                            {% csrf_token %}
+                            <input type="text" name="url" id="business" >
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="biz" hidden>
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
                     <div class="text_content">
                         <h6>Text</h6>
                         <p class="big_para">Type any text below</p>
-                        <form action="">
-                            <input type="text" name="text" id="text" placeholder="Enter some text......(not more than 300 characters)">
-                            <inpu=t class="generate_button" type="submit" value="Generate Qr code">
+                        <form method='POST' action="{% url 'qrgen2:generate' %}">
+                            <input type="text" name="url" id="text" placeholder="Enter some text......(not more than 300 characters)">
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="tex" hidden>
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will display this text.</p>
                     </div>
                     <div class="whatsapp_content">
                         <h6>Whatsapp</h6>
                         <p class="big_para">Input your phone number.</p>
-                        <form action="">
-                            <input type="number" name="number" id="number" placeholder="Phone number (with country code)">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                        <form method='POST' action="{% url 'qrgen2:generate' %}">
+                            <input type="number" name="url" id="number" placeholder="Phone number (with country code)">
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="wap" hidden>
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will open up a chat on whatsapp.</p>
                     </div>
@@ -191,8 +200,10 @@
                         <h6>Email</h6>
                         <p class="big_para">Submit email for your QR code</p>
                         <form action="">
-                            <input type="email" name="email" id="email">
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <input type="email" name="url" id="email">
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="eml" hidden>
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -203,29 +214,36 @@
                             {% csrf_token %}
                             <input type="text" name="qrcode_type" value="dynamic" hidden>
                             <input type="text" name="action_type" value="pdf" hidden>
-                            <input type="file" name="upload_file" id="pdffile">
+                            <input type="file" name="upload_file" id="pdffile" hidden>
                             <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
                             <a id="pdfbtn">Upload</a>
-                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form)">
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'upload')">
                         </form>
                         <p>Your QR code will open this PDF.</p>
                     </div>
                     <div class="image_content">
                         <h6>Images</h6>
                         <p class="big_para">Upload images here</p>
-                        <form action="">
-                            <input type="file" name="imgfile" id="imgfile" hidden>
+                        <form action="{% url 'qrgen2:generate' %}" method='POST' enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="img" hidden>
+                            <input type="file" name="upload_file" id="imgfile" hidden>
                             <input type="text" disabled placeholder="PNG or JPEG format.">
                             <button id="imgbtn">Upload</button>
-                            <input class="generate_button" type="submit" value="Generate Qr code">
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'upload')">
                         </form>
                         <p>Your QR code will open these images.</p>
                     </div>
                     <div class="event_content">
                         <h6>Event URL</h6>
                         <p class="big_para">Submit URL for your QR code</p>
-                        <form action="">
-                            <input type="text" name="event" id="event">
+                        <form action="{% url 'qrgen2:generate' %}" method='POST' enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="text" name="url" id="event">
+                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="action_type" value="wap" hidden>
+                            <input class="generate_button" type="submit" value="Generate Qr code" name="generate" onclick="submit_form(this.form, 'url')">
                         </form>
                         <p>Your QR code will open this URL</p>
                     </div>
@@ -240,6 +258,13 @@
                             <img src="{% static 'img/icons/share-icon.png' %}" alt="">
                             <p>Share</p>
                         </button>
+                        <!-- to dashboard -->
+                        <a href="{% url 'qrgen2:dashboard' %}">
+                            <button class="dashboard">
+                                <img src="{% static 'img/icons/share-icon.png' %}" alt="">
+                                <p>Go to Dashboard</p>
+                            </button>
+                        </a>
 
                         <!-- Share notification  NEW-->
                         <div class="share_notification">
@@ -251,22 +276,28 @@
                             <p>Select your format</p>
 
                             <!-- BUTTON FOR DOWNLOADING IN PNG -->
-                            <button class="download_btn" id="btn_png">
-                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
-                                <p>Download PNG</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_png">
+                                    <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                    <p>Download PNG</p>
+                                </button>
+                            </a>
 
                             <!-- BUTTON FOR DOWNLOADING IN JPEG -->
-                            <button class="download_btn" id="btn_jpeg">
-                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
-                                <p>Download JPEG</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_jpeg">
+                                    <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                    <p>Download JPEG</p>
+                                </button>
+                            </a>
 
                             <!-- BUTTON FOR DOWNLOADING IN PDF -->
-                            <button class="download_btn" id="btn_pdf">
-                                <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
-                                <p>Download PDF</p>
-                            </button>
+                            <a href="#">
+                                <button class="download_btn" id="btn_pdf">
+                                    <img src="{% static 'img/icons/download-button-icon.png' %}" alt="">
+                                    <p>Download PDF</p>
+                                </button>
+                            </a>
                             <img class="cancel" src="{% static 'img/icons/basic-cancel-icon.png' %}" alt="">
                         </div>
                     </div>
@@ -284,7 +315,7 @@
                         <!-- THE ACHOR TAG WILL TRIGGER THE CODE GENERATION -->
                         <a>Preview</a>
                         <!-- CODE GENERATED WILL BE CONTAINED IN THIS IMAGE -->
-                        <img src="" alt="Qr Code" id="generated_qrcode">
+                        <img src="" alt="Qr Code" id="generated_qrcode" hidden>
                         <p>Scanning the QR code will 
                             redirect you to the website.</p>
                     </div>
@@ -298,7 +329,7 @@
                     <p>Previous</p>
                 </button>
                 <button class="continue">
-                    <p>Next</p>
+                    <p id="next">Next</p>
                     <img src="{% static 'img/icons/arrow-right.png' %}" alt="">
                 </button>
             </div>
@@ -306,7 +337,7 @@
     </main>
 
     {% comment %} Ajax Script {% endcomment %}
-    
+
     <script type="text/javascript">
 
         // CSRF token setup for Ajax request
@@ -358,19 +389,23 @@
 
                     success: function(response) {
                         console.log('Success');
+
+                        // change the submit button value and disable it
                         form.generate.value = 'QRCode Generated, please proceed!';
                         form.generate.setAttribute("disabled", "");
                         
                         // get the created qrcode
-
                         var qrcode = JSON.parse(response["qrcode"]);
                         var qrcode_img = qrcode[0]["fields"]["img"];
                         console.log(qrcode);
                         console.log(qrcode_img);
                         
                         // update the qrcode image
-
+                        document.getElementById('generated_qrcode').removeAttribute("hidden");
                         document.getElementById('generated_qrcode').setAttribute("src", "/static/" + qrcode_img.slice(14));
+
+                        // disable the back button
+                        document.getElementsByClassName('back').setAttribute("disabled", "")
                     }   
                 })
 

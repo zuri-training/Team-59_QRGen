@@ -73,20 +73,18 @@ const qrSectionDisplay = function(){
     if(i > 0){
         optionPreview.classList.add('hide');
         generatedCode.classList.remove('hide')
+        document.querySelector('.back-button').classList.add('hide'); //NEW
     }else{
         generatedCode.classList.add('hide')
         optionPreview.classList.remove('hide');
+        document.querySelector('.back-button').classList.remove('hide'); //NEW
     }
 }
+
+
 allDashboardOption[i].classList.add('show');
 nextButton.addEventListener('click', function() {
     allDashboardOption[i].classList.remove('show')
-    console.log(document.querySelector('.back-button'));
-    // if(i ==! 0){
-    //     document.querySelector('.back-button').classList.add('hide');
-    // } else{
-    //     document.querySelector('.back-button').classList.add('hide');
-    // }
     i++
     allDashboardOption[i].classList.add('show');
     if(i === allDashboardOption.length-1){
@@ -99,11 +97,6 @@ nextButton.addEventListener('click', function() {
 backButton.addEventListener('click', function(){
     allDashboardOption[i].classList.remove('show');
     i--
-    // if(i ==! 0){
-    //     document.querySelector('.back-button').classList.add('hide');
-    // } else{
-    //     document.querySelector('.back-button').classList.add('hide');
-    // }
     allDashboardOption[i].classList.add('show');
     if(i < allDashboardOption.length-1){
         dashboardDetails.classList.remove('downloadslide');
@@ -145,8 +138,13 @@ textOption.addEventListener('click', function(){
 
 });
 pdfOption.addEventListener('click', function(option){
-    reset();
-    document.querySelector('.pdf_content').classList.add('show');
+    // Option not yet available
+    
+    // reset();
+    // document.querySelector('.pdf_content').classList.add('show');
+
+    alert("Option not Available yet");
+
 
 });
 eventOption.addEventListener('click', function(option){
@@ -155,8 +153,10 @@ eventOption.addEventListener('click', function(option){
 
 });
 businessOption.addEventListener('click', function(option){
-    reset();
-    document.querySelector('.business_content').classList.add('show');
+    // reset();
+    // document.querySelector('.business_content').classList.add('show');
+
+    alert("Option not Available yet");
 
 });
 whatsAppOption.addEventListener('click', function(option){
@@ -165,8 +165,10 @@ whatsAppOption.addEventListener('click', function(option){
 
 });
 imagesOption.addEventListener('click', function(option){
-    reset();
-    document.querySelector('.image_content').classList.add('show');
+    // reset();
+    // document.querySelector('.image_content').classList.add('show');
+
+    alert("Option not Available yet");
 
 });
 emailOption.addEventListener('click', function(option){
@@ -190,11 +192,9 @@ const downloadOptionBtn = document.querySelector('.buttons .download_btn_option'
 const downloadOptions = document.querySelector('.download_options');
 const cancleIcon = document.querySelector('.cancel');
 const downloadBtn = document.querySelectorAll('.download_btn');
-// console.log(downloadOptionBtn);
-console.log(downloadOptions);
+
 
 downloadOptionBtn.addEventListener('click', function(){
-    console.log('working');
     downloadOptions.classList.add('show')
 })
 cancleIcon.addEventListener('click', function(){
@@ -218,6 +218,26 @@ document.querySelectorAll('.profile_links a').forEach(function(tag){
     })
 }) 
 
+
+////////////////////////QR CODE ////////////////////////////////////
+const dynamicBtn = document.querySelector('.dynamic');
+const staticBtn = document.querySelector('.static');
+
+dynamicBtn.addEventListener('click', function(){
+    document.querySelectorAll('.input').forEach(function(input){
+        input.setAttribute('value','dynamic');
+    })
+    dynamicBtn.classList.add('active') 
+    staticBtn.classList.remove('active') 
+})
+staticBtn.addEventListener('click', function(){
+    document.querySelectorAll('.input').forEach(function(input){
+        input.setAttribute('value','static');
+    })
+    staticBtn.classList.add('active') 
+    dynamicBtn.classList.remove('active') 
+})
+
 ///////////////////////////////// SHARE FEATURE //////////////////////////////////
 
 const shareBtn = document.querySelector('.share_btn');
@@ -233,7 +253,6 @@ shareBtn.addEventListener('click', async function(e){
     // console.log(image);
     // // ***Here is the code for converting "image source" (url) to "Base64".***
     let url = image.src
-    console.log(url);
     const getUrlExtension = (url) => {
       return url
         .split(/[#?]/)[0]
@@ -249,7 +268,6 @@ shareBtn.addEventListener('click', async function(e){
       const fileArray = new File([blob], "search-icon." + imgExt, {
         type: blob.type,
       });
-      console.log(fileArray);
     
       if (navigator.canShare(fileArray)) {
         try {
@@ -257,11 +275,8 @@ shareBtn.addEventListener('click', async function(e){
             title: 'qrCodeee',
             files:[fileArray]
           })
-          console.log('can share');
-        //   output.textContent = 'Shared!'
         } catch (error) {
             console.log('cant share');
-        //   output.textContent = `Error: ${error.message}`
         }
       } 
     }
