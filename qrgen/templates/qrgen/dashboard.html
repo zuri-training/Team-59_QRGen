@@ -1,71 +1,161 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>DataStore</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script defer src="{% static 'js/dashbrd.js' %} "></script>
 </head>
 
 <body>
-    {% if data %}
-    <img src="{{ MEDIA_URL }}{% static 'img/qrcode.png' %}" alt="code image">
-    {% endif %}
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="">QrGen<span>59</span></a>
+            </div>
+            <div class="profile_btns">
+                <div class="profile_icon">
+                    <h1>K</h1>
+                </div>
+                <div class="profile_links">
+                    <a href="">My Account</a>
+                    <a href="">Log out</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="wrapper">
+        <div class="side_bar">
+            <div class="search_form_div">
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>
+                        <img src="{% static 'img/image/icon/search-normal.png' %}" alt="">
+                    </button>
+                </form>
+            </div>
+            <div class="navigator_header">
+                <h6>QR Codes</h6>
+            </div>
+            <div class="page_navigator">
+                <div class="navigator_options active" id="all">
+                    <img src="{% static 'img/image/icon/all-icon.png' %}" alt="">
+                    <button>All ({{code_count}})</button>
+                </div>
+                <div class="navigator_options" id="active">
+                    <img src="{% static 'img/image/icon/active-icon.png' %}" alt="">
+                    <button>Active ({{active_count}})</button>
+                </div>
+                <div class="navigator_options" id="archive">
+                    <img src="{% static 'img/image/icon/archive-icon.png' %}" alt="">
+                    <button>Archive (0)</button>
+                </div>
+            </div>
+            <div class="logout_btn">
+                <button>
+                    <img src="{% static 'img/image/icon/log-out-icon.png' %}" alt="">
+                    <p>Log out</p>
+                </button>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="main_content_header">
+                <div class="filter_btn">
+                    <button>
+                        <img src="{% static 'img/image/icon/all-icon.png' %}" alt="">
+                        <p>All QR codes</p>
+                    </button>
+                </div>
+                <div class="create_qr_navigator_btn">
+                    <a href="{% url 'qrgen:generate' %}">
+                        <button>Create QR code</button>
+                    </a>
+                </div>
+            </div>
+            <div class="saved_data_wrapper">
+                {% for qrcode in qrcodes %}
+                <div class="saved_data">
+                    <section class="qr_image">
+                        <div class="title">
+                            <h5>{{qrcode.title}} <span>
+                                    <img class="edit_icon" src="{% static 'img/image/icon/edit-2.png' %}" alt="">
+                                </span></h5>
+                        </div>
+                        <img src="{% static 'img/image/qr_code_placeholder.png' %}" alt="">
+                        <form class="title_form" action="{% url 'qrgen:generate' %}" method='POST'>
+                            {% csrf_token %}
+                            <h5>Enter new title</h5>
+                            <div>
+                                <input type="text">
+                                <input class="change_btn" type="submit" name="change_title" value="Change">
+                            </div>
+                            <img class="modal_cancel_icon" src="{% static 'img/image/icon/basic-cancel-icon.png' %}"
+                                alt="">
+                        </form>
+                    </section>
+                    <div class="des_share_del">
+                        <div class="qr_des">
+                            <div class="scan">
+                                <h5>{{qrcode.scan_count}}</h5>
+                            </div>
+                            <div class="date">
+                                <img src="{% static 'img/image/icon/clock-icon.png' %}" alt="">
+                                <p>{{qrcode.scan_count}}</p>
+                            </div>
+                            <div class="link">
+                                <img src="{% static 'img/image/icon/link-icon.png' %}" alt="">
+                                <p>{{qrcode.action_url}}</p>
+                            </div>
+                        </div>
+                        <div class="qr_share_del">
+                            <div class="qr_download">
+                                <button class="download_btn">Download</button>
+                                <div class="download_options">
+                                    <!-- BUTTON FOR DOWNLOADING IN PNG -->
+                                    <button class="download_btn" id="btn_png">
+                                        <img src="{% static 'img/image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download PNG</p>
+                                    </button>
 
-    <button onclick="toggleWebsite()">Website</button><br>
+                                    <!-- BUTTON FOR DOWNLOADING IN JPEG -->
+                                    <button class="download_btn" id="btn_jpeg">
+                                        <img src="{% static 'img/image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download JPEG</p>
+                                    </button>
 
-    <form method="POST" action="{% url 'dashboard_website_2' %}" id="website-form" style="display:none">
-        {% csrf_token %}
-        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
-
-        <label for="website" class="website" id="website">Website</label>
-        <input type="url" name="website" id="website" value="https://"><br>
-        <input type="submit" value="Generate Your QR Code"> <br>
-        <br>
-    </form><br>
-
-    <button onclick="toggleEmail()">Email</button><br>
-
-    <form method="POST" action="{% url 'dashboard_email_2' %}" id="email-form" style="display:none">
-        {% csrf_token %}
-        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
-
-        <label for="email" class="email" id="email">Email Address</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email address"><br>
-        <input type="submit" value="Generate Your QR Code"> <br>
-        <br>
-    </form><br>
-
-    <button onclick="toggleText()">Text</button><br>
-    <form method="POST" action="{% url 'dashboard_text_2' %}" id="text-form" style="display:none">
-        {% csrf_token %}
-        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
-
-        <label for="text" class="text" id="text">Text</label>
-        <input type="text" name="text" id="text" placeholder="Enter your text here..."><br>
-        <input type="submit" value="Generate Your QR Code"> <br>
-        <br>
-    </form> <br>
-
-    <button onclick="toggleWhatsapp()">Whatsapp</button><br>
-    <form method="POST" action="{% url 'dashboard_whatsapp_2' %}" id="whatsapp-form" style="display:none">
-        {% csrf_token %}
-        <!----- csrf_token handles cross site request forgies in forms when using method =" post" -->
-
-        <label for="whatsapp" class="whatsapp" id="whatsapp">Whatsapp</label>
-        <input type="url" name="whatsapp" id="whatsapp" value="https://wa.me/"><br>
-        <input type="submit" value="Generate Your QR Code"> <br>
-        <br>
-    </form>
-
-    <script src="{% static 'js/dbrd.js' %}"></script>
+                                    <!-- BUTTON FOR DOWNLOADING IN PDF -->
+                                    <button class="download_btn" id="btn_pdf">
+                                        <img src="{% static 'img/image/icon/download-button-icon.png' %}" alt="">
+                                        <p>Download PDF</p>
+                                    </button>
+                                    <img class="cancel" src="{% static 'img/image/icon/basic-cancel-icon.png' %}"
+                                        alt="">
+                                </div>
+                            </div>
+                            <div class="share_del">
+                                <button class="share">
+                                    <img src="{% static 'img/image/icon/send-icon.png' %}" alt="">
+                                    <p>Share</p>
+                                </button>
+                                <button>
+                                    <img src="{% static 'img/image/icon/delete-icon.png' %}" alt="">
+                                    <p>Delete</p>
+                                </button>
+                                <div class="share-notification">
+                                    <h1>feature only available on mobile devices</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </body>
-
-
-
-
-
 
 </html>

@@ -6,9 +6,15 @@
 	padding: 0%;
 	font-size: 14px;
 	font-weight: 700;
+	/* background: #fafaff; */
 	/* width: fit-content;
     block-size: fit-content */
 }
+
+a {
+	text-decoration: none;
+}
+
 body {
 	width: 100%;
 	padding-left: 5rem;
@@ -17,6 +23,7 @@ body {
 	font-family: "Lato", sans-serif;
 	color: #557f9d;
 	overflow-x: hidden;
+	background: #fafaff;
 }
 .header {
 	display: flex;
