@@ -10,7 +10,7 @@
   - [User Case Scenario](#user-case-scenario)
   - [Niche](#niche)
   - [Links](#links)
-- [Set Up](#set-up-and-installation)
+- [Set Up and Installation](#set-up-and-installation)
 - [Technologies Used](#technologies-used)
 
 
