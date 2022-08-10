@@ -4,8 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DataStore</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="app.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <script defer src="{% static 'app.js' %}"></script>
   </head>
   <body>
     <header class="header">
@@ -30,7 +32,7 @@
           <form action="">
             <input type="text" placeholder="search" />
             <button>
-              <img src="./image/icon/search-normal.png" alt="" />
+              <img src="{% static './image/icon/search-normal.png' %}" alt="" />
             </button>
           </form>
         </div>
@@ -39,21 +41,23 @@
         </div>
         <div class="page_navigator">
           <div class="navigator_options active" id="all">
-            <img src="./image/icon/all-icon.png" alt="" />
+            <img src="{% static './image/icon/all-icon.png' %}" alt="" />
             <button>All (2)</button>
           </div>
           <div class="navigator_options" id="active">
-            <img src="./image/icon/active-icon.png" alt="" />
+            <img src="{% static './image/icon/active-icon.png' %}" alt="" />
             <button>Active (2)</button>
           </div>
           <div class="navigator_options" id="archive">
-            <img src="./image/icon/archive-icon.png" alt="" />
+            <img src="{% static './image/icon/archive-icon.png' %}" alt="" />
+
             <button>Archive (0)</button>
           </div>
         </div>
         <div class="logout_btn">
           <button>
-            <img src="./image/icon/log-out-icon.png" alt="" />
+            <img src="{% static './image/icon/log-out-icon.png' %}" alt="" />
+
             <p>Log out</p>
           </button>
         </div>
@@ -63,7 +67,8 @@
         <div class="main_content_header">
           <div class="filter_btn">
             <button>
-              <img src="./image/icon/all-icon.png" alt="" />
+              <img src="{% static './image/icon/all-icon.png' %}" alt="" />
+
               <p>All QR codes</p>
             </button>
           </div>
