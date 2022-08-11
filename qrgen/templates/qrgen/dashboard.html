@@ -183,14 +183,11 @@
                     />
                     <p>Share</p>
                   </button>
-                  <button>
-                    <img
-                      src="{% static 'img/image/icon/delete-icon.png' %}"
-                      alt=""
-                    />
+                  <a href="{% url 'qrgen:delete_qrcode' qrcode.id %}"><button>
+                    <img src="{% static 'image/icon/delete-icon.png' %}" alt="">
                     <p>Delete</p>
-                  </button>
-                  <div class="share-notification">
+                </button></a>
+                <div class="share-notification">
                     <h1>feature only available on mobile devices</h1>
                   </div>
                 </div>

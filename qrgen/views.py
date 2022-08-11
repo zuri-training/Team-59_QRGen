@@ -3,6 +3,9 @@ from django.views import View
 import qrcode
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 # for manipulating our models
 from .models import QrCode, QrType, File
 
@@ -176,3 +179,9 @@ class MainDashboardView(LoginRequiredMixin, View):
         # download
         #
         pass
+
+
+def delete_qrcode(request, code_id):
+    qrcode = QrCode.objects.get(id=code_id)
+    qrcode.delete()
+    return HttpResponseRedirect(reverse('qrgen:dashboard'))
