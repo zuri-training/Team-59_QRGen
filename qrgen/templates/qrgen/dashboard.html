@@ -142,32 +142,13 @@
                 <div class="qr_download">
                   <button class="download_btn">Download</button>
                   <div class="download_options">
-                    <!-- BUTTON FOR DOWNLOADING IN PNG -->
-                    <button class="download_btn" id="btn_png">
-                      <img
-                        src="{% static 'img/image/icon/download-button-icon.png' %}"
-                        alt=""
-                      />
-                      <p>Download PNG</p>
-                    </button>
-
-                    <!-- BUTTON FOR DOWNLOADING IN JPEG -->
-                    <button class="download_btn" id="btn_jpeg">
-                      <img
-                        src="{% static 'img/image/icon/download-button-icon.png' %}"
-                        alt=""
-                      />
-                      <p>Download JPEG</p>
-                    </button>
-
-                    <!-- BUTTON FOR DOWNLOADING IN PDF -->
-                    <button class="download_btn" id="btn_pdf">
-                      <img
-                        src="{% static 'img/image/icon/download-button-icon.png' %}"
-                        alt=""
-                      />
-                      <p>Download PDF</p>
-                    </button>
+                    {% for id, option in download_options.items %}
+                      <a href="{% url 'qrgen:download_qrcode' qrcode.id option %}"><button class="download_btn" id="btn_{{option}}">
+                        <img src="{% static 'image/icon/download-button-icon.png' %}" alt="">
+                        <p>Download {{option}}</p>
+                    </button></a>
+                    
+                    {% endfor %}
                     <img
                       class="cancel"
                       src="{% static 'img/image/icon/basic-cancel-icon.png' %}"

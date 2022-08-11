@@ -3,7 +3,7 @@ from django.views import View
 import qrcode
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
 
 # for manipulating our models
@@ -16,6 +16,10 @@ from django.core import serializers
 # for manipulating folders
 from QRGenProject.settings import BASE_DIR
 import os
+
+# for image conversion
+from PIL import Image
+
 
 
 def create_or_get_types():
@@ -119,6 +123,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)
 
+            print(folder_path)
             qr_img = qrcode.make(this_qrcode.action_url)
             
             # folder for the qrcode being created
@@ -127,7 +132,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             if not os.path.exists(qr_folder_path):
                 os.makedirs(qr_folder_path)
-
+            print(qr_folder_path)
             img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.png'
 
             qr_img.save(img_path)
@@ -137,23 +142,26 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             this_qrcode.save()
 
+            
+            # Converting the png QR code to JPG
+            img_png = Image.open(img_path)
+            img_path = img_png.convert("RGB")
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.jpeg'
+            qr_img.save(img_path)
+
+            # Converting the png QR code to PDF 
+            img_path = img_png.convert("RGB")
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.pdf'
+            qr_img.save(img_path)
+
             # serialize the new qrcode object
             ser_qrcode = serializers.serialize('json', [this_qrcode, ])
-
-            # context = {
-            #     'qrcode_image_path': this_qrcode.img.url,
-            # }
-            # return render(request, 'generation.html', context)
 
             # send to client site
             return JsonResponse({"qrcode": ser_qrcode}, status=200)
         else:
             return JsonResponse({"error": ""}, status=400)
 
-            # elif 'download' in request.POST:
-            #     pass
-
-# @login_required
 
 
 class MainDashboardView(LoginRequiredMixin, View):
@@ -202,3 +210,15 @@ class DeleteQrCode(LoginRequiredMixin, View):
     
     def post(self, request, code_id):
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
+
+
+def download(request, code_id, type):
+    try:
+        file_path = BASE_DIR / f'qrgen/static/img/qrcodes/{code_id}/qrcode-{code_id}.{type}'
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/adminupload")
+            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            return response
+    except:
+        # return HttpResponse('File does not exit!!!')
+        raise HttpResponse('error')
