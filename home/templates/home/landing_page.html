@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
   />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
-    <title>QRGen59 | Landing Page</title>
+    <title>QRGen59 | Home</title>
   </head>
   
   <body>
@@ -24,12 +25,11 @@
       <i class="fas fa-angle-up"></i>
     </div>
     <!-- Navbar Section -->
-    <!-- flexbox, flex-direction -->
     <header>
       <nav class="navbar">
         <div class="wrapper">
             <div class="logo">
-                <a href="{% url 'home:home-page' %}">QRGen<span>59</span></a>
+                <a href="#">QRGen<span>59</span></a>
             </div>
             
             <ul class="nav-links">
@@ -40,15 +40,15 @@
                 <a href="{% url 'home:learn-page' %}" class="menu-btn">Learn</a>
               </li>
               <li>
-                <a href="#" class="menu-btn">Contact Us</a>
+                <a href="" class="menu-btn">Contact Us</a>
               </li>
               <li>
-                <a href="#" class="menu-btn">About Us</a>
+                <a href="{% url 'home:about-page' %}" class="menu-btn">About Us</a>
               </li>
             </ul>
             <div class="nav-buttons">
-                <a href="#" class="btn1 dark">Get Started</a>
-                <a href="#" class="btn2 light">Sign in</a>
+                <a href="" class="btn1 dark" style="margin-right: 10px;">Get Started</a>
+                <a href="" class="btn2 light">Sign in</a>
             </div>
             <div class="menu-btn">
               <i class="fas fa-bars"></i>
@@ -56,124 +56,208 @@
         </div>
     </nav>
     <div class="generate">
-        <div class="hero-left">
-            <h1>Learn about QR codes & generate in seconds; <span> hassle-free.</span>
-            <p>Create, download, and share your QR Code for multi-purpose use all in one place.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn3 dark">Get Started</a>
-                <a href="#" class="btn4 light">Sign in</a>
-            </div>
+      <div class="hero-left">
+          <h1>Learn about QR codes & generate in seconds;<span> hassle-free.</span>
+          <p>Create, download, and share your QR Code for multi-purpose use all in one place</p>
+          <div class="hero-buttons">
+            <a href="" class="btn3 dark" style="margin-right: 12px;">Get Started</a>
+            <a href="" class="btn4 light">Sign in</a>
         </div>
-        <div class="hero-right">
-            <img src="{% static 'home/images/landing/hero-image.png' %}" class="image" alt="">
-        </div>
-    </div>
+      </div>
+      <div class="hero-right">
+          <img src="{% static 'home/images/landing/hero-image.png' %}" class="image" alt="image">
+      </div>
+   </div>
 </header>
+<!-- Second-container Section -->
+<div class="second-container">
+  <div class="create">
+      <h2>Create your QR code in 3 steps</h2>
+      <p class="main">
+        Simple and easy to use.
+      </p>
+  </div>
+  <div class="image-container1">
+    <div class="imageSection1">
+      <img src="{% static 'home/images/landing/choose.png' %}" alt="choose"/>
+   </div>
 
-<!-- Get-More Section -->
-    <div class="second-container">
-        <div class="get-more">
-            <h2>Get more</h2>
-            <p class="main">
-              A Professional QR Code Generation platform to create, edit and customize
-              all your QR codes in one place.
-            </p>
-        </div>
-          <div class="image-container">
-            <div class="imageSection dynamic">
-              <img src="{% static 'home/images/landing/Dynamic.png' %}" alt="" class="dynamo" />
-              <h3>Dynamic QR Codes</h3>
-              <p>Generate QR codes for any content type.</p>
-           </div>
+  <div class="imageSection1">
+    <img src="{% static 'home/images/landing/input.png' %}" alt="input"/>
+  </div>
 
-          <div class="imageSection multiformat">
-            <img src="{% static 'home/images/landing/Multiformat.png' %}" alt="" class="format"/>
-            <h3>Multi-format download</h3>
-            <p>Download your QR code in different formats.</p>
-          </div>
+    <div class="imageSection1">
+      <img src="{% static 'home/images/landing/ready.png' %}" alt="ready"/>
+    </div>
+  </div>  
+    <div class="cta">
+      <p>Sign up to create your QR code now</p>
+      <a href="" class="btn4 dark">Get started</a>
+    </div>
+</div>
+<!-- Third-container Section -->
+<div class="third-container">
+  <div class="get-more">
+      <h2>Get more</h2>
+      <p class="main">
+        A Professional QR Code Generation platform to create, edit and customize
+        all your QR codes in one place.
+      </p>
+  </div>
+    <div class="image-container">
+      <div class="imageSection dynamic">
+        <img src="{% static 'home/images/landing/Dynamic.png' %}" alt="dynamic" class="dynamo" />
+        <h3>Dynamic QR Codes</h3>
+        <p>Generate QR codes for any content type.</p>
+     </div>
 
-            <div class="imageSection history">
-              <img src="{% static 'home/images/landing/history.png' %}" alt="" class="story"/>
-              <h3>QR code History</h3>
-              <p>Keep track of all QR codes generated.</p>
-            </div>
-          </div>    
+    <div class="imageSection multiformat">
+      <img src="{% static 'home/images/landing/Multiformat.png' %}" alt="multiformat" class="format"/>
+      <h3>Multi-format download</h3>
+      <p>Download your QR code in different formats.</p>
     </div>
 
-    <!-- Get-Started Section -->
-      <section class="third-container">
-        <div class="get-started">
-            <h2 class>Get Started</h2>
+      <div class="imageSection history">
+        <img src="{% static 'home/images/landing/history.png' %}" alt="history" class="story"/>
+        <h3>QR code History</h3>
+        <p>Keep track of all QR codes generated.</p>
+      </div>
+    </div>    
+</div>
+<!-- Fourth-container Section -->
+
+<div class="data-types">
+  <h2>Some of our Data Types</h2>
+</div>
+<div class="fourth-container">
+      <div class="url">
+        <div class="left url">
+          <h2>Website URL
             <p>
-              Unlike other QR Generators, QrGen59 is built for reliabilty, security
-              and rapid response.
+              Showcase your portfolio all in one QR code. Have all your
+              information saved in a QR code.
             </p>
-          </div>
-        <div class="contain select">
-            <div class="content">
-                <h2>Select type</h2>
-                <p>
-                  Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will see all available options. Enter all fields that should appear when scanning your QR code. Make sure everything you enter is correct because you can’t change the content once your QR code is printed. 
-                </p>
-            </div>
-            <img src="{% static 'home/images/landing/getstarted.png' %}" alt="" />
+          </h2>
+        <div class="right website">
+          <img src="{% static 'home/images/landing/website.png' %}" alt="website" />
         </div>
+        </div>
+      </div>
 
-        <div class="contain customize">
-            <img src="{% static 'home/images/landing/customise2.png' %}" alt="" />
-            <div class="content left">
-                <h2>Chooose QR Code Type</h2>
+      <div class="email">
+        <div class="left email">
+          <h2>Email
           <p>
-            Choose between dynamic and static QR code type: dynamic or satic. Dynamic QR codes store digital information which can be edited even after the QR code has been generated. Static QR code type store digital information which cannot be edited once the QR code has been generated.
+            Skip the traditional way of sharing 
+            mails and get quick emails just with 
+            a QR code scan.
           </p>
-            </div>
-        </div>
-        <div class="contain generating">
-            <div class="content">
-                <h2>Generate QR Code</h2>
+          </h2>
+          <div class="right website email">
+            <img src="{% static 'home/images/landing/email.png' %}" alt="email" />
+          </div>
+          </div>
+      </div>
+
+      <div class="event">
+        <div class="left event">
+          <h2>Event
           <p>
-            Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code scanner. Use a high resolution setting if you want to get a png code with print quality.
+            Generate QR codes for your
+            events; a quick scan adds it
+            to your calendar.
           </p>
-            </div>
-            <img src="{% static 'home/images/landing/generate.png' %}" alt="" />
-        </div>
-        <div class="contain download">
-            <img src="{% static 'home/images/landing/download.png' %}" alt="" class/>
-            <div class="content left">
-                <h2>Download the QR Code</h2>
-          <p>
-            Now you can download the image files for your QR code as .png or .svg, .pdf, .eps vector graphic. If you want a vector format with the complete design please choose .svg. SVG is working in software like Adobe Illustrator or Inkscape. The logo and design settings currently only work for .png and .svg files. 
-          </p>
-        </div>
-        </div>
-        <a href="#" class="btn5 dark">Get Started Now</a>
-    </section>
-  
-<footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <a href="#">QrGen59</a>
-        </div>
-        <ul class="footer-nav1">
-          <li>  
-            <a href="#" class="active">Home</a>
-          </li>
-          <li>
-            <a href="#">Documentation</a>
-          </li>
-          <li>
-            <a href="#">Help Center</a>
-          </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
-        </ul> 
+          </h2>
+          <div class="right website event">
+            <img src="{% static 'home/images/landing/event.png' %}" alt="event" />
+          </div>
+          </div>
+          <div class="botton">
+            <a href="#" class="btn5 dark">See more</a>
+          </div>
+          
+      </div>
+  </div>
+
+  <div class="fifth-container">
+    <img src="{% static 'home/images/landing/try-qrgen59.png' %}" alt="try-qrgen59">
+    <div class="botton">
+      <a href="" class="btn4 dark">Get started</a>
     </div>
-    <div class="line"></div>
-    <ul class="footer-nav2">
-      <p>Copyright@2022</p>
-    </ul>
-</footer>
-    <script src="{% static 'home/js/landing_script.js' %}"></script>
-  </body>
-</html>
+  </div>
+
+  <section>
+    <h2 class="title">FAQ</h2>
+
+    <div class="faq">
+      <div class="question">
+        <h3>Who Uses QR Code ?</h3>
+        <div class="svg">
+          <img src="{% static 'home/images/landing/arrow-down.svg' %}" alt="arrow-down">
+        </div>
+      </div>
+      <div class="answer">
+       <p>
+        QR codes can be used for marketing, advertising, and data collection. They have many benefits that make them a good choice in the workplace. They are easy to use and don't require any special equipment to read them. Thus, anybody and everybody can put them to good use, without stress. 
+       </p> 
+      </div>
+    </div>
+
+
+    <div class="faq">
+      <div class="question">
+        <h3>Is this really the best QR Code solution ?</h3>
+        <div class="svg">
+          <img src="{% static 'home/images/landing/arrow-down.svg' %}" alt="arrow-down">
+        </div>
+      </div>
+      <div class="answer">
+       <p>
+        QR Codes ultimately work to provide mobility and ease of access to users and that is the same concept applied here. With our underlying principle being "less is more", this user-friendly web tool will see you through the process of generating your codes, seamlessly!
+       </p> 
+      </div>
+    </div>
+
+
+    <div class="faq">
+      <div class="question">
+        <h3>How do I create QR Code ?</h3>
+        <div class="svg">
+          <img src="{% static 'home/images/landing/arrow-down.svg' %}" alt="arrow-down">
+        </div>
+      </div>
+      <div class="answer">
+       <p>
+        It only takes 3 simple steps. Select your preferred data type (event, whatsapp, etc), add your info in the data field as shown above, preview your code, and voila!
+       </p> 
+      </div>
+    </div>
+  </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="#">QrGen59</a>
+            </div>
+            <ul class="footer-nav1">
+              <li>  
+                <a href="{% url 'home:learn-page' %}">Learn</a>
+              </li>
+              <li>
+                <a href="{% url 'home:documentation-page' %}">Documentation</a>
+              </li>
+              <li>
+                <a href="">Help Center</a>
+              </li>
+              <li>
+                <a href="{% url 'home:about-page' %}">About Us</a>
+              </li>
+            </ul> 
+        </div>
+        <div class="line"></div>
+        <ul class="footer-nav2">
+          <p>Copyright@2022</p>
+        </ul>
+    </footer>
+        <script src="{% static 'home/js/landing_script.js' %}"></script>
+      </body>
+    </html>

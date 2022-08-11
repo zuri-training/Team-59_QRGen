@@ -17,4 +17,8 @@ def contact_page(request):
 def about_page(request):
     # extra context if any
     return render(request, 'home/about_us_page.html')
+
+def documentation(request):
+    # extra context if any
+    return render(request, 'home/documentation_page.html')
     
