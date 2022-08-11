@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import View
+import os
+from QRGenProject.settings import BASE_DIR 
 
 # for auth
 # from django.contrib.auth.decorators import login_required
@@ -114,7 +116,20 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             # we now generate a qrcode image with the QrCode's action_url
 
             qr_img = qrcode.make(this_qrcode.action_url)
-            img_path = f'qrgen/static/img/qrcodes/qrcode-{this_qrcode.id}.png'
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode.png'
+            qr_img.save(img_path)
+
+            #installed Pillow using pip, import Image with PIL 
+            from PIL import Image
+            # Converting the png QR code to JPG
+            img_png = Image.open(img_path)
+            img_path = img_png.convert("RGB")
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode.jpg'
+            qr_img.save(img_path)
+
+            # Converting the png QR code to PDF 
+            img_path = img_png.convert("RGB")
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode.pdf'
             qr_img.save(img_path)
 
             # add the qr_img to the QrCode object
