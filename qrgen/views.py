@@ -1,178 +1,160 @@
+from pyexpat.errors import messages
 from django.shortcuts import render
+from django.views import View
 import qrcode
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
-# from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.urls import reverse_lazy
-from .models import QrCode
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+# for manipulating our models
+from .models import QrCode, QrType, File
 
-class QrListView(ListView):
-
-    model = QrCode     
-
-    template_name = 'qrgen/list.html'
-
-    context_object_name = 'qrimage'
+# for the ajax request
+from django.http import JsonResponse
+from django.core import serializers
 
 
-class QrDetailView(DetailView):
+def create_or_get_types():
 
-    model = QrCode
+    if (len(QrType.objects.all())) == 0:
+        code_types = ['dynamic', 'static']
 
-    template_name = 'qrgen/detail.html'
+        for code_type in code_types:
+            QrType.objects.create(
+                name=code_type
+            )
 
-    context_object_name = 'qrimage'
+    return QrType.objects.all()
 
-
-class QrUpdateView(UpdateView):
-
-    template_name = 'qrgen/update.html'
-
-    model = QrCode
-
-    fields = ['title']
-
-    success_url = reverse_lazy('qrimage:list')
+# @login_required(login_url='/admin/login/')
+# this should be the default user login (i.e. /accounts/login/)
+# note: this is for FBV, for CBV, we use LoginRequiredMixin
 
 
-class QrDeleteView(DeleteView):
+class GenerationDashboardView(LoginRequiredMixin, View):
+    login_url = '/admin/login/'
 
-    template_name = 'photoapp/delete.html'
+    def get(self, request):
 
-    model = QrCode
+        QrTypes = create_or_get_types()
 
-    success_url = reverse_lazy('qrimage:list')
+        context = {
+            'code_types': QrTypes,
+        }
 
+        return render(request, 'qrgen/generation.html', context)
 
-def dashboard(request):
-    return render(request, 'qrgen/dashboard.html')
+    def post(self, request):
 
+        # if request.is_ajax
 
-def dashboard_website(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['website']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+        if 'generate' in request.POST:
 
-    user_dict = {'data': data, 'img': img}
-    return render(request, 'qrgen/dashboard.html', user_dict)
+            # collecting form data (url...qrcode_type, action_type)
 
+            form_data = request.POST
 
-def dashboard_email(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['email']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+            # get qr_type (from database)
 
-    user_dict = {'data': data, 'img': img}
-    return render(request, 'qrgen/dashboard.html', user_dict)
+            type = QrType.objects.get(name=request.POST['qrcode_type'])
 
+            # partially create a qrcode object
 
-def dashboard_text(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['text']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+            QrCode.objects.create(
+                user=request.user,
+                type=type,
+                action_type=form_data['action_type'],
+            )
 
-    user_dict = {'data': data, 'img': img}
-    return render(request, 'qrgen/dashboard.html', user_dict)
+            uploads = ['pdf', 'img', 'biz']
 
+            # add the qrcode object's action url
 
-def dashboard_whatsapp(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['whatsapp']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/')
+            # - get the last added qrcode object
+            this_qrcode = QrCode.objects.all().last()
 
-    user_dict = {'data': data, 'img': img}
-    return render(request, 'qrgen/dashboard.html', user_dict)
+            if this_qrcode.action_type not in uploads:
+                # it is a url not a file uploaded
+                this_qrcode.input_url = form_data['url']
+                this_qrcode.save()
 
+            else:
+                # it is either a pdf or image upload
+                # create a File object
+                File.objects.create(
+                    user=request.user,
+                    name=request.FILES['upload_file'].name,
+                    file=request.FILES['upload_file'],
+                )
 
-def dashboard_website_2(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['website']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+                # get the created file
+                created_file = File.objects.all().last()
 
-    user_dict = {'img': img}
-    return render(request, 'qrgen/dashboard2.html', user_dict)
+                # add the created file to the QrCode object
+                this_qrcode.file = created_file
+                this_qrcode.save()
 
+            if this_qrcode.type.name == 'dynamic':
+                # - this is the url that the qrcode should point to either ways
+                # --- (be it upload or url, so long as it is dynamic)
+                this_qrcode.action_url = request.build_absolute_uri(
+                    f'/dynamic/{this_qrcode.id}')
 
-def dashboard_email_2(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['email']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+            else:
+                # qrcode is static type
+                this_qrcode.action_url = form_data['url']
 
-    user_dict = {'img': img}
-    return render(request, 'qrgen/dashboard2.html', user_dict)
+            this_qrcode.save()
 
+            # having saved the QrCode object, (and a File object (if it was and uploaded file)),
+            # we now generate a qrcode image with the QrCode's action_url
 
-def dashboard_text_2(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['text']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+            qr_img = qrcode.make(this_qrcode.action_url)
+            img_path = f'qrgen/static/img/qrcodes/qrcode-{this_qrcode.id}.png'
+            qr_img.save(img_path)
 
-    user_dict = {'img': img}
-    return render(request, 'qrgen/dashboard2.html', user_dict)
+            # add the qr_img to the QrCode object
+            this_qrcode.img = img_path
 
+            this_qrcode.save()
 
-def dashboard_whatsapp_2(request):
-    data = ''
-    img = ''
-    if request.method == 'POST':
-        data = request.POST['whatsapp']
-        img = qrcode.make(data)
-        img.save('qrgen/static/img/qrcode.png')
+            # serialize the new qrcode object
+            ser_qrcode = serializers.serialize('json', [this_qrcode, ])
 
-    user_dict = {'img': img}
-    return render(request, 'qrgen/dashboard2.html', user_dict)
+            # context = {
+            #     'qrcode_image_path': this_qrcode.img.url,
+            # }
+            # return render(request, 'generation.html', context)
+
+            # send to client site
+            return JsonResponse({"qrcode": ser_qrcode}, status=200)
+        else:
+            return JsonResponse({"error": ""}, status=400)
+
+            # elif 'download' in request.POST:
+            #     pass
+
+# @login_required
 
 
-# def website(request):
-#     data = ''
-#     img = ''
-#     if request.method == 'POST':
-#         data = request.POST['url']
-#         img = qrcode.make(data)
+class MainDashboardView(LoginRequiredMixin, View):
+    login_url = '/admin/login'
 
-#     user_dict = {'data': data, 'img': img}
-#     return render(request, 'qrgen/dashboard.html', user_dict)
+    def get(self, request):
+        user_codes = QrCode.objects.all().filter(user_id=request.user.id)
+        download_options = {1: 'png', 2: 'jpeg', 3: 'pdf'}
+        active_codes = user_codes.filter(is_active=True)
 
+        context = {
+            'qrcodes': user_codes,
+            'code_count': user_codes.count(),
+            'active_codes': active_codes,
+            'active_count': active_codes.count(),
+            'download_options': download_options,
+        }
+        return render(request, 'qrgen/dashboard.html', context)
 
-# def text(request):
-#     data = ''
-#     img = ''
-#     if request.method == 'POST':
-#         data = request.POST['text']
-#         img = qrcode.make(data)
-
-#     user_dict = {'data': data, 'img': img}
-#     return render(request, 'qrgen/dashboard.html', user_dict)
-
-
-# def whatsapp(request):
-#     data = ''
-#     img = ''
-#     if request.method == 'POST':
-#         data = request.POST['phone_number']
-#         img = qrcode.make(data)
-
-#     user_dict = {'data': data, 'img': img}
-#     return render(request, 'qrgen/dashboard.html', user_dict)
+    def post(request):
+        #
+        # delete
+        # download
+        #
+        pass
