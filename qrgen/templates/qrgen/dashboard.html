@@ -97,13 +97,13 @@
               <img src="{{qrcode.img.url|slice:'12:'}}" alt="" />
               <form
                 class="title_form"
-                action="{% url 'qrgen:generate' %}"
+                action="{% url 'qrgen:edit_qrcode' qrcode.id %}"
                 method="POST"
               >
                 {% csrf_token %}
                 <h5>Enter new title</h5>
                 <div>
-                  <input type="text" />
+                  <input name="new_title" type="text" />
                   <input
                     class="change_btn"
                     type="submit"

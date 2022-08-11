@@ -98,7 +98,7 @@ const changeBtn = document.querySelectorAll('.change_btn');
 
 changeBtn.forEach(function(btn){
     btn.addEventListener('click', function(e){
-        e.preventDefault()
+        // e.preventDefault()
         e.target.closest('.title_form').classList.remove('show');
     })
 })

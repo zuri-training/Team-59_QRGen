@@ -160,7 +160,7 @@ class MainDashboardView(LoginRequiredMixin, View):
     login_url = '/admin/login'
 
     def get(self, request):
-        user_codes = QrCode.objects.all().filter(user_id=request.user.id)
+        user_codes = QrCode.objects.all().filter(user_id=request.user.id).order_by('-date_gen')
         download_options = {1: 'png', 2: 'jpeg', 3: 'pdf'}
         active_codes = user_codes.filter(is_active=True)
 
@@ -174,14 +174,31 @@ class MainDashboardView(LoginRequiredMixin, View):
         return render(request, 'qrgen/dashboard.html', context)
 
     def post(request):
-        #
-        # delete
-        # download
-        #
-        pass
+        return HttpResponseRedirect(reverse('qrgen:dashboard'))
 
 
-def delete_qrcode(request, code_id):
-    qrcode = QrCode.objects.get(id=code_id)
-    qrcode.delete()
-    return HttpResponseRedirect(reverse('qrgen:dashboard'))
+class EditQrCode(LoginRequiredMixin, View):
+    login_url = '/admin/login'
+
+    def get(self, request):
+        return HttpResponseRedirect(reverse('qrgen:dashboard'))
+    
+    def post(self, request, code_id):
+        qrcode = QrCode.objects.get(id=code_id)
+        new_title = request.POST['new_title']
+
+        qrcode.title = new_title
+        qrcode.save()
+
+        return HttpResponseRedirect(reverse('qrgen:dashboard'))
+    
+class DeleteQrCode(LoginRequiredMixin, View):
+    login_url = '/admin/login'
+
+    def get(self, request, code_id):
+        qrcode = QrCode.objects.get(id=code_id)
+        qrcode.delete()
+        return HttpResponseRedirect(reverse('qrgen:dashboard'))
+    
+    def post(self, request, code_id):
+        return HttpResponseRedirect(reverse('qrgen:dashboard'))
