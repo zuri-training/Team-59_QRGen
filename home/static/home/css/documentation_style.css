@@ -194,6 +194,10 @@ footer p {
     font-style: italic;
     color: #5A5A5C;
 }
+.logo-2{
+    text-decoration: none;
+    color: white;
+}
 .logo-2:hover {
     color: #FF6835;
 }

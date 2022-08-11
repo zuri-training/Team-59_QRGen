@@ -34,7 +34,7 @@
                         <a class="nav-link nlink"  aria-current="page"  href="{% url 'home:learn-page' %}">Learn</a>
                         </li>
                         <li class="nav-item me-4">
-                        <a class="nav-link nlink" href="#">Contact Us</a>
+                        <a class="nav-link nlink" href="{% url 'home:contact-page' %}">Contact Us</a>
                         </li>
                         <li class="nav-item me-4">
                         <a class="nav-link nlink" href="{% url 'home:about-page' %}">About Us</a>
@@ -350,10 +350,10 @@
         <footer>
             <div class="line1">
                 <a class="logo text-white" href="#">QrGen59</a>
-                <a class=" text-white logo-2 " href="{% url 'home:learn-page' %}">Learn</a>
-                <a class=" text-white logo-2" style="color: orange;" href="{% url 'home:documentation-page' %}">Documentation</a>
-                <a class=" text-white logo-2" href="#">Help Center</a>
-                <a class=" text-white logo-2" href="{% url 'home:about-page' %}">About us</a>
+                <a class="logo-2 " href="{% url 'home:learn-page' %}">Learn</a>
+                <a class="logo-2" style="color: orange;" href="{% url 'home:documentation-page' %}">Documentation</a>
+                <a class="logo-2" href="{% url 'home:contact-page' %}">Contact Us</a>
+                <a class="logo-2" href="{% url 'home:about-page' %}">About us</a>
             </div>
             <hr>
             <p>copyright@2022</p>
