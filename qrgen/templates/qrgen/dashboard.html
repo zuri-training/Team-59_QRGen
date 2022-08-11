@@ -94,7 +94,7 @@
                   </span>
                 </h5>
               </div>
-              <img src="{{ qrcode.img.url }}" alt="" />
+              <img src="{{qrcode.img.url|slice:'12:'}}" alt="" />
               <form
                 class="title_form"
                 action="{% url 'qrgen:generate' %}"
