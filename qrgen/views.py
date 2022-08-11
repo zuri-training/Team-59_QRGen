@@ -1,4 +1,3 @@
-from pyexpat.errors import messages
 from django.shortcuts import render
 from django.views import View
 import qrcode
@@ -10,6 +9,10 @@ from .models import QrCode, QrType, File
 # for the ajax request
 from django.http import JsonResponse
 from django.core import serializers
+
+# for manipulating folders
+from QRGenProject.settings import BASE_DIR
+import os
 
 
 def create_or_get_types():
@@ -107,8 +110,23 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             # having saved the QrCode object, (and a File object (if it was and uploaded file)),
             # we now generate a qrcode image with the QrCode's action_url
 
+            # create a folder to store all the qrcode images if it doesn't exist
+
+            folder_path = BASE_DIR / 'qrgen/static/img/qrcodes/'
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+
             qr_img = qrcode.make(this_qrcode.action_url)
-            img_path = f'qrgen/static/img/qrcodes/qrcode-{this_qrcode.id}.png'
+            
+            # folder for the qrcode being created
+
+            qr_folder_path = BASE_DIR / f'qrgen/static/img/qrcodes/{this_qrcode.id}/'
+
+            if not os.path.exists(qr_folder_path):
+                os.makedirs(qr_folder_path)
+
+            img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.png'
+
             qr_img.save(img_path)
 
             # add the qr_img to the QrCode object
