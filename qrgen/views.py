@@ -147,7 +147,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             # Converting the png QR code to PDF
             img_path = img_png.convert("RGB")
             img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.pdf'
-            qr_img.save(img_path)
+            qr_img.save(img_path, format='pdf')
 
             # serialize the new qrcode object
             ser_qrcode = serializers.serialize('json', [this_qrcode, ])
