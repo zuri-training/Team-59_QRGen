@@ -18,7 +18,7 @@
         </div>
         <div class="profile_btns">
           <div class="profile_icon">
-            <h1>K</h1>
+            <h1>{{request.user.username|slice:':1'}}</h1>
           </div>
           <div class="profile_links">
             <a href="">My Account</a>
@@ -52,10 +52,6 @@
             <img src="{% static 'img/image/icon/active-icon.png' %}" alt="" />
             <button>Active ({{active_count}})</button>
           </div>
-          <div class="navigator_options" id="archive">
-            <img src="{% static 'img/image/icon/archive-icon.png' %}" alt="" />
-            <button>Archive (0)</button>
-          </div>
         </div>
         <div class="logout_btn">
           <button>
@@ -79,8 +75,26 @@
           </div>
         </div>
         <div class="saved_data_wrapper">
+          {% if qrcodes %}
           {% for qrcode in qrcodes %}
           <div class="saved_data">
+            <div class="delete_modal">
+              <div class="alert_icon">
+                <img src="{% static 'image/icon/alert.png' %}" alt="">
+              </div>
+              <div class="delete_msg_section">
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete this record?. This process cannot be undone</p>
+              </div>
+              <div class="button_section">
+                <a class="cancelx">
+                  <button>Cancel</button>
+                </a>
+                <a class="delete" href="{% url 'qrgen:delete_qrcode' qrcode.id %}">
+                  <button>Delete</button>
+                </a>
+              </div>
+            </div>
             <section class="qr_image">
               <div class="title">
                 <h5>
@@ -119,10 +133,34 @@
               </form>
             </section>
             <div class="des_share_del">
-              <div class="qr_des">
-                <div class="scan">
-                  <h5>{{qrcode.scan_count}}</h5>
+              <form
+                class="edit_form"
+                action="{% url 'qrgen:edit_qrcode' qrcode.id %}"
+                method="POST"
+              >
+                {% csrf_token %}
+                <h5>Enter new Qrcode content</h5>
+                <div>
+                  <input name="new_content" type="text" />
+                  <input
+                    class="change_btn_x"
+                    type="submit"
+                    name="change_content"
+                    value="Change"
+                  />
                 </div>
+                <img
+                  class="content_modal_cancel"
+                  src="{% static 'img/image/icon/basic-cancel-icon.png' %}"
+                  alt=""
+                />
+              </form>
+              <div class="qr_des">
+                {% if qrcode.is_dynamic %}
+                <div class="scan">
+                  <h5>Scan({{qrcode.scan_count}})</h5>
+                </div>
+                {% endif %}
                 <div class="date">
                   <img
                     src="{% static 'img/image/icon/clock-icon.png' %}"
@@ -134,9 +172,12 @@
                   <img
                     src="{% static 'img/image/icon/link-icon.png' %}"
                     alt=""
-                  />
-                  <p>{{qrcode.action_url}}</p>
-                </div>
+                    />
+                    <p>{{qrcode.action_url}}</p>
+                  </div>
+                {% if qrcode.is_dynamic %}
+                <button class="content_edit_btn">Edit</button>
+                {% endif %}
               </div>
               <div class="qr_share_del">
                 <div class="qr_download">
@@ -164,10 +205,10 @@
                     />
                     <p>Share</p>
                   </button>
-                  <a href="{% url 'qrgen:delete_qrcode' qrcode.id %}"><button>
+                  <button class="delete_icon">
                     <img src="{% static 'image/icon/delete-icon.png' %}" alt="">
                     <p>Delete</p>
-                </button></a>
+                  </button>
                 <div class="share-notification">
                     <h1>feature only available on mobile devices</h1>
                   </div>
@@ -176,6 +217,16 @@
             </div>
           </div>
           {% endfor %}
+          {% else %}
+          <div class="main_content_blank">
+            <div class="data_blank">
+                <section class="qr_image">
+                    <img src="{% static 'image/qr-code-blur.png' %}" alt="">
+                </section>
+                <p>Generate a QR code, download, scan and share </p>
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
     </main>

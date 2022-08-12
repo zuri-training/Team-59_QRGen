@@ -188,23 +188,23 @@ document.getElementById('imgbtn').addEventListener('click', function(e){
 })
 
 // DOWNLOAD
-const downloadOptionBtn = document.querySelector('.buttons .download_btn_option');
-const downloadOptions = document.querySelector('.download_options');
-const cancleIcon = document.querySelector('.cancel');
-const downloadBtn = document.querySelectorAll('.download_btn');
+// const downloadOptionBtn = document.querySelector('.buttons .download_btn_option');
+// const downloadOptions = document.querySelector('.download_options');
+// const cancleIcon = document.querySelector('.cancel');
+// const downloadBtn = document.querySelectorAll('.download_btn');
 
 
-downloadOptionBtn.addEventListener('click', function(){
-    downloadOptions.classList.add('show')
-})
-cancleIcon.addEventListener('click', function(){
-    downloadOptions.classList.remove('show')
-})
-downloadBtn.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        downloadOptions.classList.remove('show')
-    })
-})
+// downloadOptionBtn.addEventListener('click', function(){
+//     downloadOptions.classList.add('show')
+// })
+// cancleIcon.addEventListener('click', function(){
+//     downloadOptions.classList.remove('show')
+// })
+// downloadBtn.forEach(function(btn){
+//     btn.addEventListener('click', function(){
+//         downloadOptions.classList.remove('show')
+//     })
+// })
 
 // Toggle menu
 document.querySelector('.profile_icon').addEventListener('click', function(){
@@ -212,8 +212,7 @@ document.querySelector('.profile_icon').addEventListener('click', function(){
 })
 
 document.querySelectorAll('.profile_links a').forEach(function(tag){
-    tag.addEventListener('click', function(e){
-        e.preventDefault()
+    tag.addEventListener('click', function(){
         document.querySelector('.profile_links').classList.remove('show')
     })
 }) 

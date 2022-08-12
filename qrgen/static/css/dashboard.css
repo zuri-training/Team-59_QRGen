@@ -11,6 +11,7 @@ a {
 	text-decoration: none;
 }
 body {
+	position: relative;
 	width: 100%;
 	padding-left: 5rem;
 	padding-top: 1.5rem;
@@ -18,6 +19,61 @@ body {
 	font-family: "Lato", sans-serif;
 	color: #557f9d;
 	overflow-x: hidden;
+}
+button{
+	cursor: pointer;
+}
+.delete_modal{
+	position: fixed;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	top: 20%;
+	left: 30%;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	padding: 2.5rem 5rem;
+	z-index: 99;
+	background: #fafaff;
+}
+.delete_modal.show{
+	display: flex;
+}
+.alert_icon{
+	width: 20%;
+}
+.alert_icon img{
+	width: 100%;
+}
+.delete_msg_section{
+	margin: 3rem 0;
+}
+.delete_msg_section h3{
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+.delete_msg_section p{
+	font-size: 1rem;
+}
+.button_section{
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+}
+.button_section a button{
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 0.5rem;
+}
+.button_section .delete button{
+	background: rgb(226, 9, 9);
+	color: #fafaff;
+}
+.button_section .cancelx button{
+	background: #003459;
+	color: #fafaff;
 }
 .header {
 	display: flex;
@@ -86,7 +142,9 @@ body {
 	text-decoration: none;
 }
 .profile_btns div h1 {
-	font-size: 1.5rem;
+	font-size: 1.75rem;
+	text-transform: uppercase;
+	font-weight: 900;
 	text-align: center;
 	color: white;
 }
@@ -235,6 +293,7 @@ body {
 	padding: 3.33rem 1.5rem;
 }
 .saved_data .des_share_del {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	width: 100%;
@@ -267,7 +326,6 @@ body {
 .title h5 {
 	text-align: center;
 	font-size: 1.8rem;
-	text-decoration: underline;
 	margin-bottom: 1rem;
 }
 .saved_data_wrapper .qr_image .title img {
@@ -287,9 +345,35 @@ body {
 	width: 200%;
 	padding: 1rem 2rem;
 }
+.edit_form{
+	position: absolute;
+	display: none;
+	top: -10%;
+	background: #fafaff;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+	width: 50%;
+	padding: 1rem 2rem;
+}
 .title_form.show {
 	display: block;
 }
+.edit_form.show{
+	display: block;
+}
+.content_edit_btn{
+	padding: 0.5rem 1rem;
+	background: #fafaff;
+	border: 1px solid #003f6c;
+	border-radius: 0.5rem;
+	width: 40%;
+	color: #003f6c;
+}
+.content_edit_btn:hover{
+	background: #003f6c;
+	color: #fafaff;
+	transition: all 0.6s ease;
+}
+.content_modal_cancel,
 .saved_data_wrapper .qr_image .title_form .modal_cancel_icon {
 	height: 1rem;
 	width: 10px;
@@ -301,24 +385,29 @@ body {
 	cursor: pointer;
 }
 
-.title_form div {
+.title_form div,
+.edit_form div {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	justify-content: center;
 	align-items: center;
 }
-.title_form h5 {
+.title_form h5,
+.edit_form h5 {
 	text-align: center;
 }
-.title_form input {
+.title_form input,
+.edit_form input {
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 }
-.title_form input[type="text"] {
+.title_form input[type="text"],
+.edit_input input[type="text"] {
 	width: 100%;
 }
-.title_form input[type="submit"] {
+.title_form input[type="submit"],
+.edit_form input[type="submit"] {
 	background: #003459;
 	color: #fafaff;
 	cursor: pointer;
@@ -437,6 +526,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
+	margin-top: 10rem;
 	width: 100%;
 }
 .data_blank {

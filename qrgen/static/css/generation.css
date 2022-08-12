@@ -80,6 +80,7 @@ body {
 	background: #d5592c;
 	cursor: pointer;
 }
+
 .profile_btns .profile_links {
 	position: absolute;
 	top: -500%;
@@ -105,8 +106,10 @@ body {
 	text-decoration: none;
 }
 .profile_btns div h1 {
-	font-size: 1.5rem;
+	font-size: 1.75rem;
 	text-align: center;
+	text-transform: uppercase;
+	/* padding-bottom: 1rem; */
 	color: white;
 }
 .back-button {
@@ -277,6 +280,7 @@ body {
 	margin-bottom: 2.06rem;
 }
 .dasboard_subheader h5 {
+	cursor: pointer;
 	font-size: 1.75rem;
 	font-weight: 700;
 }
@@ -506,6 +510,10 @@ form .generate_button {
 .download_share {
 	font-size: 100px;
 	text-align: center;
+}
+.dash_btn{
+	width: 40%;
+	margin: 2rem auto;
 }
 .buttons {
 	position: relative;

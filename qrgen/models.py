@@ -35,6 +35,7 @@ class QrCode(models.Model):
     title = models.CharField(max_length=50, null=True, default="Untitled")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.ForeignKey(QrType, on_delete=models.CASCADE)
+    is_dynamic = models.BooleanField(default=True, blank=True)
     img = models.ImageField(upload_to='media/qrcodes')
     input_url = models.URLField(max_length=255, blank=True, null=True)
     action_url = models.URLField(max_length=255, blank=True, null=True)

@@ -109,6 +109,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
                     f'/dynamic/{this_qrcode.id}')
 
             else:
+                this_qrcode.is_dynamic = False
                 # qrcode is static type
                 this_qrcode.action_url = form_data['url']
 
@@ -193,9 +194,12 @@ class EditQrCode(LoginRequiredMixin, View):
     
     def post(self, request, code_id):
         qrcode = QrCode.objects.get(id=code_id)
-        new_title = request.POST['new_title']
-
-        qrcode.title = new_title
+        if 'change_content' in request.POST:
+            new_url = request.POST['new_content']
+            qrcode.input_url = new_url
+        elif 'change_title' in request.POST:
+            new_title = request.POST['new_title']
+            qrcode.title = new_title
         qrcode.save()
 
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
