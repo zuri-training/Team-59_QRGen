@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DataStore</title>
+  <title>QrGen59 | Dashboard</title>
   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
   <script defer src="{% static 'js/dashbrd.js' %} "></script>
 </head>
@@ -15,14 +15,14 @@
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <a href="">QrGen<span>59</span></a>
+        <a href="{% url 'home:home-page' %}">QrGen<span>59</span></a>
       </div>
       <div class="profile_btns">
         <div class="profile_icon">
           <h1>{{request.user.username|slice:':1'}}</h1>
         </div>
         <div class="profile_links">
-          <a href="">My Account</a>
+          <a href="{% url 'home:home-page' %}">Home</a>
           <a href="{% url 'accounts:logout' %}">Log out</a>
         </div>
       </div>
@@ -32,8 +32,8 @@
     <div class="side_bar">
       <div class="search_form_div">
         <form action="">
-          <input type="text" placeholder="search" />
-          <button>
+          <input type="text" class="search" placeholder="search" />
+          <button class="search_btn" onclick="search()">
             <img src="{% static 'img/image/icon/search-normal.png' %}" alt="" />
           </button>
         </form>
@@ -127,7 +127,7 @@
             <div class="qr_des">
               {% if qrcode.is_dynamic %}
               <div class="scan">
-                <h5>Scan({{qrcode.scan_count}})</h5>
+                <h5>Scan ({{ qrcode.scan_count }})</h5>
               </div>
               {% endif %}
               <div class="date">
@@ -136,7 +136,7 @@
               </div>
               <div class="link">
                 <img src="{% static 'img/image/icon/link-icon.png' %}" alt="" />
-                <p>{{qrcode.action_url}}</p>
+                <p>{{qrcode.type}}</p>
               </div>
               {% if qrcode.is_dynamic %}
               <button class="content_edit_btn">Edit</button>

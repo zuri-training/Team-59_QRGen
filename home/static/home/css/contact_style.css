@@ -146,7 +146,6 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
     gap: 16px;
     padding-top: 10rem;
     color: var(--button-color);
@@ -186,7 +185,7 @@ h1 {
     justify-content: center;
     align-items: flex-start;
     padding: 115px 132px;
-    margin-top: -14rem;
+    margin-top: -9rem;
     padding-bottom: 2rem;
     box-shadow: 0px 0px 4px rgb(0 0 0 / 50%);
     border-radius: 8px;
@@ -336,6 +335,12 @@ ul .footer-nav1{
 }
 
 @media (min-width:1439px) {
+    .customise{
+        height: 60vh;
+    }
+    p {
+        width: 25%;
+    }
     .footer-nav1{
         gap: 200px;
     }
@@ -366,6 +371,7 @@ ul .footer-nav1{
     #contact-form{
         width: 70%;
         margin-left: 15%;
+        margin-top: -18rem;
     }
 }
 
@@ -387,6 +393,7 @@ ul .footer-nav1{
     #contact-form{
         width: 60%;
         margin-left: 20%;
+        margin-top: -9rem;
     }
 /* Header MEDIA QUERIES*/
     .navbar .nav-links {
@@ -460,13 +467,21 @@ ul .footer-nav1{
     .footer-nav1 li a {
         font-size: 15px;
     }
-}
-@media (max-width: 624px) {
-     .footer-logo{
-        margin-top: -50px;
+    .service{
+        padding-top: 6rem;
+    }
+    #contact-form{
+        margin-top: -13rem;
     }
 }
-@media (max-width: 426px) {
+
+@media (max-width: 624px) {
+    .service{
+        padding-top: 5rem;
+    }
+    .customise{
+        height: 75vh;
+    }
     .footer-logo{
         margin-top: 0;
         margin-left: -2rem;
@@ -491,9 +506,6 @@ ul .footer-nav1{
         font-size: 15px;
         margin-left: 3rem;
     }
-    .service{
-        padding-top: 5rem;
-    }
     h1{
         font-size: 30px;
     }
@@ -510,7 +522,7 @@ ul .footer-nav1{
     #contact-form {
         width: 80%;
         margin-left: 11%;
-        margin-top: -24rem;
+        margin-top: -11rem;
     }
     #contact-form input,   
     #contact-form select,   
@@ -558,7 +570,7 @@ ul .footer-nav1{
     #contact-form{
         width: 85%;
         margin-left: 7%;
-        margin-top: -2rem;
+        margin-top: -4rem;
         padding: 60px 132px;
     }
     #contact-form button[type="submit"] {

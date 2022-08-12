@@ -184,3 +184,21 @@ shareicon.forEach(function(icon){
     })
 })
 
+
+/////////////////////////////// SEARCH//////////////////////////////
+document.querySelector('.search_btn').addEventListener('click', function(e){
+    e.preventDefault();
+})
+function search(){
+    let input = document.querySelector('.search').value
+    input = input.toLowerCase();
+    let x = document.querySelectorAll('.qr_image .title')
+    for (let i = 0; i < x.length; i++) {
+        console.log(x[i].closest('.saved_data'));
+        if(!x[i].innerHTML.toLowerCase().includes(input)){
+            x[i].closest('.saved_data').style.display = 'none'
+        } else{
+            x[i].closest('.saved_data').style.display = 'flex'
+        }
+    }
+}
