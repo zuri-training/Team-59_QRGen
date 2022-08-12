@@ -32,21 +32,6 @@ active.addEventListener('click', function(){
         `
     )
 })
-archive.addEventListener('click', function(){
-    archive.classList.add('active');
-    all.classList.remove('active');
-    active.classList.remove('active');
-    filterBtn.innerHTML = ''
-    filterBtn.insertAdjacentHTML('afterbegin',
-        `
-        <button>
-            <img src="./image/icon/archive-icon.png" alt="">
-            <p>Archive QR codes</p>
-        </button>
-        `
-    )
-})
-
 // Toggle menu
 document.querySelector('.profile_icon').addEventListener('click', function(){
     document.querySelector('.profile_links').classList.toggle('show')
@@ -98,9 +83,52 @@ const changeBtn = document.querySelectorAll('.change_btn');
 
 changeBtn.forEach(function(btn){
     btn.addEventListener('click', function(e){
-        e.preventDefault()
+        // e.preventDefault()
         e.target.closest('.title_form').classList.remove('show');
     })
+})
+/////////////////////////////////////   CHANGE QRCODE CODE   ///////////////////////////////////////
+const contentEditBtn = document.querySelectorAll('.content_edit_btn');
+const editForm = document.querySelector('.edit_form');
+
+contentEditBtn.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        console.log('yes');
+        console.log(editForm);
+        editForm.classList.add('show');
+    })
+})
+const cancelX = document.querySelectorAll('.content_modal_cancel');
+
+cancelX.forEach(function(icon){
+    icon.addEventListener('click', function(e){
+        console.log('working');
+        e.target.closest('.edit_form').classList.remove('show');
+    })
+})
+
+const changeX = document.querySelectorAll('.change_btn_x');
+
+changeX.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        // e.preventDefault()
+        e.target.closest('.edit_form').classList.remove('show');
+    })
+})
+///////////////////////////////////   DELETE POP UP   /////////////////////////////////////////
+
+const deleteIcon = document.querySelectorAll('.delete_icon');
+const deleteModal = document.querySelector('.delete_modal');
+const cancelB = document.querySelector('.button_section .cancelx');
+
+deleteIcon.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        deleteModal.classList.add('show')
+    })
+})
+
+cancelB.addEventListener('click', function(){
+    deleteModal.classList.remove('show')
 })
 
 

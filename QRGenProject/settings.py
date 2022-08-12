@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     # 'handlescan',
 
     # third-party libraries
+    'crispy_forms',
 
 ]
 
