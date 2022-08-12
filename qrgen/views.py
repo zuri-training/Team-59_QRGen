@@ -35,7 +35,7 @@ def create_or_get_types():
 
 
 class GenerationDashboardView(LoginRequiredMixin, View):
-    login_url = '/admin/login/'
+    login_url = '/accounts/login/'
 
     def get(self, request):
 
@@ -101,7 +101,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
                 # - this is the url that the qrcode should point to either ways
                 # --- (be it upload or url, so long as it is dynamic)
                 this_qrcode.action_url = request.build_absolute_uri(
-                    f'/dynamic/{this_qrcode.id}')
+                    f'/qrcode/dynamic/{this_qrcode.id}')
 
             else:
                 this_qrcode.is_dynamic = False
@@ -121,10 +121,11 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             print(folder_path)
             qr_img = qrcode.make(this_qrcode.action_url)
-            
+
             # folder for the qrcode being created
 
-            qr_folder_path = BASE_DIR / f'qrgen/static/img/qrcodes/{this_qrcode.id}/'
+            qr_folder_path = BASE_DIR / \
+                f'qrgen/static/img/qrcodes/{this_qrcode.id}/'
 
             if not os.path.exists(qr_folder_path):
                 os.makedirs(qr_folder_path)
@@ -136,14 +137,14 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             this_qrcode.img = img_path
 
             this_qrcode.save()
-            
+
             # Converting the png QR code to JPG
             img_png = Image.open(img_path)
             img_path = img_png.convert("RGB")
             img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.jpeg'
             qr_img.save(img_path)
 
-            # Converting the png QR code to PDF 
+            # Converting the png QR code to PDF
             img_path = img_png.convert("RGB")
             img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.pdf'
             qr_img.save(img_path)
@@ -156,12 +157,12 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             return JsonResponse({"error": ""}, status=400)
 
 
-
 class MainDashboardView(LoginRequiredMixin, View):
-    login_url = '/admin/login'
+    login_url = '/accounts/login'
 
     def get(self, request):
-        user_codes = QrCode.objects.all().filter(user_id=request.user.id).order_by('-date_gen')
+        user_codes = QrCode.objects.all().filter(
+            user_id=request.user.id).order_by('-date_gen')
         download_options = {1: 'png', 2: 'jpeg', 3: 'pdf'}
         active_codes = user_codes.filter(is_active=True)
 
@@ -179,11 +180,11 @@ class MainDashboardView(LoginRequiredMixin, View):
 
 
 class EditQrCode(LoginRequiredMixin, View):
-    login_url = '/admin/login'
+    login_url = '/accounts/login'
 
     def get(self, request):
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
-    
+
     def post(self, request, code_id):
         qrcode = QrCode.objects.get(id=code_id)
         if 'change_content' in request.POST:
@@ -195,25 +196,29 @@ class EditQrCode(LoginRequiredMixin, View):
         qrcode.save()
 
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
-    
+
+
 class DeleteQrCode(LoginRequiredMixin, View):
-    login_url = '/admin/login'
+    login_url = '/accounts/login'
 
     def get(self, request, code_id):
         qrcode = QrCode.objects.get(id=code_id)
         qrcode.delete()
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
-    
+
     def post(self, request, code_id):
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
 
 
 def download(request, code_id, type):
     try:
-        file_path = BASE_DIR / f'qrgen/static/img/qrcodes/{code_id}/qrcode-{code_id}.{type}'
+        file_path = BASE_DIR / \
+            f'qrgen/static/img/qrcodes/{code_id}/qrcode-{code_id}.{type}'
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/adminupload")
-            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            response = HttpResponse(
+                fh.read(), content_type="application/adminupload")
+            response['Content-Disposition'] = 'inline;filename=' + \
+                os.path.basename(file_path)
             return response
     except:
         # return HttpResponse('File does not exit!!!')

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 def Register(request):
     if request.method == "POST":
         fname = request.POST.get('fname')
@@ -13,16 +14,20 @@ def Register(request):
         email = request.POST.get('email')
         password = request.POST.get('pswrd')
         uname = request.POST.get('email')
+        if User.objects.filter(username=uname).first():
+            messages.error(
+                request, 'Email address already exist, register a new email address')
+        else:
+            new_user = User.objects.create_user(
+                username=uname, email=email, password=password)
+            new_user.first_name = fname
+            new_user.last_name = lname
 
-        new_user = User.objects.create_user(username = uname, email = email, password = password)
-
-        new_user.first_name = fname
-        new_user.last_name = lname
-
-        new_user.save()
-        return redirect('accounts:login-page')
+            new_user.save()
+            return redirect('accounts:login-page')
 
     return render(request, 'accounts/register.html', {})
+
 
 def Login(request):
     if request.method == "POST":
@@ -32,14 +37,14 @@ def Login(request):
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
-            return redirect()
+            return redirect('qrgen:dashboard')
         else:
-            messages.success(request, 'Email Address and Password do not exist')
-
+            messages.success(
+                request, 'Email Address and Password do not exist')
 
     return render(request, 'accounts/login.html', {})
 
+
 def logoutuser(request):
     logout(request)
-    return redirect('accounts:login-page')
-
+    return redirect('home:home-page')

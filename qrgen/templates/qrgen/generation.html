@@ -27,7 +27,7 @@
                 <!-- Profile links  NEW-->
                 <div class="profile_links">
                     <a href="{% url 'qrgen:dashboard' %}">Dashboard</a>
-                    <a href="">Log out</a>
+                    <a href="{% url 'accounts:logout' %}">Log out</a>
                 </div>
             </div>
         </nav>
@@ -85,7 +85,7 @@
                         <div class="single_option url_option">
                             <div class="option_header">
                                 <img src="{% static 'img/icons/link-icon.png' %}" alt="icon">
-                                <img src="{% static 'img/icons/link-icon-hover.png' %}" alt = "icon">
+                                <img src="{% static 'img/icons/link-icon-hover.png' %}" alt="icon">
                                 <h6>Website URL</h6>
                             </div>
                             <p>Link to any website URL</p>
@@ -194,7 +194,8 @@
                         <h6>Whatsapp</h6>
                         <p class="big_para">Input your WhatsApp link.</p>
                         <form method='POST' action="{% url 'qrgen:generate' %}">
-                            <input type="url" name="url" id="number" placeholder="Enter your WhatsApp link in this format https://wa.me/" required>
+                            <input type="url" name="url" id="number"
+                                placeholder="Enter your WhatsApp link in this format https://wa.me/" required>
                             <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
                             <input type="text" name="action_type" value="wap" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
@@ -260,9 +261,9 @@
                 </div>
                 <div class="dashboard_options download_share">
                     <div class="buttons">
-                        <a  href="{% url 'qrgen:dashboard' %}">
-                            <button >
-                                <img src="{% static 'img/icons/share-icon.png' %}" alt="">
+                        <a href="{% url 'qrgen:dashboard' %}">
+                            <button>
+                                <!-- <img src="{% static 'img/icons/share-icon.png' %}" alt=""> -->
                                 <p>Go to Dashboard</p>
                             </button>
                         </a>
@@ -274,7 +275,7 @@
                         <div class="share_notification">
                             <h1>feature only available on mobile devices</h1>
                         </div>
-                    </div>                              
+                    </div>
                 </div>
             </div>
             <div class="qrcode_section">
@@ -379,7 +380,7 @@
                         document.getElementById('generated_qrcode').setAttribute("src", "/static/" + qrcode_img.slice(13));
 
                         // disable the back button
-                        document.getElementsByClassName('back').setAttribute("disabled", "")
+                        //document.getElementsByClassName('back').setAttribute("disabled", "")
                     }
                 })
 

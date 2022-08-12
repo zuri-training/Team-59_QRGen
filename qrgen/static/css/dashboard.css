@@ -20,10 +20,10 @@ body {
 	color: #557f9d;
 	overflow-x: hidden;
 }
-button{
+button {
 	cursor: pointer;
 }
-.delete_modal{
+.delete_modal {
 	position: fixed;
 	display: none;
 	flex-direction: column;
@@ -37,41 +37,41 @@ button{
 	z-index: 99;
 	background: #fafaff;
 }
-.delete_modal.show{
+.delete_modal.show {
 	display: flex;
 }
-.alert_icon{
+.alert_icon {
 	width: 20%;
 }
-.alert_icon img{
+.alert_icon img {
 	width: 100%;
 }
-.delete_msg_section{
+.delete_msg_section {
 	margin: 3rem 0;
 }
-.delete_msg_section h3{
+.delete_msg_section h3 {
 	font-size: 3rem;
 	text-align: center;
 	margin-bottom: 1.5rem;
 }
-.delete_msg_section p{
+.delete_msg_section p {
 	font-size: 1rem;
 }
-.button_section{
+.button_section {
 	display: flex;
 	flex-direction: row;
 	gap: 2rem;
 }
-.button_section a button{
+.button_section a button {
 	padding: 1rem 2rem;
 	border: none;
 	border-radius: 0.5rem;
 }
-.button_section .delete button{
+.button_section .delete button {
 	background: rgb(226, 9, 9);
 	color: #fafaff;
 }
-.button_section .cancelx button{
+.button_section .cancelx button {
 	background: #003459;
 	color: #fafaff;
 }
@@ -189,6 +189,7 @@ button{
 	background: transparent;
 	border: none;
 	outline: none;
+	padding-left: 10px;
 }
 .search_form_div form button {
 	border: none;
@@ -199,6 +200,7 @@ button{
 	border-radius: 0.5rem;
 	cursor: pointer;
 }
+
 .page_navigator {
 	display: flex;
 	flex-direction: column;
@@ -261,7 +263,7 @@ button{
 	gap: 0.5rem;
 	align-items: center;
 	background: transparent;
-	cursor: pointer;
+	cursor: default;
 	border: none;
 }
 .main_content_header .create_qr_navigator_btn {
@@ -346,7 +348,7 @@ button{
 	width: 200%;
 	padding: 1rem 2rem;
 }
-.edit_form{
+.edit_form {
 	position: absolute;
 	display: none;
 	top: -10%;
@@ -357,11 +359,12 @@ button{
 }
 .title_form.show {
 	display: block;
+	z-index: 999;
 }
-.edit_form.show{
+.edit_form.show {
 	display: block;
 }
-.content_edit_btn{
+.content_edit_btn {
 	padding: 0.5rem 1rem;
 	background: #fafaff;
 	border: 1px solid #003f6c;
@@ -369,7 +372,7 @@ button{
 	width: 40%;
 	color: #003f6c;
 }
-.content_edit_btn:hover{
+.content_edit_btn:hover {
 	background: #003f6c;
 	color: #fafaff;
 	transition: all 0.6s ease;
@@ -385,7 +388,6 @@ button{
 	margin-right: 0.5rem;
 	cursor: pointer;
 }
-
 
 .title_form div,
 .edit_form div {
@@ -690,5 +692,10 @@ button{
 
 	.main_content_blank {
 		margin-top: 10rem;
+	}
+
+	.delete_modal {
+		left: 10%;
+		width: 80%;
 	}
 }

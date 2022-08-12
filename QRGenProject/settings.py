@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # import environ
@@ -35,7 +36,7 @@ SECRET_KEY = 'django-insecure-l5y1zl4z(kv$9c6*t-byypu+n9j*s_gitxy8y^1hd@z8$q&@23
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,10 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # created apps -->> uncomment the ones specific to you
-    # 'accounts',
-    # 'qrgen',
-    # 'home',
-    # 'handlescan',
+    'accounts',
+    'qrgen',
+    'home',
+    'handlescan',
 
     # third-party libraries
 
@@ -133,7 +134,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-import os
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

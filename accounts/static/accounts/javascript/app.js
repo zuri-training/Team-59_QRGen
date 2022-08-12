@@ -14,6 +14,6 @@ submitBtn.addEventListener('click', function(){
         alert.classList.add('hide')
     }, 3000)
 })
-document.querySelector('.alert_text button').addEventListener("click", function(){
-    alert.classList.add('hide')
-})
+// document.querySelector('.alert_text button').addEventListener("click", function(){
+//     alert.classList.add('hide')
+// })

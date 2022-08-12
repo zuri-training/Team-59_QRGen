@@ -11,7 +11,7 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
 
     # getting the no of scans
     
-    if qrcode.scan_count:
+    if qrcode.scan_count is not None:
         qrcode.scan_count += 1
     else:
         qrcode.scan_count = 1
@@ -21,7 +21,7 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
 
     if qrcode.type not in uploads:
         # get and redirect to the qrcode action_url
-        return redirect(qrcode.action_url)
+        return redirect(qrcode.input_url)
 
     else:
         # get file_id from code

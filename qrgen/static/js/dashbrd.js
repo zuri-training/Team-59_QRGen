@@ -1,37 +1,37 @@
 const all = document.querySelector('#all');
-const active = document.querySelector('#active');
-const archive = document.querySelector('#archive');
-const filterBtn = document.querySelector('.filter_btn')
+// const active = document.querySelector('#active');
+// const archive = document.querySelector('#archive');
+// const filterBtn = document.querySelector('.filter_btn')
 
 
-all.addEventListener('click', function(){
-    all.classList.add('active');
-    active.classList.remove('active');
-    archive.classList.remove('active');
-    filterBtn.innerHTML = ''
-    filterBtn.insertAdjacentHTML('afterbegin',
-        `
-        <button>
-            <img src="./image/icon/all-icon.png" alt="">
-            <p>All QR codes</p>
-        </button>
-        `
-    )
-})
-active.addEventListener('click', function(){
-    active.classList.add('active');
-    all.classList.remove('active');
-    archive.classList.remove('active');
-    filterBtn.innerHTML = ''
-    filterBtn.insertAdjacentHTML('afterbegin',
-        `
-        <button>
-            <img src="./image/icon/active-icon.png" alt="">
-            <p>Active QR codes</p>
-        </button>
-        `
-    )
-})
+// all.addEventListener('click', function(){
+//     all.classList.add('active');
+//     active.classList.remove('active');
+//     archive.classList.remove('active');
+//     filterBtn.innerHTML = ''
+//     filterBtn.insertAdjacentHTML('afterbegin',
+//         `
+//         <button>
+//             <img src="./image/icon/all-icon.png" alt="">
+//             <p>All QR codes</p>
+//         </button>
+//         `
+//     )
+// })
+// active.addEventListener('click', function(){
+//     active.classList.add('active');
+//     all.classList.remove('active');
+//     archive.classList.remove('active');
+//     filterBtn.innerHTML = ''
+//     filterBtn.insertAdjacentHTML('afterbegin',
+//         `
+//         <button>
+//             <img src="./image/icon/active-icon.png" alt="">
+//             <p>Active QR codes</p>
+//         </button>
+//         `
+//     )
+// })
 // Toggle menu
 document.querySelector('.profile_icon').addEventListener('click', function(){
     document.querySelector('.profile_links').classList.toggle('show')
@@ -39,7 +39,7 @@ document.querySelector('.profile_icon').addEventListener('click', function(){
 
 document.querySelectorAll('.profile_links a').forEach(function(tag){
     tag.addEventListener('click', function(e){
-        e.preventDefault()
+        // e.preventDefault()
         document.querySelector('.profile_links').classList.remove('show')
     })
 }) 
@@ -51,7 +51,7 @@ const downloadBtn = document.querySelectorAll('.download_btn');
 
 cancelIcon.forEach(function(cancel){
     cancel.addEventListener('click', function(e){
-        console.log('working');
+        // console.log('working');
         e.target.closest('.qr_download ').querySelector('.download_options').classList.remove('show')
     })
 })
@@ -63,7 +63,7 @@ downloadBtn.forEach(function(btn){
 
 //////////////////////////// Change title model ///////////////////////
 const editicon = document.querySelectorAll('.edit_icon');
-console.log(editicon);
+// console.log(editicon);
 editicon.forEach(function(icon){
     icon.addEventListener('click', async function(e){
         e.target.closest('.qr_image').querySelector('.title_form').classList.add('show');
@@ -74,7 +74,7 @@ const cancel = document.querySelectorAll('.modal_cancel_icon');
 
 cancel.forEach(function(icon){
     icon.addEventListener('click', function(e){
-        console.log('working');
+        // console.log('working');
         e.target.closest('.title_form').classList.remove('show');
     })
 })
@@ -93,8 +93,8 @@ const editForm = document.querySelector('.edit_form');
 
 contentEditBtn.forEach(function(btn){
     btn.addEventListener('click', function(){
-        console.log('yes');
-        console.log(editForm);
+        // console.log('yes');
+        // console.log(editForm);
         editForm.classList.add('show');
     })
 })
@@ -102,7 +102,7 @@ const cancelX = document.querySelectorAll('.content_modal_cancel');
 
 cancelX.forEach(function(icon){
     icon.addEventListener('click', function(e){
-        console.log('working');
+        // console.log('working');
         e.target.closest('.edit_form').classList.remove('show');
     })
 })
@@ -135,20 +135,20 @@ cancelB.addEventListener('click', function(){
 ///////////////////////////////// SHARE FEATURE //////////////////////////////////
 
 const shareicon = document.querySelectorAll('.share');
-console.log(shareicon);
+// console.log(shareicon);
 shareicon.forEach(function(icon){
     icon.addEventListener('click', async function(e){
         const shareNote = e.target.closest('.share_del').querySelector('.share-notification');
-        console.log(shareNote);
+        // console.log(shareNote);
         shareNote.style.opacity = 1;
         setTimeout(function(){
             shareNote.style.opacity = 0;
         }, 3000)
         const image = e.target.closest('.saved_data').querySelector('.qr_image img');
-        console.log(image);
+        // console.log(image);
         // ***Here is the code for converting "image source" (url) to "Base64".***
         let url = image.src
-        console.log(url);
+        // console.log(url);
         const getUrlExtension = (url) => {
           return url
             .split(/[#?]/)[0]
@@ -164,15 +164,15 @@ shareicon.forEach(function(icon){
           const fileArray = new File([blob], "search-icon." + imgExt, {
             type: blob.type,
           });
-          console.log(fileArray);
+        //   console.log(fileArray);
         
           if (navigator.canShare(fileArray)) {
             try {
                await navigator.share({
-                title: 'qrCodeee',
+                title: 'qrCode',
                 files:[fileArray]
               })
-              console.log('can share');
+            //   console.log('can share');
             //   output.textContent = 'Shared!'
             } catch (error) {
                 console.log('cant share');

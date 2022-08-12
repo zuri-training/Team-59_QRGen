@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,16 @@
     <title>Registration</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'accounts/css/styles.css'%}">
+    <script defer src="{% static 'accounts/javascript/app.js'%}"></script>
 </head>
+
 <body>
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <a href="">QrGen<span>59</span></a>
+                <a href="{% url 'home:home-page' %}">QrGen<span>59</span></a>
             </div>
-            <div class="back_btns">
-                <!-- Going back to the previous page -->
-                <button>
-                    <img src="{% static 'accounts/image/back-icon.png' %}" alt="back-icon">
-                    <h1>Back</h1>
-                </button>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -34,24 +31,41 @@
             <div class="form_wrapper">
                 <form class="form" method="POST">
                     {% csrf_token %}
-                     <label for="fname">First name</label>
-                     <input class="input" type="text" name="fname" id="fname" placeholder="Ken" required>
+                    <label for="fname">First name</label>
+                    <input class="input" type="text" name="fname" id="fname" placeholder="Ken" required>
 
-                     <label for="lname">Last name</label>
-                     <input class="input" type="text" name="lname" id="lname" placeholder="Akand" required>
- 
+                    <label for="lname">Last name</label>
+                    <input class="input" type="text" name="lname" id="lname" placeholder="Akand" required>
+
                     <label for="email">Email</label>
                     <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
-                    
+
                     <label for="pswrd">Password</label>
-                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
-                    
+                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required
+                        pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
+
                     <input class="input_submit" type="submit" value="Sign Up" class="Send">
                 </form>
-                <div class="signup_options">   
+                <div class="signup_options">
                     <p>Already have an account?<a href="{% url 'accounts:login-page' %}">Sign in</a></p>
                 </div>
-        </div>
+            </div>
+            {% if messages %}
+            {% for message in messages %}
+            <section class="alert">
+                <div class="alert_img">
+                    <img src="{% static 'accounts/image/Group 7.png' %}" alt="error-icon">
+                </div>
+                <div class="alert_text">
+                    <h6>
+                        Error
+                    </h6>
+                    <p>{{message}}</p>
+                </div>
+            </section>
+            {% endfor %}
+            {% endif %}
     </main>
 </body>
+
 </html>

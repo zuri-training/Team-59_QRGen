@@ -49,7 +49,7 @@ img{
     transition: all 0.9s ease;
     padding: 15px 0;
     background: #FAFAFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(36, 35, 35, 0.318);
     z-index: 1030;
 }
 .navbar .wrapper {

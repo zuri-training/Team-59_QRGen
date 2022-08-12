@@ -14,6 +14,12 @@
 a {
 	text-decoration: none;
 }
+button {
+	cursor: pointer;
+}
+input[type="submit"] {
+	cursor: pointer;
+}
 
 body {
 	width: 100%;
@@ -451,6 +457,7 @@ form .generate_button {
 	font-size: 1.2rem;
 	border: none;
 	border-radius: 0.5rem;
+	cursor: pointer;
 }
 .dashboard_options.code_content div {
 	display: none;
@@ -510,7 +517,7 @@ form .generate_button {
 	font-size: 100px;
 	text-align: center;
 }
-.dash_btn{
+.dash_btn {
 	width: 40%;
 	margin: 2rem auto;
 }
