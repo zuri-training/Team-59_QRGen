@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -13,14 +13,16 @@ def Register(request):
         email = request.POST.get('email')
         password = request.POST.get('pswrd')
         uname = request.POST.get('email')
+        if User.objects.filter(username = uname).first():
+           messages.error(request, 'Email Address Already Exist, Login or Register With Another Email')
+        else:
+            new_user = User.objects.create_user(username = uname, email = email, password = password)
 
-        new_user = User.objects.create_user(username = uname, email = email, password = password)
+            new_user.first_name = fname
+            new_user.last_name = lname
 
-        new_user.first_name = fname
-        new_user.last_name = lname
-
-        new_user.save()
-        return redirect('accounts:login-page')
+            new_user.save()
+            return redirect('accounts:login-page')
 
     return render(request, 'accounts/register.html', {})
 
@@ -34,7 +36,7 @@ def Login(request):
             login(request, user)
             return redirect()
         else:
-            messages.success(request, 'Email Address and Password do not exist')
+            messages.error(request, 'Email Address and Password do not exist')
 
 
     return render(request, 'accounts/login.html', {})

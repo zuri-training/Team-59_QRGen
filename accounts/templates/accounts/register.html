@@ -7,6 +7,7 @@
     <title>Registration</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'accounts/css/styles.css'%}">
+    <script defer src="{% static 'accounts/javascript/app.js'%}"></script>
 </head>
 <body>
     <header class="header">
@@ -52,6 +53,21 @@
                     <p>Already have an account?<a href="{% url 'accounts:login-page' %}">Sign in</a></p>
                 </div>
         </div>
+        {% if messages %}
+        {% for message in messages %}
+            <section class="alert2">
+                <div class="alert_img">
+                    <img src="{% static 'accounts/image/Group 7.png' %}" alt="error-icon">
+                </div>
+                <div class="alert_text2">
+                    <h6>
+                        Error
+                    </h6>
+                    <p>{{message}}</p>
+                </div>
+            </section>
+            {% endfor %}
+    {% endif %}
     </main>
 </body>
 </html>
