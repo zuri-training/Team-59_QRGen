@@ -1,0 +1,254 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+/* navbar styling */
+.navbar {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+.nav-link:hover {
+    color: #FF6835;
+}
+
+.logo {
+    font: 700 52px 'Dongle', sans-serif;
+    color: #003459;
+    text-decoration: none;
+}
+.no {
+    color: #FF6835;
+}
+.nlink {
+    color: #003459;
+    font: 700 18px 'Lato', sans-serif;
+}
+.btn-primary {
+    font: 700 18px 'Lato', sans-serif;
+    background-color: #003F6C;
+    border: none;
+    margin-right: 10px;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+button a, button a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.btn-outline-primary {
+    font: 700 18px 'Lato', sans-serif;
+    border: 1px solid #003459;
+    color: #003459;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+.btn-outline-primary:hover {
+    background-color: #003459;
+    border: 1px solid #003459;
+}
+.btn-primary:hover {
+    background-color: #003F6C;
+}
+/* Documentation and endpoint styling */
+.documentation, .endpoint {
+    padding: 0 72px;
+    margin-top: 24px;
+}
+.documentation h1 {
+    font: 700 50px 'Lato', sans-serif;
+    color: #07070A;
+}
+.documentation p {
+    font: 300 22px 'Lato', sans-serif;
+    color: #5A5A5C;
+}
+
+.endpoint h2 {
+    font: 700 40px 'Lato', sans-serif;
+    color: #07070A;
+}
+.endpoint ul li {
+    font: 300 22px 'Lato', sans-serif;
+    color: #5A5A5C;
+}
+.endpoint p {
+    font: 400 22px 'Lato', sans-serif;
+    color: #5A5A5C;
+    font-style: italic;
+    margin-top: 34px;
+}
+
+/* main styling */
+main {
+    display: flex;
+    flex-direction: column;
+}
+.tables {
+    padding: 0 72px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+table {
+    width: 100%;
+}
+th, td {
+    border: 1px solid #b1b0b0;
+    text-align: left;
+    padding: 16px 10px;
+    font: 300 20px 'Lato', sans-serif;
+}
+th {
+    font: 700 28px 'Lato', sans-serif;
+    color: #07070A;
+}
+td {
+    font: 400 20px 'Lato', sans-serif;
+}
+.return {
+    margin-top: 32px;
+    width: 100%;
+}
+.user, .profile {
+    margin-top: 50px;
+    width: 100%;
+}
+.user h1, .profile h1 {
+    font: 700 40px 'Lato', sans-serif;
+}
+.user p, .parameter p, .profile p {
+    font: 400 26px 'Lato', sans-serif;
+    font-style: italic;
+    color: #5A5A5C;
+}
+.parameter {
+    margin-top: 38px;
+    width: 100%;
+}
+.red {
+    color: #D72733;
+}
+.green {
+    color: #1E6F32;
+}
+/* footer */
+footer {
+    margin-top: 72px;
+    background-color: #000A12;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 72px;
+    justify-content: center;
+}
+.logo-2 {
+    text-decoration: none;
+    font: 400 16px 'Lato', sans-serif;
+}
+.line1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+hr {
+    border-radius: 50px;
+    border-width: 3px;
+    background-color: white;
+    color: white;
+}
+footer p {
+    color: white;
+    font: 400 16px 'Lato', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+/* table mobile */
+.table-mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 12px;
+    display: none;
+    
+}
+.head{
+    font: 700 28px 'Lato', sans-serif;
+    color: #07070A;
+}
+.mobile {
+    margin-top: 32px;
+}
+.mobile h2 {
+    font: 700 40px 'Lato', sans-serif;
+}
+.mobile p {
+    font: 400 26px 'Lato', sans-serif;
+    font-style: italic;
+    color: #5A5A5C;
+}
+.logo-2{
+    text-decoration: none;
+    color: white;
+}
+.logo-2:hover {
+    color: #FF6835;
+}
+
+@media (max-width: 900px){
+    .documentation p{
+        width: 95%;
+    }
+    
+    .line1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .line1 a {
+        margin-bottom: 15px;
+    }
+    .line1 .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-2{
+        font-size: 32px;
+    }
+    th, td {
+        border: 1px solid #b1b0b0;
+        text-align: left;
+        padding: 16px 10px;
+    }
+    th {
+        font: 700 18px 'Lato', sans-serif;
+        color: #07070A;
+
+    }
+    td {
+        font: 400 16px 'Lato', sans-serif;
+
+    }
+    .documentation, .endpoint {
+        padding: 0 20px;
+        margin-top: 24px;
+    }
+    .tables {
+       display: none;
+    }
+    .table-mobile {
+        display: flex;
+    }
+}
+
+
+
