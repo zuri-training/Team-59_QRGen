@@ -32,7 +32,6 @@ active.addEventListener('click', function(){
         `
     )
 })
-
 // Toggle menu
 document.querySelector('.profile_icon').addEventListener('click', function(){
     document.querySelector('.profile_links').classList.toggle('show')

@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import GenerationDashboardView, MainDashboardView, DeleteQrCode, EditQrCode, download
 from . import views
-
 app_name = 'qrgen'
 
 urlpatterns = [

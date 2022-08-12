@@ -5,3 +5,4 @@ from .models import File, QrCode, QrType
 admin.site.register(File)
 admin.site.register(QrCode)
 admin.site.register(QrType)
+

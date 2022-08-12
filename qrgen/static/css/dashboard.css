@@ -145,6 +145,7 @@ button{
 	font-size: 1.75rem;
 	text-transform: uppercase;
 	font-weight: 900;
+	font-size: 1.5rem;
 	text-align: center;
 	color: white;
 }
@@ -384,6 +385,7 @@ button{
 	margin-right: 0.5rem;
 	cursor: pointer;
 }
+
 
 .title_form div,
 .edit_form div {

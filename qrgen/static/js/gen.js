@@ -205,7 +205,6 @@ document.getElementById('imgbtn').addEventListener('click', function(e){
 //         downloadOptions.classList.remove('show')
 //     })
 // })
-
 // Toggle menu
 document.querySelector('.profile_icon').addEventListener('click', function(){
     document.querySelector('.profile_links').classList.toggle('show')

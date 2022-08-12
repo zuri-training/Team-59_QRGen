@@ -5,21 +5,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
-
 # for manipulating our models
 from .models import QrCode, QrType, File
-
 # for the ajax request
 from django.http import JsonResponse
 from django.core import serializers
-
 # for manipulating folders
 from QRGenProject.settings import BASE_DIR
 import os
-
 # for image conversion
 from PIL import Image
-
 
 
 def create_or_get_types():
@@ -110,6 +105,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             else:
                 this_qrcode.is_dynamic = False
+
                 # qrcode is static type
                 this_qrcode.action_url = form_data['url']
 
@@ -117,7 +113,6 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             # having saved the QrCode object, (and a File object (if it was and uploaded file)),
             # we now generate a qrcode image with the QrCode's action_url
-
             # create a folder to store all the qrcode images if it doesn't exist
 
             folder_path = BASE_DIR / 'qrgen/static/img/qrcodes/'
@@ -135,14 +130,12 @@ class GenerationDashboardView(LoginRequiredMixin, View):
                 os.makedirs(qr_folder_path)
             print(qr_folder_path)
             img_path = f'qrgen/static/img/qrcodes/{this_qrcode.id}/qrcode-{this_qrcode.id}.png'
-
             qr_img.save(img_path)
 
             # add the qr_img to the QrCode object
             this_qrcode.img = img_path
 
             this_qrcode.save()
-
             
             # Converting the png QR code to JPG
             img_png = Image.open(img_path)
@@ -157,7 +150,6 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
             # serialize the new qrcode object
             ser_qrcode = serializers.serialize('json', [this_qrcode, ])
-
             # send to client site
             return JsonResponse({"qrcode": ser_qrcode}, status=200)
         else:
