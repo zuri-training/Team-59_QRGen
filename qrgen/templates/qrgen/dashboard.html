@@ -25,20 +25,28 @@
             <a href="{% url 'accounts:logout' %}">Log out</a>
           </div>
         </div>
-      </nav>
-    </header>
-    <main class="wrapper">
-      <div class="side_bar">
-        <div class="search_form_div">
-          <form action="">
-            <input type="text" class="search" placeholder="search" />
-            <button class="search_btn" onclick="search()">
-              <img
-                src="{% static 'img/image/icon/search-normal.png' %}"
-                alt=""
-              />
-            </button>
-          </form>
+
+      </div>
+    </nav>
+  </header>
+  <main class="wrapper">
+    <div class="side_bar">
+      <div class="search_form_div">
+        <form action="">
+          <input type="text" class="search" onkeypress="search()" placeholder="search" />
+          <button class="search_btn">
+            <img src="{% static 'img/image/icon/search-normal.png' %}" alt="" />
+          </button>
+        </form>
+      </div>
+      <div class="navigator_header">
+        <h6>QR Codes</h6>
+      </div>
+      <div class="page_navigator">
+        <div class="navigator_options active" id="all">
+          <img src="{% static 'img/image/icon/all-icon.png' %}" alt="" />
+          <button onclick="windows.location.reload()">All ({{code_count}})</button>
+
         </div>
         <div class="navigator_header">
           <h6>QR Codes</h6>
