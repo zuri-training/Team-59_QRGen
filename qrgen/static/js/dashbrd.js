@@ -115,21 +115,21 @@ changeX.forEach(function(btn){
         e.target.closest('.edit_form').classList.remove('show');
     })
 })
-///////////////////////////////////   DELETE POP UP   /////////////////////////////////////////
+// ///////////////////////////////////   DELETE POP UP   /////////////////////////////////////////
 
-const deleteIcon = document.querySelectorAll('.delete_icon');
-const deleteModal = document.querySelector('.delete_modal');
-const cancelB = document.querySelector('.button_section .cancelx');
+// const deleteIcon = document.querySelectorAll('.delete_icon');
+// const deleteModal = document.querySelector('.delete_modal');
+// const cancelB = document.querySelector('.button_section .cancelx');
 
-deleteIcon.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        deleteModal.classList.add('show')
-    })
-})
+// deleteIcon.forEach(function(btn){
+//     btn.addEventListener('click', function(){
+//         deleteModal.classList.add('show')
+//     })
+// })
 
-cancelB.addEventListener('click', function(){
-    deleteModal.classList.remove('show')
-})
+// cancelB.addEventListener('click', function(){
+//     deleteModal.classList.remove('show')
+// })
 
 
 ///////////////////////////////// SHARE FEATURE //////////////////////////////////
@@ -185,20 +185,63 @@ shareicon.forEach(function(icon){
 })
 
 
+// /////////////////////////////// SEARCH//////////////////////////////
+// // document.querySelector('.search_btn').addEventListener('click', function(e){
+// //      e.preventDefault();
+// // })
+// function search(){
+//     let input = document.querySelector('.search').value
+//     input = input.toLowerCase();
+//     let x = document.querySelectorAll('.qr_image .title')
+//     for (let i = 0; i < x.length; i++) {
+//         console.log(x[i].closest('.saved_data'));
+//         if(!x[i].innerHTML.toLowerCase().includes(input)){
+//             x[i].closest('.saved_data').style.display = 'none'
+//         } else{
+//             x[i].closest('.saved_data').style.display = 'flex'
+//         }
+//     }
+// }
+
+
+///////////////////////////////////   DELETE POP UP   /////////////////////////////////////////
+const deleteIcon = document.querySelectorAll('.delete_icon');
+const deleteModal = document.querySelectorAll('.delete_modal');
+const cancelB = document.querySelectorAll('.button_section .cancelx');
+deleteIcon.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        btn.closest('.saved_data').querySelector(".delete_modal").classList.add('show')
+    })
+})
+cancelB.forEach(function(btn){
+    btn.addEventListener('click', function(){
+        deleteModal.forEach(function(modal){
+            modal.classList.remove('show')
+        })
+    })
+})
+
 /////////////////////////////// SEARCH//////////////////////////////
 document.querySelector('.search_btn').addEventListener('click', function(e){
     e.preventDefault();
 })
+let x = document.querySelectorAll('.qr_image .title')
 function search(){
     let input = document.querySelector('.search').value
     input = input.toLowerCase();
-    let x = document.querySelectorAll('.qr_image .title')
-    for (let i = 0; i < x.length; i++) {
-        console.log(x[i].closest('.saved_data'));
-        if(!x[i].innerHTML.toLowerCase().includes(input)){
-            x[i].closest('.saved_data').style.display = 'none'
-        } else{
-            x[i].closest('.saved_data').style.display = 'flex'
+    if(input !== ''){
+        for (let i = 0; i < x.length; i++) {
+            if(!x[i].innerHTML.toLowerCase().includes(input)){
+                x[i].closest('.saved_data').style.display = 'none'
+            } else{
+                x[i].closest('.saved_data').style.display = 'flex'
+            }
         }
     }
 }
+document.getElementById('all').addEventListener('click', function(e){
+    document.querySelector('.search').value = ' ';
+    x.forEach(function(div){
+        div.closest('.saved_data').style.display = 'flex'
+    })
+})

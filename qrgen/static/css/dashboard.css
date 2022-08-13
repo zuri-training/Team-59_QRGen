@@ -19,6 +19,7 @@ body {
 	font-family: "Lato", sans-serif;
 	color: #557f9d;
 	overflow-x: hidden;
+	background: #fafaff;
 }
 button {
 	cursor: pointer;
@@ -76,17 +77,29 @@ button {
 	color: #fafaff;
 }
 .header {
+	/* new */
+	position: fixed;
+	top: 0;
+	/*  */
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+	/* new */
+	z-index: 999;
+	background: #fafaff;
 }
 .navbar {
 	display: flex;
 	flex-direction: row;
-	width: 100%;
+	/* new */
+	width: 85%;
+	/*  */
 	justify-content: space-between;
 	align-items: center;
+	/* new */
+	margin-top: 2rem;
 	margin-bottom: 1rem;
+	z-index: 999;
 }
 .logo a,
 .logo a span {
@@ -156,20 +169,31 @@ button {
 	overflow: hidden;
 }
 .wrapper .side_bar {
+	/* new */
+	position: fixed;
+	top: 15%;
+	left: 0;
 	display: flex;
 	flex-direction: column;
-	width: 25%;
-	/* height: 100vh; */
+	width: 30%;
+	background: #fafaff;
+	height: 100%;
 	/* background: #CCD9E2; */
 	box-shadow: 0px 2.98829px 2.98829px rgb(0 0 0 / 25%);
-	padding-bottom: -999999px;
+	/* padding-bottom: -999999px; */
 	padding-right: 1rem;
+	/* new */
+	padding-left: 4rem;
+	/* new */
+	z-index: 9999;
+	/* height: 100vh; */
 }
 .wrapper .main_content {
 	display: flex;
 	flex-direction: column;
 	margin-top: 1.5rem;
-	margin-left: 1rem;
+	/* new */
+	margin-left: 25%;
 	padding-left: 8.18rem;
 	width: 75%;
 	padding-bottom: -999999px;
@@ -206,7 +230,7 @@ button {
 	flex-direction: column;
 	gap: 1rem;
 	margin-top: 3rem;
-	margin-bottom: 31rem;
+	margin-bottom: 20rem;
 }
 .navigator_header h6 {
 	font-size: 1.5rem;
@@ -244,11 +268,16 @@ button {
 	color: #ff6835;
 }
 .main_content_header {
+	position: fixed;
+	padding-top: 10rem;
+	padding-left: 5rem;
 	display: flex;
 	flex-direction: column-reverse;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+	background: #fafaff;
+	z-index: 2;
 }
 .main_content_header .filter_btn {
 	width: 100%;
@@ -270,7 +299,7 @@ button {
 	display: flex;
 	flex-direction: row;
 	justify-content: right;
-	width: 100%;
+	/* width: 100%; */
 }
 .create_qr_navigator_btn button {
 	padding: 1rem 2rem;
@@ -281,6 +310,7 @@ button {
 	cursor: pointer;
 }
 .saved_data_wrapper {
+	margin-top: 15rem;
 	margin-bottom: 3rem;
 }
 .saved_data_wrapper .saved_data {
@@ -615,6 +645,20 @@ button {
 		width: 100%;
 		overflow: hidden;
 	}
+	.saved_data_wrapper {
+		margin-top: 45rem;
+	}
+	.main_content_header {
+		padding-top: 36.5rem;
+		padding-bottom: 3rem;
+		padding-left: 2rem;
+	}
+	.main_content_header .create_qr_navigator_btn {
+		width: 80%;
+	}
+	.main_content_header .filter_btn {
+		margin-top: 0;
+	}
 	.saved_data_wrapper .saved_data {
 		display: flex;
 		flex-direction: column;
@@ -632,7 +676,7 @@ button {
 		/* flex-direction: row; */
 		width: 100%;
 		box-shadow: none;
-		padding-bottom: 3rem;
+		padding-bottom: 0;
 	}
 	.wrapper .main_content {
 		width: 100%;
