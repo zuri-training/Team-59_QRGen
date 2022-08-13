@@ -54,8 +54,10 @@ INSTALLED_APPS = [
     'qrgen',
     'home',
     'handlescan',
+    'api',
 
     # third-party libraries
+    'rest_framework'
 
 ]
 
