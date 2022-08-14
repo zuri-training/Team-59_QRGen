@@ -263,10 +263,10 @@ a.btn5.dark {
 	.imageSection img {
 		margin-left: 0;
 	}
-	header{
+	header {
 		height: 100%;
 	}
-	.hero-left h1{
+	.hero-left h1 {
 		margin: 0rem 1rem -4rem;
 	}
 }
@@ -324,7 +324,7 @@ a.btn5.dark {
 	header {
 		height: 100%;
 	}
-	section{
+	section {
 		padding: 50px 0;
 	}
 	.contain {
@@ -342,7 +342,7 @@ a.btn5.dark {
 		font-size: 38px;
 		width: 100%;
 	}
-	.get-started h2{
+	.get-started h2 {
 		padding: 0 0 1.5rem;
 	}
 	.content p {
@@ -427,7 +427,7 @@ a.btn5.dark {
 		justify-content: center;
 	}
 }
-@media (max-width: 624px) {
+@media (max-width: 710px) {
 	.hero-left h1 {
 		font-size: 38px;
 		line-height: 50px;

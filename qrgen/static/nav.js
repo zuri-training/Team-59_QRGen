@@ -25,4 +25,12 @@ $(document).ready(function () {
         $('.navbar .nav-links').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
+     // FAQ Section
+   const faqs = document.querySelectorAll(".faq")
+
+   faqs.forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+    });
+   });
 });

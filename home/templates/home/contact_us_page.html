@@ -8,86 +8,57 @@
 
 {% block content %}
 
-    <!-- Contact Form -->
-    <section>
-      <div class="customise">
-        <div class="service">
-          <h1>Contact Customer Service</h1>
-          <p>Tell us about your issue so we can help you more quickly!</p>
-        </div>
-      </div>
+<!-- Contact Form -->
+<section>
+  <div class="customise">
+    <div class="service">
+      <h1>Contact Customer Service</h1>
+      <p>Tell us about your issue so we can help you more quickly!</p>
+    </div>
+  </div>
 
-      <div id="contact-form">
-        <form method="post" action="/">
-          {% csrf_token %}
-          <div>
-            <label for="name">
-              <span class="required">Full Name</span>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value=""
-                placeholder="Team 59"
-                required="required"
-                tabindex="1"
-                autofocus="autofocus"
-              />
-            </label>
-          </div>
-          <div>
-            <label for="email">
-              <span class="required">Email Address</span>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value=""
-                placeholder="team59@gmail.com"
-                tabindex="2"
-                required="required"
-              />
-            </label>
-          </div>
-          <div>
-            <label for="phone">
-              <span class="required">Phone Number (Optional)</span>
-              <input
-                type="number"
-                id="number"
-                name="number"
-                value=""
-                placeholder="+234 813 456 7897"
-                tabindex="3"
-                required="required"
-              />
-            </label>
-          </div>
-          <div>
-            <label for="message">
-              <span class="required">Your Message</span>
-              <textarea
-                id="message"
-                name="message"
-                tabindex="4"
-                placeholder="Hi QrGen 59, I would like to..."
-                required="required"
-              ></textarea>
-            </label>
-          </div>
-          <div>
-            <a href="{% url 'home:contact-page' %}"
-              ><button name="submit" type="submit" id="submit">
-                Send Message
-              </button></a
-            >
-          </div>
-        </form>
+  <div id="contact-form">
+    <form method="post" action="/">
+      {% csrf_token %}
+      <div>
+        <label for="name">
+          <span class="required">Full Name</span>
+          <input type="text" id="name" name="name" value="" placeholder="Team 59" required="required" tabindex="1"
+            autofocus="autofocus" />
+        </label>
       </div>
-    </section>
+      <div>
+        <label for="email">
+          <span class="required">Email Address</span>
+          <input type="email" id="email" name="email" value="" placeholder="team59@gmail.com" tabindex="2"
+            required="required" />
+        </label>
+      </div>
+      <div>
+        <label for="phone">
+          <span class="required">Phone Number (Optional)</span>
+          <input type="number" id="number" name="number" value="" placeholder="+234 813 456 7897" tabindex="3"
+            required="required" />
+        </label>
+      </div>
+      <div>
+        <label for="message">
+          <span class="required">Your Message</span>
+          <textarea id="message" name="message" tabindex="4" placeholder="Hi QrGen 59, I would like to..."
+            required="required"></textarea>
+        </label>
+      </div>
+      <div>
+        <a href="{% url 'home:contact-page' %}"><button name="submit" type="submit" id="submit">
+            Send Message
+          </button></a>
+      </div>
+    </form>
+  </div>
+</section>
 
-    {% endblock content %}
-    {% block scripts %}
+{% endblock content %}
+<!-- {% block scripts %}
     <script src="{% static 'home/js/contact_script.js' %}"></script>
   
-    {% endblock scripts %}
+    {% endblock scripts %} -->

@@ -40,9 +40,17 @@
                     <label for="email">Email</label>
                     <input class="input" type="email" name="email" id="email" placeholder="name@email.com" required>
 
-                    <label for="pswrd">Password</label>
-                    <input class="input" type="password" name="pswrd" id="pass" placeholder="*****" required
-                        pattern="(?=*d) (?=.[a-z] (?.*[A-Z].(8,)">
+                    <label for="pswrd">Password
+                        <input class="input" type="password" name="pswrd" id="pass" placeholder="*****"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$" required />
+                        <ul>
+                            <li>At least 1 Uppercase</li>
+                            <li>At least 1 Lowercase</li>
+                            <li>At least 1 Number</li>
+                            <li>Min 8 characters and Max 15 characters</li>
+
+                        </ul>
+                    </label>
 
                     <input class="input_submit" type="submit" value="Sign Up" class="Send">
                 </form>
@@ -51,7 +59,7 @@
                 </div>
             </div>
             {% if messages %}
-            {% for message in messages %}
+            <!-- {% for message in messages %} -->
             <section class="alert">
                 <div class="alert_img">
                     <img src="{% static 'accounts/image/Group 7.png' %}" alt="error-icon">
@@ -64,7 +72,7 @@
                 </div>
                 <button>Try Again</button>
             </section>
-            {% endfor %}
+            <!-- {% endfor %} -->
             {% endif %}
     </main>
 </body>

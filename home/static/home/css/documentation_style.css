@@ -7,7 +7,9 @@
 a {
 	text-decoration: none;
 }
-
+.navbar{
+	display: block;
+}
 /* Documentation and endpoint styling */
 .documentation,
 .endpoint {

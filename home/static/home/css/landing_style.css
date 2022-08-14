@@ -425,9 +425,9 @@ section {
 	}
 }
 @media (max-width: 1024px) {
-	.menu-btn {
+	/* .menu-btn {
 		display: none;
-	}
+	} */
 	.hero-left h1 {
 		margin: 0;
 		font-weight: 700;
@@ -471,9 +471,9 @@ section {
 	.download {
 		flex-direction: column-reverse;
 	}
-    .generate{
-        padding-top: 25%;
-    }
+	.generate {
+		padding-top: 25%;
+	}
 }
 @media (max-width: 820px) {
 	.generate {
@@ -567,12 +567,12 @@ section {
 		line-height: 28px;
 	}
 	.hero-right .image {
-        margin-top: 3rem;
+		margin-top: 3rem;
 		padding: 0;
 	}
-    .hero-buttons a{
-        font-size: 23px;
-    }
+	.hero-buttons a {
+		font-size: 23px;
+	}
 	.get-more h2 {
 		font-size: 2rem;
 	}
@@ -609,6 +609,20 @@ section {
 	a.btn5.dark {
 		margin-left: 0;
 		justify-content: center;
+	}
+}
+@media (min-width: 427px) and (max-width: 628px) {
+	.left {
+		flex-direction: column-reverse;
+	}
+	.left h2 {
+		margin-top: 0;
+	}
+	.left.event {
+		margin-top: 2rem;
+	}
+	.right.website img {
+		padding-top: 1rem;
 	}
 }
 @media (max-width: 426px) {
@@ -660,9 +674,9 @@ section {
 	.image-container1 {
 		gap: 1rem;
 	}
-    .second-container{
-        margin-top: -9rem;
-    }
+	.second-container {
+		margin-top: -9rem;
+	}
 	.get-more p.main {
 		width: 100%;
 		margin-left: 0;
@@ -753,31 +767,31 @@ section {
 	.question h3 {
 		font-size: 16px;
 	}
-    .answer p{
-        font-size: 0.8rem;
-    }
-    section{
-        margin: -3rem auto;
-    }
-    .svg{
-        width: 1.5rem;
-    }
-    .title{
-        font-size: 2rem;
-    }
+	.answer p {
+		font-size: 0.8rem;
+	}
+	section {
+		margin: -3rem auto;
+	}
+	.svg {
+		width: 1.5rem;
+	}
+	.title {
+		font-size: 2rem;
+	}
 }
 @media (max-width: 390px) {
 	.hero-left h1 {
 		padding-top: 6.5rem;
-        padding-left: 1rem;
+		padding-left: 1rem;
 	}
-    .hero-right .image {
-        margin-top: 1rem;
+	.hero-right .image {
+		margin-top: 1rem;
 		padding: 0;
 	}
 	.hero-buttons {
 		margin-bottom: 1.5rem;
-        margin-left: 0;
+		margin-left: 0;
 	}
 	a.btn4.dark {
 		font-size: 15px;
@@ -818,9 +832,9 @@ section {
 	.fifth-container {
 		padding: 2.5rem 2.5rem 1.5rem;
 	}
-    .answer p{
-        font-size: 0.7rem;
-    }
+	.answer p {
+		font-size: 0.7rem;
+	}
 }
 @media (max-width: 320px) {
 	.hero-left h1 {
