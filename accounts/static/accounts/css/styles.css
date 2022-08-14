@@ -257,6 +257,15 @@ body {
 	font-size: 1.25rem;
 	color: #07070a;
 }
+.alert button{
+    background: #00355A;
+    border: none;
+    padding: 1.5rem 2.5rem;
+    border-radius: 0.5rem;
+    color: #FAFAFF;
+    justify-content: end;
+    margin-left: 15%;
+}
 .alert,
 .alert2 {
 	position: fixed;
@@ -370,5 +379,8 @@ body {
 		padding: 0.8rem 0;
 		color: white;
 		border: none;
+	}
+	.alert button {
+		margin-left: 0;
 	}
 }

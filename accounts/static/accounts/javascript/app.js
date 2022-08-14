@@ -7,7 +7,7 @@ const emailValue = document.querySelector('#email').value;
 submitBtn.addEventListener('click', function(){
     
     // Condition to check if the email is found or not.
-    if( emailValue === ''){
+    if( emailValue === ' '){
         alert.classList.remove('hide')
     }
     setTimeout(function(){
@@ -17,3 +17,6 @@ submitBtn.addEventListener('click', function(){
 // document.querySelector('.alert_text button').addEventListener("click", function(){
 //     alert.classList.add('hide')
 // })
+document.querySelector('.alert button').addEventListener("click", function(){
+    alert.classList.add('hide')
+})

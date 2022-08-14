@@ -87,34 +87,32 @@ changeBtn.forEach(function(btn){
         e.target.closest('.title_form').classList.remove('show');
     })
 })
+
 /////////////////////////////////////   CHANGE QRCODE CODE   ///////////////////////////////////////
 const contentEditBtn = document.querySelectorAll('.content_edit_btn');
 const editForm = document.querySelector('.edit_form');
-
 contentEditBtn.forEach(function(btn){
     btn.addEventListener('click', function(){
         // console.log('yes');
         // console.log(editForm);
-        editForm.classList.add('show');
+        btn.closest('.des_share_del').querySelector(".edit_form").classList.add('show');
     })
 })
 const cancelX = document.querySelectorAll('.content_modal_cancel');
-
 cancelX.forEach(function(icon){
     icon.addEventListener('click', function(e){
         // console.log('working');
         e.target.closest('.edit_form').classList.remove('show');
     })
 })
-
 const changeX = document.querySelectorAll('.change_btn_x');
-
 changeX.forEach(function(btn){
     btn.addEventListener('click', function(){
         // e.preventDefault()
         e.target.closest('.edit_form').classList.remove('show');
     })
 })
+
 // ///////////////////////////////////   DELETE POP UP   /////////////////////////////////////////
 
 // const deleteIcon = document.querySelectorAll('.delete_icon');
