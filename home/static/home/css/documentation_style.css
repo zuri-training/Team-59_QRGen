@@ -8,59 +8,6 @@ a {
 	text-decoration: none;
 }
 
-header {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	width: 100%;
-}
-/* navbar styling */
-.navbar {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-	width: 100%;
-}
-.logo {
-	font: 700 52px "Dongle", sans-serif;
-	color: #003459;
-	text-decoration: none;
-}
-.no {
-	color: #ff6835;
-}
-.nlink {
-	color: #003459;
-	font: 700 18px "Lato", sans-serif;
-}
-.nav-link:hover {
-	color: #bb5b3b;
-}
-.btn-primary {
-	font: 700 18px "Lato", sans-serif;
-	background-color: #003f6c;
-	border: none;
-	margin-right: 10px;
-	border-radius: 12px;
-	padding: 14px 16px;
-}
-button a,
-button a:hover {
-	text-decoration: none;
-	color: inherit;
-}
-.btn-outline-primary {
-	font: 700 18px "Lato", sans-serif;
-	border: 1px solid #003459;
-	color: #003459;
-	border-radius: 12px;
-	padding: 14px 16px;
-}
-.btn-outline-primary:hover {
-	background-color: #003459;
-	border: 1px solid #003459;
-}
-.btn-primary:hover {
-	background-color: #003f6c;
-}
 /* Documentation and endpoint styling */
 .documentation,
 .endpoint {
@@ -134,37 +81,6 @@ td {
 	padding: 10px 10px;
 	line-height: 24px;
 }
-/* footer */
-footer {
-	margin-top: 72px;
-	background-color: #000a12;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	padding: 40px 72px;
-	justify-content: center;
-}
-.logo-2 {
-	text-decoration: none;
-	font: 400 16px "Lato", sans-serif;
-}
-.line1 {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
-hr {
-	border-radius: 50px;
-	border-width: 3px;
-	background-color: white;
-	color: white;
-}
-footer p {
-	color: white;
-	font: 400 16px "Lato", sans-serif;
-	display: flex;
-	justify-content: center;
-}
 .table-mob {
 	display: none;
 	margin-top: 16px;
@@ -179,24 +95,6 @@ footer p {
 @media (max-width: 900px) {
 	.documentation p {
 		width: 95%;
-	}
-
-	.line1 {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	.line1 a {
-		margin-bottom: 15px;
-	}
-	.line1 .logo {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.logo-2 {
-		font-size: 32px;
 	}
 	.documentation,
 	.endpoint {

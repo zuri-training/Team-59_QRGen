@@ -1,71 +1,13 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'home/css/contact_style.css' %}" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <title>QrGen59 | Contact Us</title>
-  </head>
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/contact_style.css' %}" />
+{% endblock css %}
 
-  <body>
-    <div class="scroll-up-btn">
-      <i class="fas fa-angle-up"></i>
-    </div>
-    <!-- Navbar Section -->
-    <header>
-      <nav class="navbar">
-        <div class="wrapper">
-          <div class="logo">
-            <a href="#">QRGen<span>59</span></a>
-          </div>
+{% block content %}
 
-          <ul class="nav-links">
-            <li>
-              <a href="{% url 'home:home-page' %}" class="menu-btn">Home</a>
-            </li>
-            <li>
-              <a href="{% url 'home:learn-page' %}" class="menu-btn">Learn</a>
-            </li>
-            <li>
-              <a
-                href="{% url 'home:contact-page' %}"
-                class="active"
-                class="menu-btn"
-                >Contact Us</a
-              >
-            </li>
-            <li>
-              <a href="{% url 'home:about-page' %}" class="menu-btn"
-                >About Us</a
-              >
-            </li>
-          </ul>
-          <div class="nav-buttons">
-            <a href="{% url 'accounts:register-page' %}" class="btn1 dark"
-              >Get Started</a
-            >
-            <a href="{% url 'accounts:login-page' %}" class="btn2 light"
-              >Sign in</a
-            >
-          </div>
-          <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-          </div>
-        </div>
-      </nav>
-    </header>
     <!-- Contact Form -->
     <section>
       <div class="customise">
@@ -143,34 +85,9 @@
         </form>
       </div>
     </section>
-    <!-- Footer Section -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-logo">
-          <a href="#">QrGen59</a>
-        </div>
-        <ul class="footer-nav1">
-          <li>
-            <a href="{% url 'home:learn-page' %}">Learn</a>
-          </li>
-          <li>
-            <a href="{% url 'home:documentation-page' %}">Documentation</a>
-          </li>
-          <li>
-            <a href="{% url 'home:contact-page' %}" class="active"
-              >Contact Us</a
-            >
-          </li>
-          <li>
-            <a href="{% url 'home:about-page' %}">About Us</a>
-          </li>
-        </ul>
-      </div>
-      <div class="line"></div>
-      <ul class="footer-nav2">
-        <p>Copyright@2022</p>
-      </ul>
-    </footer>
+
+    {% endblock content %}
+    {% block scripts %}
     <script src="{% static 'home/js/contact_script.js' %}"></script>
-  </body>
-</html>
+  
+    {% endblock scripts %}
