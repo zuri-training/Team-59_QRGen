@@ -598,7 +598,7 @@ section {
 		padding-top: 0;
 	}
 	.data-types h2 {
-		padding: 0;
+		padding: 1rem;
 		font-size: 40px;
 	}
 	.data-types p {

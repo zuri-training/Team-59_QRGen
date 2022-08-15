@@ -315,6 +315,7 @@ ul .footer-nav1 {
 	}
 	.footer-nav2 p {
 		font-size: 20px;
+		justify-content: center;
 		color: var(--button-color);
 	}
 }

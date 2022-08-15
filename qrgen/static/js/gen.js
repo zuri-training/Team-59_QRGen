@@ -280,3 +280,9 @@ shareBtn.addEventListener('click', async function(e){
     }
     onImageEdit(url)
 })
+// Disabling onClick of QRgenerate button
+document.querySelectorAll('.generate_button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+        btn.removeAttribute("onclick")
+    });
+});

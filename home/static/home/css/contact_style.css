@@ -62,6 +62,7 @@ p{
     font-size: 20px;
     line-height: 42px;
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 45%;
     text-align: center;
@@ -136,6 +137,7 @@ h1 {
 @media (min-width:1439px) {
     p {
         width: 35%;
+        font-size: 30px;
     }
     #contact-form input, 
     #contact-form select, 

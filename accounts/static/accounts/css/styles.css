@@ -14,7 +14,7 @@ body {
 	padding-left: 5rem;
 	padding-top: 1.5rem;
 	padding-right: 5rem;
-	font-family: "Lato", sans-serif;
+	font-family: 'Lato', sans-serif;
 	color: #557f9d;
 	overflow-x: hidden;
 }
@@ -117,6 +117,9 @@ body {
 	border-radius: 0.86rem;
 	margin-top: 0.35rem;
 	margin-bottom: 2.5rem;
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
 }
 .form_wrapper .input_submit {
 	width: 100%;
@@ -277,6 +280,7 @@ ul {
 	flex-direction: row;
 	align-items: center;
 	padding: 1.75rem 3.25rem 1.75rem 2.75rem;
+	justify-content: space-between;
 	gap: 2rem;
 	top: 2.93rem;
 	left: 10%;
@@ -308,6 +312,9 @@ ul {
 	font-size: 1.2rem;
 	color: #5a5a5c;
 	margin-left: 22px;
+}
+.alert-content{
+	display: flex;
 }
 .error {
 	z-index: 1;
@@ -344,6 +351,9 @@ ul {
 		width: 100%;
 		padding-right: 0;
 	}
+	.form_wrapper .input{
+		font-size: 13px;
+	}
 	.hero_signin {
 		width: 100%;
 	}
@@ -361,7 +371,7 @@ ul {
 		align-items: center;
 		justify-content: center;
 		padding: 1.75rem 3.25rem 1.75rem 2.75rem;
-		gap: 2rem;
+		gap: 0;
 		top: 16.93rem;
 		left: 0%;
 		width: 100%;
@@ -370,7 +380,7 @@ ul {
 	.alert_text2 {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+		padding-top: 2rem;
 		text-align: center;
 		margin-bottom: 4.5rem;
 	}
@@ -385,6 +395,17 @@ ul {
 		border: none;
 	}
 	.alert button {
+		margin-left: 0;
+	}
+	.alert-content{
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	.alert p{
+		margin-left: 0;
+	}
+	.alert h6{
 		margin-left: 0;
 	}
 }

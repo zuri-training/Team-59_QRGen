@@ -13,8 +13,12 @@
     <h1>Learn about QR codes & generate in seconds;<span> hassle-free.</span>
       <p>Create, download, and share your QR Code for multi-purpose use all in one place</p>
       <div class="hero-buttons">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'qrgen:dashboard' %}" class="btn4 light">Go to Dashboard</a>
+          {% else %}
         <a href="{% url 'accounts:register-page' %}" class="btn3 dark" style="margin-right: 12px;">Get Started</a>
         <a href="{% url 'accounts:login-page' %}" class="btn4 light">Sign in</a>
+          {% endif %}
       </div>
   </div>
   <div class="hero-right">
@@ -43,10 +47,12 @@
       <img src="{% static 'home/images/landing/ready.png' %}" alt="ready" />
     </div>
   </div>
+  {% if not request.user.is_authenticated %}
   <div class="cta">
     <p>Sign up to create your QR code now</p>
     <a href="{% url 'accounts:register-page' %}" class="btn4 dark">Get started</a>
   </div>
+  {% endif %}
 </div>
 <!-- Third-container Section -->
 <div class="third-container">
@@ -134,9 +140,12 @@
 
 <div class="fifth-container">
   <img src="{% static 'home/images/landing/try-qrgen59.png' %}" alt="try-qrgen59">
+</div>
+{% if not request.user.is_authenticated %}
   <div class="botton">
     <a href="{% url 'accounts:register-page' %}" class="btn4 dark">Get started</a>
   </div>
+{% endif %}
 </div>
 
 <section>

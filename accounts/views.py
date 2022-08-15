@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def Register(request):
+    if request.user.is_authenticated:
+        return redirect('qrgen:dashboard')
     if request.method == "POST":
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
@@ -24,12 +26,15 @@ def Register(request):
             new_user.last_name = lname
 
             new_user.save()
-            return redirect('accounts:login-page')
+            login(request, new_user)
+            return redirect('qrgen:dashboard')
 
     return render(request, 'accounts/register.html', {})
 
 
 def Login(request):
+    if request.user.is_authenticated:
+        return redirect('qrgen:dashboard')
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('pswrd')
