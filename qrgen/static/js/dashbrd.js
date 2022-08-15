@@ -142,7 +142,7 @@ shareicon.forEach(function(icon){
         setTimeout(function(){
             shareNote.style.opacity = 0;
         }, 3000)
-        const image = e.target.closest('.saved_data').querySelector('.qr_image img');
+        const image = e.target.closest('.saved_data').querySelector('.qr_image .code');
         // console.log(image);
         // ***Here is the code for converting "image source" (url) to "Base64".***
         let url = image.src

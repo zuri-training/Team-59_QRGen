@@ -50,16 +50,16 @@ section{
 }
 h1{
     font-family: 'Lato', sans-serif;
-    font-weight: 800;
-    font-size: 54px;
+    font-weight: 700;
+    font-size: 48px;
     line-height: 65px;
     display: flex;
     align-items: center;
     text-align: center;
 }
 p{
-    font-weight: 500;
-    font-size: 28px;
+    font-weight: 300;
+    font-size: 20px;
     line-height: 42px;
     display: flex;
     align-items: center;
@@ -127,7 +127,7 @@ h1 {
     border-radius: 8px;
  }
  #contact-form .required { 
-    font-weight: 400; 
+    font-weight: 300; 
     line-height: 2rem; 
     color: var(--hero-color)      
  }

@@ -67,7 +67,7 @@ img {
 	width: 100%;
 	height: 50%;
 	padding: 1.5rem 0.5rem 1.5rem 0;
-	font-weight: 510;
+	font-weight: 300;
 	font-size: 28px;
 	line-height: 42px;
 	color: var(--text-color);
@@ -85,7 +85,7 @@ a.btn3.dark {
 	gap: 8px;
 	background: var(--navy-blue);
 	color: var(--button-color);
-	font-weight: 700;
+	font-weight: 400;
 	border-radius: 12px;
 	font-size: 30px;
 }
@@ -102,7 +102,7 @@ a.btn4.light:hover {
 	background: var(--navy-blue);
 }
 .get-more h2 {
-	font-weight: 800;
+	font-weight: 600;
 	font-size: 2.5rem;
 	left: 25%;
 	line-height: 48px;
@@ -120,7 +120,7 @@ a.btn4.light:hover {
 	margin-top: 2rem;
 	width: 50%;
 	font-size: 24px;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 36px;
 	color: var(--button-color);
 }
@@ -151,7 +151,7 @@ a.btn4.light:hover {
 	width: 100%;
 	justify-content: center;
 	padding-top: 15px;
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 28px;
 	line-height: 34px;
 }
@@ -167,7 +167,7 @@ a.btn4.light:hover {
 	align-items: center;
 	text-align: center;
 	color: var(--button-color);
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 20px;
 	line-height: 30px;
 }
@@ -181,7 +181,7 @@ a.btn4.light:hover {
 }
 .get-started h2 {
 	padding: 0 0 2.5rem;
-	font-weight: 800;
+	font-weight: 600;
 	font-size: 2.5rem;
 	left: 25%;
 	line-height: 48px;
@@ -194,7 +194,7 @@ a.btn4.light:hover {
 	margin-left: 26.5%;
 	width: 50%;
 	font-size: 24px;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 36px;
 	display: flex;
 	align-items: center;
@@ -247,7 +247,7 @@ a.btn5.dark {
 	padding: 1rem 2rem 1rem 2rem;
 	background: var(--navy-blue);
 	color: var(--button-color);
-	font-weight: 700;
+	font-weight: 400;
 	margin-top: 5rem;
 	margin-left: 3rem;
 	border-radius: 12px;
@@ -380,6 +380,13 @@ a.btn5.dark {
 		justify-content: center;
 		align-items: center;
 	}
+	.hero-right img {
+		max-width: 100%;
+	}
+	img {
+		max-width: 50%;
+		margin: 1.5em 0;
+	}
 	.hero-right {
 		position: relative;
 		margin-bottom: 15%;
@@ -411,7 +418,7 @@ a.btn5.dark {
 		left: 10%;
 		width: 50%;
 		font-size: 22px;
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 30px;
 	}
 	.image-container {
@@ -428,6 +435,13 @@ a.btn5.dark {
 	}
 }
 @media (max-width: 710px) {
+	.hero-right img {
+		max-width: 100%;
+	}
+	img {
+		max-width: 50%;
+		margin: 1.5em 0;
+	}
 	.hero-left h1 {
 		font-size: 38px;
 		line-height: 50px;
@@ -567,6 +581,10 @@ a.btn5.dark {
 	}
 }
 @media (max-width: 320px) {
+	img {
+		max-width: 90%;
+		margin: 1.5em 0;
+	}
 	.hero-buttons {
 		margin-top: -4%;
 	}

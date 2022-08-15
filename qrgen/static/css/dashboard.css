@@ -85,7 +85,7 @@ button {
 	flex-direction: row;
 	width: 100%;
 	/* new */
-	z-index: 999;
+	z-index: 99999;
 	background: #fafaff;
 }
 .navbar {
@@ -171,7 +171,7 @@ button {
 .wrapper .side_bar {
 	/* new */
 	position: fixed;
-	top: 15%;
+	top: 16%;
 	left: 0;
 	display: flex;
 	flex-direction: column;
@@ -203,13 +203,13 @@ button {
 	flex-direction: row;
 	margin: 1.5rem 0;
 	padding-left: 1rem;
-	height: 5rem;
+	height: 3.5rem;
 	border: 1px solid #557f9d;
 	border-radius: 1rem;
 }
 .search_form_div form input {
 	width: 100%;
-	height: 5rem;
+	height: 3.5rem;
 	background: transparent;
 	border: none;
 	outline: none;
@@ -270,7 +270,7 @@ button {
 .main_content_header {
 	position: fixed;
 	padding-top: 10rem;
-	padding-left: 5rem;
+	/* padding-left: 5rem; */
 	display: flex;
 	flex-direction: column-reverse;
 	width: 100%;
@@ -649,9 +649,9 @@ button {
 		margin-top: 45rem;
 	}
 	.main_content_header {
-		padding-top: 36.5rem;
+		padding-top: 26.5rem;
 		padding-bottom: 3rem;
-		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 	.main_content_header .create_qr_navigator_btn {
 		width: 80%;
@@ -673,9 +673,12 @@ button {
 	}
 	.wrapper .side_bar {
 		display: flex;
+		top: 12%;
 		/* flex-direction: row; */
 		width: 100%;
 		box-shadow: none;
+		padding-right: 5.2rem;
+		padding-left: 2rem;
 		padding-bottom: 0;
 	}
 	.wrapper .main_content {
@@ -704,7 +707,8 @@ button {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
+		margin-top: 1rem;
 	}
 	.navigator_header h6 {
 		font-size: 1.5rem;
@@ -739,6 +743,7 @@ button {
 	}
 
 	.delete_modal {
+		top: 40%;
 		left: 10%;
 		width: 80%;
 	}
