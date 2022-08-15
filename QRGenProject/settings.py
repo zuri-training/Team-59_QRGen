@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-# import django_heroku
+import django_heroku
 
 # import environ
 # import os
@@ -153,4 +153,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
