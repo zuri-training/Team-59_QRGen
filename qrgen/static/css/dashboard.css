@@ -220,7 +220,7 @@ button {
 	background: transparent;
 	color: white;
 	margin-right: 10px;
-	padding: 1rem 2rem;
+	/* padding: 1rem 2rem; */
 	border-radius: 0.5rem;
 	cursor: pointer;
 }
@@ -284,7 +284,7 @@ button {
 	display: flex;
 	flex-direction: row;
 	justify-content: left;
-	margin-top: 3rem;
+	/* margin-top: 3rem; */
 }
 .main_content_header .filter_btn button {
 	display: flex;
@@ -646,12 +646,14 @@ button {
 		overflow: hidden;
 	}
 	.saved_data_wrapper {
-		margin-top: 45rem;
+		margin-top: 0;
 	}
 	.main_content_header {
-		padding-top: 26.5rem;
+		position: relative;
+		flex-direction: row;
+		padding-top: 2rem;
 		padding-bottom: 3rem;
-		padding-right: 2rem;
+		padding-right: 5.2rem;
 	}
 	.main_content_header .create_qr_navigator_btn {
 		width: 80%;
@@ -672,14 +674,19 @@ button {
 		border: none;
 	}
 	.wrapper .side_bar {
+		position: relative;
 		display: flex;
-		top: 12%;
-		/* flex-direction: row; */
+		margin-top: 20%;
+		flex-direction: row;
 		width: 100%;
 		box-shadow: none;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
 		padding-right: 5.2rem;
-		padding-left: 2rem;
-		padding-bottom: 0;
+		/* padding-top: 5rem; */
+		padding-left: 0;
+		/* padding-bottom: 5rem; */
 	}
 	.wrapper .main_content {
 		width: 100%;
@@ -706,12 +713,15 @@ button {
 	.page_navigator {
 		display: flex;
 		flex-direction: row;
+		width: 50%;
 		justify-content: space-between;
 		margin-bottom: 1rem;
 		margin-top: 1rem;
 	}
-	.navigator_header h6 {
-		font-size: 1.5rem;
+
+	.navigator_header,
+	.navigator_options img {
+		display: none;
 	}
 	.page_navigator .navigator_options {
 		display: flex;
@@ -728,12 +738,17 @@ button {
 	}
 	.logout_btn {
 		margin-bottom: 1rem;
+		width: 30%;
 	}
 	.download_options {
 		flex-direction: column;
 	}
 	.title_form {
 		width: 100%;
+	}
+	.search_form_div {
+		z-index: 99999;
+		width: 40%;
 	}
 
 	/* BLANK DASHBOARD STYLES */
@@ -746,5 +761,8 @@ button {
 		top: 40%;
 		left: 10%;
 		width: 80%;
+	}
+	.qr_share_del .share_del .share-notification {
+		display: none;
 	}
 }
