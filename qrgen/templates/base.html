@@ -47,8 +47,12 @@
         </ul>
         {% endwith %}
         <div class="nav-buttons">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'qrgen:dashboard' %}" class="btn2 light">Dashboard</a>
+          {% else %}
           <a href="{% url 'accounts:register-page' %}" class="btn1 dark">Get Started</a>
           <a href="{% url 'accounts:login-page' %}" class="btn2 light">Sign in</a>
+          {% endif %}
         </div>
         <div class="menu-btn">
           <i class="fas fa-bars"></i>
