@@ -116,7 +116,7 @@
                 </span>
               </h5>
             </div>
-            <img src="{{qrcode.img.url|slice:'12:'}}" alt="" />
+            <img src="{{qrcode.img.url|slice:'12:'}}" alt="" class="code" />
             <form class="title_form" action="{% url 'qrgen:edit_qrcode' qrcode.id %}" method="POST">
               {% csrf_token %}
               <h5>Enter new title</h5>

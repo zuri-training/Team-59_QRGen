@@ -58,7 +58,7 @@ img {
 	height: 50%;
 	padding: 1.5rem 0.5rem 1.5rem 0;
 	font-weight: 300;
-	font-size: 28px;
+	font-size: 20px;
 	line-height: 42px;
 	color: var(--text-color);
 }
@@ -77,9 +77,9 @@ img {
 	gap: 8px;
 	background: var(--navy-blue);
 	color: var(--button-color);
-	font-weight: 700;
+	font-weight: 400;
 	border-radius: 12px;
-	font-size: 30px;
+	font-size: 25px;
 }
 /* Second Container Styling */
 .second-container {
@@ -88,7 +88,7 @@ img {
 	background: var(--button-color);
 }
 .create h2 {
-	font-weight: 800;
+	font-weight: 600;
 	font-size: 1.5rem;
 	left: 25%;
 	line-height: 48px;
@@ -101,8 +101,8 @@ img {
 	text-align: center;
 	margin-left: 25%;
 	width: 50%;
-	font-size: 24px;
-	font-weight: 400;
+	font-size: 20px;
+	font-weight: 300;
 	line-height: 36px;
 }
 .image-container1 {
@@ -129,7 +129,7 @@ img {
 	width: 50%;
 	font-size: 18px;
 	margin-top: 1rem;
-	font-weight: 400;
+	font-weight: 300;
 }
 .cta p {
 	margin: 1.5rem;
@@ -141,7 +141,7 @@ a.btn4.dark {
 	padding: 12px 32px;
 	background: var(--navy-blue);
 	color: var(--button-color);
-	font-weight: 700;
+	font-weight: 400;
 	border-radius: 12px;
 	font-size: 20px;
 }
@@ -169,8 +169,8 @@ a.btn5.dark {
 	background: var(--navy-blue);
 }
 .get-more h2 {
-	font-weight: 800;
-	font-size: 2.5rem;
+	font-weight: 600;
+	font-size: 2rem;
 	left: 25%;
 	line-height: 48px;
 	justify-content: center;
@@ -185,8 +185,8 @@ a.btn5.dark {
 	margin-left: 25%;
 	margin-top: 2rem;
 	width: 50%;
-	font-size: 24px;
-	font-weight: 400;
+	font-size: 20px;
+	font-weight: 300;
 	line-height: 36px;
 	color: var(--button-color);
 }
@@ -221,8 +221,8 @@ a.btn5.dark {
 	width: 100%;
 	justify-content: center;
 	padding-top: 15px;
-	font-weight: 700;
-	font-size: 28px;
+	font-weight: 400;
+	font-size: 25px;
 	line-height: 34px;
 }
 
@@ -237,7 +237,7 @@ a.btn5.dark {
 	align-items: center;
 	text-align: center;
 	color: var(--button-color);
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 20px;
 	line-height: 30px;
 }
@@ -258,7 +258,7 @@ a.btn5.dark {
 	text-align: center;
 	color: var(--navy-blue);
 	align-items: center;
-	font-size: 38px;
+	font-size: 30px;
 }
 .left.website {
 	width: 50%;
@@ -277,8 +277,8 @@ a.btn5.dark {
 	width: 100%;
 	height: 50%;
 	padding: 1.5rem 0.5rem 1.5rem 0;
-	font-weight: 510;
-	font-size: 28px;
+	font-weight: 300;
+	font-size: 20px;
 	line-height: 42px;
 	color: var(--text-color);
 }
@@ -291,8 +291,8 @@ a.btn5.dark {
 }
 .left h2 {
 	margin-top: 3rem;
-	font-size: 40px;
-	font-weight: 700;
+	font-size: 30px;
+	font-weight: 600;
 }
 .left p {
 	text-align: start;
@@ -300,7 +300,7 @@ a.btn5.dark {
 	padding-left: 5rem;
 	width: 85%;
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: 300;
 }
 .right.website img {
 	padding-right: 18px;
@@ -408,8 +408,8 @@ section {
 		text-align: center;
 		margin-left: 3rem;
 		width: 75%;
-		font-size: 30px;
-		font-weight: 500;
+		font-size: 20px;
+		font-weight: 300;
 	}
 	.right.website img {
 		padding-right: 0;
@@ -528,8 +528,8 @@ section {
 	.get-more p.main {
 		left: 10%;
 		width: 50%;
-		font-size: 22px;
-		font-weight: 400;
+		font-size: 20px;
+		font-weight: 300;
 		line-height: 30px;
 	}
 	.image-container {
@@ -612,6 +612,12 @@ section {
 	}
 }
 @media (min-width: 427px) and (max-width: 628px) {
+	.hero-right img {
+		max-width: 100%;
+	}
+	img {
+		max-width: 60%;
+	}
 	.left {
 		flex-direction: column-reverse;
 	}
@@ -781,6 +787,9 @@ section {
 	}
 }
 @media (max-width: 390px) {
+	img {
+		max-width: 80%;
+	}
 	.hero-left h1 {
 		padding-top: 6.5rem;
 		padding-left: 1rem;

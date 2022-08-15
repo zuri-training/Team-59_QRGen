@@ -9,108 +9,108 @@
 {% endblock css %}
 
 {% block content %}
-    <div class="generate">
-      <div class="hero-left">
-        <h1>Get onboard and learn more about<span> QRCodes Solutions.</span>
-          <p>All you need to know about QR codes explained in simple language.</p>
-          <div class="hero-buttons">
-            <a href="#forLearnmore" class="btn3 dark">Learn more</a>
-          </div>
+<div class="generate">
+  <div class="hero-left">
+    <h1>Get onboard and learn more about<span> QRCodes Solutions.</span>
+      <p>All you need to know about QR codes explained in simple language.</p>
+      <div class="hero-buttons">
+        <a href="#forLearnmore" class="btn3 dark">Learn more</a>
       </div>
-      <div class="hero-right">
-        <img src="{% static 'home/images/learn/hero-image.png' %}" class="image" alt="hero-image">
-      </div>
+  </div>
+  <div class="hero-right">
+    <img src="{% static 'home/images/learn/hero-image.png' %}" class="image" alt="hero-image">
+  </div>
+</div>
+{% comment %} </header> {% endcomment %}
+
+<!-- Get-More Section -->
+<div class="second-container">
+  <div class="get-more">
+    <h2>Get more</h2>
+    <p class="main">
+      A Professional QR Code Generation platform to create, edit and customize
+      all your QR codes in one place.
+    </p>
+  </div>
+  <div class="image-container">
+    <div class="imageSection dynamic">
+      <img src="{% static 'home/images/learn/Dynamic.png' %}" alt="dynamic" class="dynamo" />
+      <h3>Dynamic QR Codes</h3>
+      <p>Generate QR codes for any content type.</p>
     </div>
-  {% comment %} </header> {% endcomment %}
 
-  <!-- Get-More Section -->
-  <div class="second-container">
-    <div class="get-more">
-      <h2>Get more</h2>
-      <p class="main">
-        A Professional QR Code Generation platform to create, edit and customize
-        all your QR codes in one place.
-      </p>
+    <div class="imageSection multiformat">
+      <img src="{% static 'home/images/learn/Multiformat.png' %}" alt="multiformat" class="format" />
+      <h3>Multi-format download</h3>
+      <p>Download your QR code in different formats.</p>
     </div>
-    <div class="image-container">
-      <div class="imageSection dynamic">
-        <img src="{% static 'home/images/learn/Dynamic.png' %}" alt="dynamic" class="dynamo" />
-        <h3>Dynamic QR Codes</h3>
-        <p>Generate QR codes for any content type.</p>
-      </div>
 
-      <div class="imageSection multiformat">
-        <img src="{% static 'home/images/learn/Multiformat.png' %}" alt="multiformat" class="format" />
-        <h3>Multi-format download</h3>
-        <p>Download your QR code in different formats.</p>
-      </div>
-
-      <div class="imageSection history">
-        <img src="{% static 'home/images/learn/history.png' %}" alt="history" class="story" />
-        <h3>QR code History</h3>
-        <p>Keep track of all QR codes generated.</p>
-      </div>
+    <div class="imageSection history">
+      <img src="{% static 'home/images/learn/history.png' %}" alt="history" class="story" />
+      <h3>QR code History</h3>
+      <p>Keep track of all QR codes generated.</p>
     </div>
   </div>
+</div>
 
-  <!-- Get-Started Section -->
-  <section class="third-container" id="forLearnmore">
-    <div class="get-started">
-      <h2 class>Get Started</h2>
+<!-- Get-Started Section -->
+<section class="third-container" id="forLearnmore">
+  <div class="get-started">
+    <h2 class>Get Started</h2>
+    <p>
+      Unlike other QR Generators, QrGen59 is built for reliabilty, security
+      and rapid response.
+    </p>
+  </div>
+  <div class="contain select">
+    <div class="content">
+      <h2>Select type</h2>
       <p>
-        Unlike other QR Generators, QrGen59 is built for reliabilty, security
-        and rapid response.
+        Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will
+        see all available options. Enter all fields that should appear when scanning your QR code. Make sure
+        everything you enter is correct because you can’t change the content once your QR code is printed.
       </p>
     </div>
-    <div class="contain select">
-      <div class="content">
-        <h2>Select type</h2>
-        <p>
-          Select a content type at the top for your QR code (URL, Text, Email...). After selecting your type you will
-          see all available options. Enter all fields that should appear when scanning your QR code. Make sure
-          everything you enter is correct because you can’t change the content once your QR code is printed.
-        </p>
-      </div>
-      <img src="{% static 'home/images/learn/getstarted.png' %}" class="learn" alt="get-started" />
-    </div>
+    <img src="{% static 'home/images/learn/getstarted.png' %}" class="learn" alt="get-started" />
+  </div>
 
-    <div class="contain customize">
-      <img src="{% static 'home/images/learn/customise2.png' %}" class="customize" alt="customise2" />
-      <div class="content left">
-        <h2>Choose QR Code Type</h2>
-        <p>
-          Choose between dynamic and static QR code type: dynamic or satic. Dynamic QR codes store digital information
-          which can be edited even after the QR code has been generated. Static QR code type store digital information
-          which cannot be edited once the QR code has been generated.
-        </p>
-      </div>
+  <div class="contain customize">
+    <img src="{% static 'home/images/learn/customise2.png' %}" class="customize" alt="customise2" />
+    <div class="content left">
+      <h2>Choose QR Code Type</h2>
+      <p>
+        Choose between dynamic and static QR code type: dynamic or satic. Dynamic QR codes store digital information
+        which can be edited even after the QR code has been generated. Static QR code type store digital information
+        which cannot be edited once the QR code has been generated.
+      </p>
     </div>
-    <div class="contain generating">
-      <div class="content">
-        <h2>Generate QR Code</h2>
-        <p>
-          Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr
-          code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code
-          scanner. Use a high resolution setting if you want to get a png code with print quality.
-        </p>
-      </div>
-      <img src="{% static 'home/images/learn/generate.png' %}" class="generate" alt="generate" />
+  </div>
+  <div class="contain generating">
+    <div class="content">
+      <h2>Generate QR Code</h2>
+      <p>
+        Set the pixel resolution of your QR code with the slider. Click the "Create QR Code"-button to see your qr
+        code preview. Please make sure your QR code is working correctly by scanning the preview with your QR Code
+        scanner. Use a high resolution setting if you want to get a png code with print quality.
+      </p>
     </div>
-    <div class="contain download">
-      <img src="{% static 'home/images/learn/download.png' %}" class="download" alt="download" class />
-      <div class="content left">
-        <h2>Download the QR Code</h2>
-        <p>
-          Now you can download the image files for your QR code as .png or .svg, .pdf, .eps vector graphic. If you want
-          a vector format with the complete design please choose .svg. SVG is working in software like Adobe Illustrator
-          or Inkscape. The logo and design settings currently only work for .png and .svg files.
-        </p>
-      </div>
+    <img src="{% static 'home/images/learn/generate.png' %}" class="learn" alt="generate" />
+  </div>
+  <div class="contain download">
+    <img src="{% static 'home/images/learn/download.png' %}" class="download" alt="download" class />
+    <div class="content left">
+      <h2>Download the QR Code</h2>
+      <p>
+        Now you can download the image files for your QR code as .png or .svg, .pdf, .eps vector graphic. If you want
+        a vector format with the complete design please choose .svg. SVG is working in software like Adobe Illustrator
+        or Inkscape. The logo and design settings currently only work for .png and .svg files.
+      </p>
     </div>
-    <a href="{% url 'accounts:register-page' %}" class="btn5 dark">Get Started Now</a>
-  </section>
-  {% endblock content %}
+  </div>
+  <a href="{% url 'accounts:register-page' %}" class="btn5 dark">Get Started Now</a>
+</section>
+{% endblock content %}
 
-  <!-- {% block scripts %}
+<!-- {% block scripts %}
   <script src="{% static 'home/js/learn_script.js' %}"></script>
   {% endblock scripts %} -->

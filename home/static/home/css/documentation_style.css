@@ -7,12 +7,11 @@
 a {
 	text-decoration: none;
 }
-.navbar{
+.navbar {
 	display: block;
 }
 /* Documentation and endpoint styling */
-.documentation,
-.endpoint {
+.documentation {
 	padding: 0 72px;
 	margin-top: 24px;
 }
@@ -23,21 +22,6 @@ a {
 .documentation p {
 	font: 300 22px "Lato", sans-serif;
 	color: #5a5a5c;
-}
-
-.endpoint h2 {
-	font: 700 40px "Lato", sans-serif;
-	color: #07070a;
-}
-.endpoint ul li {
-	font: 300 22px "Lato", sans-serif;
-	color: #5a5a5c;
-}
-.endpoint p {
-	font: 400 22px "Lato", sans-serif;
-	color: #5a5a5c;
-	font-style: italic;
-	margin-top: 34px;
 }
 
 /* main styling */
@@ -98,10 +82,23 @@ td {
 	.documentation p {
 		width: 95%;
 	}
-	.documentation,
-	.endpoint {
+	.documentation h1 {
+		font: 500 30px "Lato", sans-serif;
+	}
+	.documentation {
 		padding: 0 20px;
 		margin-top: 24px;
+	}
+	main .heading,
+	.heading {
+		font: 600 25px "Lato", sans-serif;
+	}
+	main .description {
+		font: 200 14px "Lato", sans-serif;
+	}
+	.head-req {
+		font: 200 18px "Lato", sans-serif;
+		margin-top: 20px;
 	}
 }
 @media (max-width: 650px) {
@@ -113,13 +110,13 @@ td {
 	td {
 		border: 1px solid #07070a;
 		padding: 8px 10px;
-		font-size: 18px;
+		font-size: 14px;
 		width: 100%;
 	}
 	th {
 		border: 1px solid black;
 		padding: 8px 10px;
-		font-size: 26px;
+		font-size: 18px;
 	}
 	.table-mob {
 		display: block;

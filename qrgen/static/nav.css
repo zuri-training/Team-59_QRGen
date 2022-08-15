@@ -80,9 +80,9 @@ ul .nav-links {
 a.active {
 	color: var(--nav-orange);
 }
-/* .navbar .nav-links li a.active {
+.navbar .nav-links li a.active {
 	color: var(--nav-orange);
-} */
+}
 .nav-buttons {
 	display: flex;
 	flex-direction: row;
@@ -176,9 +176,9 @@ ul .footer-nav1 {
 .footer-nav1 li a:hover {
 	color: var(--nav-orange);
 }
-/* .footer-nav1 li a.active {
+.footer-nav1 li a.active {
 	color: var(--nav-orange);
-} */
+}
 .line {
 	content: "";
 	font-size: 24px;
