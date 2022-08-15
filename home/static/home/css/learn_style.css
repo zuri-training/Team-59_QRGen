@@ -491,7 +491,7 @@ a.btn5.dark {
 		justify-content: center;
 	}
 }
-@media (max-width: 426px) {
+@media (max-width: 526px) {
 	.image-container {
 		padding-top: 10%;
 	}
@@ -567,6 +567,9 @@ a.btn5.dark {
 	a.btn5.dark {
 		margin: 1rem;
 		font-size: 17px;
+	}
+	.hero-right .image {
+		margin-top: -2rem;
 	}
 }
 @media (max-width: 376px) {

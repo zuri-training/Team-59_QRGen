@@ -92,7 +92,7 @@ button {
 	display: flex;
 	flex-direction: row;
 	/* new */
-	width: 85%;
+	width: 90%;
 	/*  */
 	justify-content: space-between;
 	align-items: center;
@@ -653,7 +653,7 @@ button {
 		flex-direction: row;
 		padding-top: 2rem;
 		padding-bottom: 3rem;
-		padding-right: 5.2rem;
+		/* padding-right: 5.2rem; */
 	}
 	.main_content_header .create_qr_navigator_btn {
 		width: 80%;
@@ -683,7 +683,7 @@ button {
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
-		padding-right: 5.2rem;
+		/* padding-right: 5.2rem; */
 		/* padding-top: 5rem; */
 		padding-left: 0;
 		/* padding-bottom: 5rem; */
