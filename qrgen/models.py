@@ -41,7 +41,7 @@ class QrCode(models.Model):
     action_url = models.URLField(max_length=255, blank=True, null=True)
     action_type = models.CharField(max_length=3, choices=ACTION_TYPE)
     scan_count = models.IntegerField(default=None, null=True, blank=True)
-    date_gen = models.DateTimeField(auto_now=True)
+    date_gen = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     file = models.ForeignKey(
         File, on_delete=models.CASCADE, null=True, blank=True)
