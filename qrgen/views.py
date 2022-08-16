@@ -134,9 +134,11 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             qr_img.save(img_path)
 
             # add the qr_img to the QrCode object
-            this_qrcode.img = img_path
+            image = open(img_path, 'r+b')
+            this_qrcode.img.save(f'qrcode-{this_qrcode.id}.png', image, save=True)
+            image.close()
 
-            this_qrcode.save()
+            # this_qrcode.save()
 
             # Converting the png QR code to JPG
             img_png = Image.open(img_path)

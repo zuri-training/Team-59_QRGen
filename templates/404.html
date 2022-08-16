@@ -1,0 +1,33 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '404.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home:home-page' %}">
+                <h1>QrGen<span>59</span></h1>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="errormsg">
+            <h1>4<span>0</span>4</h1>
+        </div>
+        <div class="explain">
+            <p>The page you requested could not be found</p>
+        </div>
+        <div class="backbtn">
+            <a href="{% url 'home:home-page' %}">
+                <button>Back Home</button>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
