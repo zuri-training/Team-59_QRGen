@@ -370,15 +370,13 @@
                         form.generate.value = 'QRCode Generated, please proceed!';
                         form.generate.setAttribute("disabled", "");
 
-                        // get the created qrcode
+                        // get the image of the created qrcode
                         var qrcode = JSON.parse(response["qrcode"]);
                         var qrcode_img = qrcode[0]["fields"]["img"];
-                        console.log(qrcode);
-                        console.log(qrcode_img);
 
                         // update the qrcode image
                         document.getElementById('generated_qrcode').removeAttribute("hidden");
-                        document.getElementById('generated_qrcode').setAttribute("src", "{{ MEDIA_URL }}" + qrcode_img);
+                        document.getElementById('generated_qrcode').setAttribute("src", "https://res.cloudinary.com/dpeters/image/upload/v1/" + qrcode_img);
 
                         // disable the back button
                         //document.getElementsByClassName('back').setAttribute("disabled", "")

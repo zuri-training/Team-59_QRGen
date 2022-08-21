@@ -24,7 +24,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('dashboard/', include('qrgen.urls')),
     path('qrcode/', include('handlescan.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 handler404 = "home.views.not_found"
