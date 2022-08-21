@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
+
 # Create your models here.
 
 ACTION_TYPE = (
@@ -18,7 +20,7 @@ ACTION_TYPE = (
 class File(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    file = models.FileField(upload_to='user_files/')
+    file = models.FileField(upload_to='user_files/', storage=RawMediaCloudinaryStorage())
 
     def __str__(self):
         return self.name
@@ -36,12 +38,12 @@ class QrCode(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.ForeignKey(QrType, on_delete=models.CASCADE)
     is_dynamic = models.BooleanField(default=True, blank=True)
-    img = models.ImageField(upload_to='media/qrcodes')
+    img = models.ImageField(upload_to='qrcodes/')
     input_url = models.URLField(max_length=255, blank=True, null=True)
     action_url = models.URLField(max_length=255, blank=True, null=True)
     action_type = models.CharField(max_length=3, choices=ACTION_TYPE)
     scan_count = models.IntegerField(default=None, null=True, blank=True)
-    date_gen = models.DateTimeField(auto_now=True)
+    date_gen = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     file = models.ForeignKey(
         File, on_delete=models.CASCADE, null=True, blank=True)

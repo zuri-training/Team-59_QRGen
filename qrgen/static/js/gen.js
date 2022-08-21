@@ -133,8 +133,15 @@ urlOption.addEventListener('click', function(){
     document.querySelector('.url_content').classList.add('show');
 })
 textOption.addEventListener('click', function(){
-    reset();
-    document.querySelector('.text_content').classList.add('show');
+    if (document.querySelector(".dynamic").classList.contains("active")) {
+        alert("Option not Available yet");
+      }
+    else {
+        // alert("Option is Available yet");
+        reset();
+
+        document.querySelector('.text_content').classList.add('show');
+    }
 
 });
 pdfOption.addEventListener('click', function(option){
@@ -283,6 +290,7 @@ shareBtn.addEventListener('click', async function(e){
 // Disabling onClick of QRgenerate button
 document.querySelectorAll('.generate_button').forEach(function(btn){
     btn.addEventListener('click', function(){
-        btn.removeAttribute("onclick")
+        btn.removeAttribute("onclick");
+        btn.value = "Processing...";
     });
 });

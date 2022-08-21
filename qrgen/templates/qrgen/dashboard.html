@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QrGen59 | Dashboard</title>
   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
   <script defer src="{% static 'js/dashbrd.js' %} "></script>
 </head>
 
@@ -116,7 +117,7 @@
                 </span>
               </h5>
             </div>
-            <img src="{{qrcode.img.url|slice:'12:'}}" alt="" class="code" />
+            <img src="{{qrcode.img.url}}" alt="" class="code" />
             <form class="title_form" action="{% url 'qrgen:edit_qrcode' qrcode.id %}" method="POST">
               {% csrf_token %}
               <h5>Enter new title</h5>
