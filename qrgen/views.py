@@ -122,8 +122,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
                     this_qrcode.action_url = form_data['url']
 
                 else:
-                    this_qrcode.action_url = request.build_absolute_uri(
-                    f'/qrcode/download/{this_qrcode.file.id}')
+                    this_qrcode.action_url = this_qrcode.file.file.url
 
             this_qrcode.save()
 

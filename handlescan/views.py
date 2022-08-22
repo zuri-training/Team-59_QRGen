@@ -56,7 +56,7 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
 
             # get file_id from code
             file = File.objects.get(id=qrcode.file_id)
-            return HttpResponseRedirect('handlescan:download', args=(qrcode.file_id,))
+            return HttpResponseRedirect(file.file.url)
 
 def download(request, file_id):
     # try:
