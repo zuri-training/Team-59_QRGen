@@ -4,6 +4,14 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 from qrgen.models import QrCode, File
 
+import urllib.request, urllib.parse, urllib.error
+
+# for manipulating folders
+from QRGenProject.settings import BASE_DIR
+import os
+
+
+
 # Create your views here.
 
 def dynamic_code_scan(request, code_id, *args, **kwargs):
@@ -53,12 +61,34 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
 def download(request, file_id):
     try:
         file = File.objects.get(id=file_id)
-        # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        file_path = file.file.url
+
+        # check for the qrcode locally
+        file_path = f'temp/files/{file.id}/{file.name}'
+
+        if not os.path.exists(file_path):
+            # getting the image from the cloud and save in a temp folder
+            f = urllib.request.urlopen(file.file.url).read()
+            temp = BASE_DIR / 'temp'
+            file_folder = f'{temp}/files'
+            
+            if not os.path.exists(temp):
+                os.makedirs(temp)
+
+            if not os.path.exists(file_folder):
+                os.makedirs(file_folder)
+
+        fhand = open(file_path, 'wb')
+        fhand.write(f)
+        fhand.close()
+
+        # downloading it to the user's device
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/adminupload")
-            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            response = HttpResponse(
+                fh.read(), content_type="application/adminupload")
+            response['Content-Disposition'] = 'inline;filename=' + \
+                os.path.basename(file_path)
             return response
+
     except:
         # return HttpResponse('File does not exit!!!')
         raise Http404
