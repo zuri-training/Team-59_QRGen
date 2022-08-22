@@ -11,10 +11,12 @@ body{
     font-size: 14px;
     font-family: 'Lato' sans-serif;
 	color: #557f9d;
+    padding-top: 5rem;
 
 }
 a{
     text-decoration: none;
+    color: #003459;
 }
 header{
     text-align: center;
