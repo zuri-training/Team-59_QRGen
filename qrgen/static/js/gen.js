@@ -258,19 +258,19 @@ shareBtn.addEventListener('click', async function(e){
     // console.log(image);
     // // ***Here is the code for converting "image source" (url) to "Base64".***
     let url = image.src
-    const getUrlExtension = (url) => {
-      return url
-        .split(/[#?]/)[0]
-        .split(".")
-        .pop()
-        .trim();
-    }
+    // const getUrlExtension = (url) => {
+    //   return url
+    //     .split(/[#?]/)[0]
+    //     .split(".")
+    //     .pop()
+    //     .trim();
+    // }
     
     const onImageEdit = async (imgUrl) => {
-      const imgExt = getUrlExtension(imgUrl);
+    //   const imgExt = getUrlExtension(imgUrl);
       const response = await fetch(imgUrl);
       const blob = await response.blob();
-      const fileArray = new File([blob], "search-icon." + imgExt, {
+      const fileArray = new File([blob], "code." + "png", {
         type: blob.type,
       });
     

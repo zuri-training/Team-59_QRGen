@@ -24,6 +24,7 @@ $(document).ready(function () {
     $('.menu-btn').click(function () {
         $('.navbar .nav-links').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
+        $('body').toggleClass("stop-scroll")
     });
      // FAQ Section
    const faqs = document.querySelectorAll(".faq")
