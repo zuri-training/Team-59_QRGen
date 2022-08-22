@@ -90,6 +90,10 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             else:
                 # it is either a pdf or image upload
                 # create a File object
+                # file = request.FILES.get('upload_file')
+
+                # fss = FileSystemStorage()
+                # file_name = fss.save(file.name)
                 File.objects.create(
                     user=request.user,
                     name=request.FILES['upload_file'].name,
@@ -113,7 +117,13 @@ class GenerationDashboardView(LoginRequiredMixin, View):
                 this_qrcode.is_dynamic = False
 
                 # qrcode is static type
-                this_qrcode.action_url = form_data['url']
+
+                if this_qrcode.action_type not in uploads:
+                    this_qrcode.action_url = form_data['url']
+
+                else:
+                    this_qrcode.action_url = request.build_absolute_uri(
+                    f'/qrcode/download/{this_qrcode.file.id}')
 
             this_qrcode.save()
 
@@ -142,11 +152,12 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             image = open(img_path, 'r+b')
             this_qrcode.img.save(f'qrcode-{this_qrcode.id}.png', image, save=True)
             image.close()
-
+            # print(this_qrcode)
             # serialize the new qrcode object
-            ser_qrcode = serializers.serialize('json', [this_qrcode, ])
+            # ser_qrcode = serializers.serialize('json', [this_qrcode, ])
             # send to client site
-            return JsonResponse({"qrcode": ser_qrcode}, status=200)
+
+            return JsonResponse({"qrcode_img": this_qrcode.img.url}, status=200)
         else:
             return JsonResponse({"error": ""}, status=400)
 

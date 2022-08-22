@@ -53,8 +53,8 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
 def download(request, pk):
     try:
         file = File.objects.get(id=pk)
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        file_path = BASE_DIR + file.file.url
+        # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        file_path = file.file.url
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/adminupload")
             response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
