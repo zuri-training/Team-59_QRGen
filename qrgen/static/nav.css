@@ -21,6 +21,9 @@ body {
 	font-size: 24px;
 	width: 100%;
 }
+body.stop-scroll{
+	overflow: hidden;
+}
 nav {
 	width: 100%;
 }
@@ -251,6 +254,8 @@ ul .footer-nav1 {
 		content: "\f00d";
 		color: var(--button-color);
 	}
+	/* .menu-btn i.active:after{
+	} */
 	.logo {
 		color: var(--button-color);
 	}
@@ -270,6 +275,7 @@ ul .footer-nav1 {
 	}
 	.navbar .nav-links.active {
 		left: 0;
+		overflow: hidden;
 	}
 	.nav-buttons {
 		display: none;
@@ -377,7 +383,7 @@ ul .footer-nav1 {
 		gap: 24px;
 	}
 	.footer-nav1 li a {
-		font-size: 14px;
+		font-size: 13px;
 	}
 }
 @media (max-width: 320px) {
