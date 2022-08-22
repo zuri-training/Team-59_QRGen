@@ -77,9 +77,9 @@ def download(request, file_id):
         if not os.path.exists(file_folder):
             os.makedirs(file_folder)
 
-    fhand = open(file_path, 'wb')
-    fhand.write(f)
-    fhand.close()
+        fhand = open(file_path, 'wb')
+        fhand.write(f)
+        fhand.close()
 
     # downloading it to the user's device
     with open(file_path, 'rb') as fh:
