@@ -85,15 +85,11 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             if this_qrcode.action_type not in uploads:
                 # it is a url not a file uploaded
                 this_qrcode.input_url = form_data['url']
-                this_qrcode.save()
+                this_qrcode.action_url = form_data['url']
 
             else:
                 # it is either a pdf or image upload
                 # create a File object
-                # file = request.FILES.get('upload_file')
-
-                # fss = FileSystemStorage()
-                # file_name = fss.save(file.name)
                 File.objects.create(
                     user=request.user,
                     name=request.FILES['upload_file'].name,
@@ -105,25 +101,24 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
                 # add the created file to the QrCode object
                 this_qrcode.file = created_file
-                this_qrcode.save()
+
+                # update the action url to download the file
+                this_qrcode.action_url =  request.build_absolute_uri(
+                    f'/qrcode/download/{created_file.id}')
 
             if this_qrcode.type.name == 'dynamic':
                 # - this is the url that the qrcode should point to either ways
                 # --- (be it upload or url, so long as it is dynamic)
+                # ---- if it is an upload... it will be redirected to the download function
+                # ---- else it will be redirected to the input url
                 this_qrcode.action_url = request.build_absolute_uri(
                     f'/qrcode/dynamic/{this_qrcode.id}')
 
             else:
+                # qrcode is static type
                 this_qrcode.is_dynamic = False
 
-                # qrcode is static type
-
-                if this_qrcode.action_type not in uploads:
-                    this_qrcode.action_url = form_data['url']
-
-                else:
-                    this_qrcode.action_url = this_qrcode.file.file.url
-
+            # save all these modifications to the qrcode object
             this_qrcode.save()
 
             # having saved the QrCode object, (and a File object (if it was and uploaded file)),
