@@ -1,8 +1,15 @@
+from curses.ascii import HT
 from django.shortcuts import redirect, render
 import os
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 from qrgen.models import QrCode, File
+
+# for file download
+import urllib.request
+from urllib.parse import urlparse
+
+
 
 # Create your views here.
 
@@ -46,19 +53,17 @@ def dynamic_code_scan(request, code_id, *args, **kwargs):
         else:
             # if it was an uploaded file (if qrcode.type in uploads)
 
-            # get file_id from code
-            file = File.objects.get(id=qrcode.file_id)
-            return HttpResponseRedirect('handlescan:download', args=(qrcode.file_id,))
+            return HttpResponseRedirect('download', args(qrcode.file_id, ))
 
-def download(request, pk):
-    try:
-        file = File.objects.get(id=pk)
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        file_path = BASE_DIR + file.file.url
-        with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/adminupload")
-            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
-            return response
-    except:
-        # return HttpResponse('File does not exit!!!')
-        raise Http404
+
+def download(request, file_id):
+    file = File.objects.get(id=file_id)
+
+    if file is not None:
+        parse_url = urlparse(file.file.url)
+        path = urllib.request.urlopen(file.file.url)
+        response = HttpResponse(path.read(), content_type="application/adminupload")
+        response['Content-Disposition'] = 'inline;filename=' + os.path.basename(parse_url.path)
+        return response
+    else:
+        return Http404

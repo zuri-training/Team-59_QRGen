@@ -85,7 +85,7 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             if this_qrcode.action_type not in uploads:
                 # it is a url not a file uploaded
                 this_qrcode.input_url = form_data['url']
-                this_qrcode.save()
+                this_qrcode.action_url = form_data['url']
 
             else:
                 # it is either a pdf or image upload
@@ -101,20 +101,24 @@ class GenerationDashboardView(LoginRequiredMixin, View):
 
                 # add the created file to the QrCode object
                 this_qrcode.file = created_file
-                this_qrcode.save()
+
+                # update the action url to download the file
+                this_qrcode.action_url =  request.build_absolute_uri(
+                    f'/qrcode/download/{created_file.id}')
 
             if this_qrcode.type.name == 'dynamic':
                 # - this is the url that the qrcode should point to either ways
                 # --- (be it upload or url, so long as it is dynamic)
+                # ---- if it is an upload... it will be redirected to the download function
+                # ---- else it will be redirected to the input url
                 this_qrcode.action_url = request.build_absolute_uri(
                     f'/qrcode/dynamic/{this_qrcode.id}')
 
             else:
+                # qrcode is static type
                 this_qrcode.is_dynamic = False
 
-                # qrcode is static type
-                this_qrcode.action_url = form_data['url']
-
+            # save all these modifications to the qrcode object
             this_qrcode.save()
 
             # having saved the QrCode object, (and a File object (if it was and uploaded file)),
@@ -142,11 +146,12 @@ class GenerationDashboardView(LoginRequiredMixin, View):
             image = open(img_path, 'r+b')
             this_qrcode.img.save(f'qrcode-{this_qrcode.id}.png', image, save=True)
             image.close()
-
+            # print(this_qrcode)
             # serialize the new qrcode object
-            ser_qrcode = serializers.serialize('json', [this_qrcode, ])
+            # ser_qrcode = serializers.serialize('json', [this_qrcode, ])
             # send to client site
-            return JsonResponse({"qrcode": ser_qrcode}, status=200)
+
+            return JsonResponse({"qrcode_img": this_qrcode.img.url}, status=200)
         else:
             return JsonResponse({"error": ""}, status=400)
 

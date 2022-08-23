@@ -137,7 +137,6 @@ textOption.addEventListener('click', function(){
         alert("Option not Available yet");
       }
     else {
-        // alert("Option is Available yet");
         reset();
 
         document.querySelector('.text_content').classList.add('show');
@@ -145,14 +144,8 @@ textOption.addEventListener('click', function(){
 
 });
 pdfOption.addEventListener('click', function(option){
-    // Option not yet available
-    
-    // reset();
-    // document.querySelector('.pdf_content').classList.add('show');
-
-    alert("Option not Available yet");
-
-
+    reset();
+    document.querySelector('.pdf_content').classList.add('show');
 });
 eventOption.addEventListener('click', function(option){
     reset();
@@ -160,10 +153,8 @@ eventOption.addEventListener('click', function(option){
 
 });
 businessOption.addEventListener('click', function(option){
-    // reset();
-    // document.querySelector('.business_content').classList.add('show');
-
-    alert("Option not Available yet");
+    reset();
+    document.querySelector('.business_content').classList.add('show');
 
 });
 whatsAppOption.addEventListener('click', function(option){
@@ -172,10 +163,8 @@ whatsAppOption.addEventListener('click', function(option){
 
 });
 imagesOption.addEventListener('click', function(option){
-    // reset();
-    // document.querySelector('.image_content').classList.add('show');
-
-    alert("Option not Available yet");
+    reset();
+    document.querySelector('.image_content').classList.add('show');
 
 });
 emailOption.addEventListener('click', function(option){

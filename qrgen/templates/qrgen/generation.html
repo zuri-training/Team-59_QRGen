@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/generation.css' %}">
     <script defer src="{% static 'js/gen.js' %}"></script>
     <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
     <title>QrGen59 | Generate</title>
 </head>
@@ -80,7 +78,7 @@
                     </div>
                     <div class="dasboard_subheader">
                         <h5 class="static active">Static</h5>
-                        <h5 class="dynamic ">Dynamic</h5>
+                        <h5 class="dynamic">Dynamic</h5>
                     </div>
                     <div class="options">
                         <div class="single_option url_option">
@@ -158,7 +156,7 @@
                         <form method='POST' action="{% url 'qrgen:generate' %}">
                             {% csrf_token %}
                             <input type="url" name="url" id="website" placeholder="https://" value="https://" required>
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="web" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -171,7 +169,7 @@
                         <form method='POST' action="{% url 'qrgen:generate' %}">
                             {% csrf_token %}
                             <input type="text" name="url" id="business">
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="biz" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -184,7 +182,7 @@
                         <form method='POST' action="{% url 'qrgen:generate' %}">
                             <input type="text" name="url" id="text"
                                 placeholder="Enter some text......(not more than 300 characters)" required>
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="tex" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -197,7 +195,7 @@
                         <form method='POST' action="{% url 'qrgen:generate' %}">
                             <input type="url" name="url" id="number"
                                 placeholder="Enter your WhatsApp link in this format https://wa.me/" required>
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="wap" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -209,7 +207,7 @@
                         <p class="big_para">Submit email for your QR code</p>
                         <form method='POST' action="{% url 'qrgen:generate' %}">
                             <input type="email" name="url" id="email" required>
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="eml" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -221,7 +219,7 @@
                         <p class="big_para">Select any PDF from your files</p>
                         <form action="{% url 'qrgen:generate' %}" method='POST' enctype="multipart/form-data">
                             {% csrf_token %}
-                            <input type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="pdf" hidden>
                             <input type="file" name="upload_file" id="pdffile" hidden>
                             <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
@@ -236,7 +234,7 @@
                         <p class="big_para">Upload images here</p>
                         <form action="{% url 'qrgen:generate' %}" method='POST' enctype="multipart/form-data">
                             {% csrf_token %}
-                            <input type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="img" hidden>
                             <input type="file" name="upload_file" id="imgfile" hidden>
                             <input type="text" disabled placeholder="PNG or JPEG format.">
@@ -252,7 +250,7 @@
                         <form action="{% url 'qrgen:generate' %}" method='POST' enctype="multipart/form-data">
                             {% csrf_token %}
                             <input type="url" name="url" id="event" placeholder="Link to an event" required>
-                            <input class="input" type="text" name="qrcode_type" value="dynamic" hidden>
+                            <input class="input" type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="wap" hidden>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'url')">
@@ -312,8 +310,10 @@
         </div>
     </main>
 
-    {% comment %} Ajax Script {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    {% comment %} Ajax Script {% endcomment %}
+    
     <script type="text/javascript">
 
         // CSRF token setup for Ajax request
@@ -329,57 +329,41 @@
             form.addEventListener('submit', function (e) {
                 e.preventDefault()
 
+                var data = new FormData();
+                // console.log(data);
+
+                data.append('action_type', form.action_type.value);
+                data.append('qrcode_type', form.qrcode_type.value);
+                data.append('generate', form.generate.value);
+
                 if (type == "upload") {
-                    // console.log(form.upload_file.files[0]);
-
-                    // var upload_file = form.upload_file.files[0];
-
-                    // Yet to find an effective way to send the uploaded file to the backend using Ajax
-
-
-
+                    data.append('upload_file', form.upload_file.files[0]);
                 }
                 if (type == "url") {
-                    var url = form.url.value
+                    data.append('url', form.url.value);
                 }
 
-
-                var action_type = form.action_type.value;
-                var qrcode_type = form.qrcode_type.value;
-
                 // making the ajax call
-
                 $.ajax({
                     type: "POST",
-                    // processData: false,          // this causes a Bad Request
+                    processData: false,
+                    contentType: false,
                     url: "{% url 'qrgen:generate' %}",
-                    data: {
-                        url: url ? url : null,
-                        // upload_file: form.upload_file.files[0] ? form.upload_file.files[0] : null,
-                        action_type: action_type,
-                        qrcode_type: qrcode_type,
-                        generate: form.generate.value
-                    },
-
-                    // data: form_data,
+                    mimeType: "multipart/form-data",
+                    data: data,
 
                     success: function (response) {
-                        console.log('Success');
 
                         // change the submit button value and disable it
                         form.generate.value = 'QRCode Generated, please proceed!';
                         form.generate.setAttribute("disabled", "");
 
                         // get the image of the created qrcode
-                        var qrcode = JSON.parse(response["qrcode"]);
-                        var qrcode_img = qrcode[0]["fields"]["img"];
+                        var result = JSON.parse(response);
 
                         // update the qrcode image
                         document.getElementById('generated_qrcode').removeAttribute("hidden");
-                        document.getElementById('generated_qrcode').setAttribute("src", "https://res.cloudinary.com/dpeters/image/upload/v1/" + qrcode_img);
-
-                        // disable the back button
-                        //document.getElementsByClassName('back').setAttribute("disabled", "")
+                        document.getElementById('generated_qrcode').setAttribute("src", result['qrcode_img']);
                     }
                 })
 
