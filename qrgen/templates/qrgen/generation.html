@@ -222,7 +222,7 @@
                             <input type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="pdf" hidden>
                             <input type="file" name="upload_file" id="pdffile" hidden>
-                            <input type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
+                            <input class="placeholder" type="text" disabled placeholder="Upload a PDF (not more than 20MB)">
                             <a id="pdfbtn">Upload</a>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'upload')">
@@ -237,7 +237,7 @@
                             <input type="text" name="qrcode_type" value="static" hidden>
                             <input type="text" name="action_type" value="img" hidden>
                             <input type="file" name="upload_file" id="imgfile" hidden>
-                            <input type="text" disabled placeholder="PNG or JPEG format.">
+                            <input class="placeholder" type="text" disabled placeholder="PNG or JPEG format.">
                             <button id="imgbtn">Upload</button>
                             <input class="generate_button" type="submit" value="Generate Qr code" name="generate"
                                 onclick="submit_form(this.form, 'upload')">
@@ -338,6 +338,7 @@
 
                 if (type == "upload") {
                     data.append('upload_file', form.upload_file.files[0]);
+                    
                 }
                 if (type == "url") {
                     data.append('url', form.url.value);
@@ -357,6 +358,7 @@
                         // change the submit button value and disable it
                         form.generate.value = 'QRCode Generated, please proceed!';
                         form.generate.setAttribute("disabled", "");
+
 
                         // get the image of the created qrcode
                         var result = JSON.parse(response);

@@ -177,10 +177,19 @@ emailOption.addEventListener('click', function(option){
 document.getElementById('pdfbtn').addEventListener('click', function(e){
     e.preventDefault()
     document.getElementById('pdffile').click()
+    document.getElementById('pdffile').addEventListener('change', function(){
+        // console.log(e.target.closest('form').querySelector('.placeholder'));
+        e.target.innerHTML = 'File Uploaded'
+        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'PDF file sucessfully uploaded')
+    })
 })
 document.getElementById('imgbtn').addEventListener('click', function(e){
     e.preventDefault()
     document.getElementById('imgfile').click()
+    document.getElementById('imgfile').addEventListener('change', function(){
+        e.target.innerHTML = 'File Uploaded'
+        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'Image sucessfully uploaded')
+    })
 })
 
 // DOWNLOAD
