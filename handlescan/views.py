@@ -1,4 +1,3 @@
-from curses.ascii import HT
 from django.shortcuts import redirect, render
 import os
 from django.http import HttpResponse, Http404, HttpResponseRedirect

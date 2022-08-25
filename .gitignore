@@ -131,3 +131,5 @@ dmypy.json
 # for this project
 temp/
 qrcodes/
+media/
+migrations/

@@ -171,6 +171,7 @@ class MainDashboardView(LoginRequiredMixin, View):
             'active_codes': active_codes,
             'active_count': active_codes.count(),
             'download_options': download_options,
+            'upload_types': ['pdf', 'img', 'biz'],
         }
         return render(request, 'qrgen/dashboard.html', context)
 
@@ -187,11 +188,25 @@ class EditQrCode(LoginRequiredMixin, View):
     def post(self, request, code_id):
         qrcode = QrCode.objects.get(id=code_id)
         if 'change_content' in request.POST:
-            new_url = request.POST['new_content']
-            qrcode.input_url = new_url
+            if 'new_content' in request.POST:
+                new_url = request.POST['new_content']
+                qrcode.input_url = new_url
+            else:
+                # 'new_file' in request.FILES:
+                old_file = qrcode.file
+                File.objects.create(
+                    user=request.user,
+                    name=request.FILES['new_file'].name,
+                    file=request.FILES['new_file'],
+                )
+                created_file = File.objects.all().last()
+                qrcode.file = created_file
+                old_file.delete()
+
         elif 'change_title' in request.POST:
             new_title = request.POST['new_title']
             qrcode.title = new_title
+        
         qrcode.save()
 
         return HttpResponseRedirect(reverse('qrgen:dashboard'))
