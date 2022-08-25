@@ -129,11 +129,15 @@
             </form>
           </section>
           <div class="des_share_del">
-            <form class="edit_form" action="{% url 'qrgen:edit_qrcode' qrcode.id %}" method="POST">
+            <form class="edit_form" action="{% url 'qrgen:edit_qrcode' qrcode.id %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               <h5>Enter new Qrcode content</h5>
               <div>
-                <input name="new_content" type="text" required />
+                {% if qrcode.action_type in upload_types %}
+                <input type="file" name="new_file" required>
+                {% else %}
+                <input name="new_content" type="url" required>
+                {% endif %}
                 <input class="change_btn_x" type="submit" name="change_content" value="Change" />
               </div>
               <img class="content_modal_cancel" src="{% static 'img/image/icon/basic-cancel-icon.png' %}" alt="" />
@@ -152,6 +156,12 @@
                 <img src="{% static 'img/image/icon/link-icon.png' %}" alt="" />
                 <p>{{qrcode.type}}</p>
               </div>
+                {% if qrcode.action_type in upload_types %}
+                <div class="link">
+                  <img src="{% static 'img/image/icon/file-icon.png' %}" alt="" />
+                <p>{{qrcode.file}}</p>
+              </div>
+                {% endif %}
               {% if qrcode.is_dynamic %}
               <button class="content_edit_btn">Edit</button>
               {% endif %}

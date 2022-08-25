@@ -180,7 +180,7 @@ document.getElementById('pdfbtn').addEventListener('click', function(e){
     document.getElementById('pdffile').addEventListener('change', function(){
         // console.log(e.target.closest('form').querySelector('.placeholder'));
         e.target.innerHTML = 'File Uploaded'
-        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'PDF file sucessfully uploaded')
+        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'PDF file selected')
     })
 })
 document.getElementById('imgbtn').addEventListener('click', function(e){
@@ -188,7 +188,15 @@ document.getElementById('imgbtn').addEventListener('click', function(e){
     document.getElementById('imgfile').click()
     document.getElementById('imgfile').addEventListener('change', function(){
         e.target.innerHTML = 'File Uploaded'
-        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'Image sucessfully uploaded')
+        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'Image selected')
+    })
+})
+document.getElementById('bizbtn').addEventListener('click', function(e){
+    e.preventDefault()
+    document.getElementById('bizfile').click()
+    document.getElementById('bizfile').addEventListener('change', function(){
+        e.target.innerHTML = 'File Uploaded'
+        e.target.closest('form').querySelector('.placeholder').setAttribute('placeholder', 'Image selected')
     })
 })
 

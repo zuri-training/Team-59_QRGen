@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from cloudinary_storage.storage import RawMediaCloudinaryStorage
+from django.core.files.storage import default_storage
+
+from QRGenProject.settings import DEBUG
 
 # Create your models here.
 
@@ -17,10 +20,15 @@ ACTION_TYPE = (
 )
 
 
+if DEBUG:
+    storage = default_storage
+else:
+    storage = RawMediaCloudinaryStorage()
+
 class File(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    file = models.FileField(upload_to='user_files/', storage=RawMediaCloudinaryStorage())
+    file = models.FileField(upload_to='user_files/', storage=storage)
 
     def __str__(self):
         return self.name
